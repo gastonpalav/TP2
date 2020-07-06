@@ -1,4 +1,5 @@
 ﻿using Business.Logic;
+using System;
 using System.Windows.Forms;
 
 namespace UI.Desktop
@@ -14,8 +15,16 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            UsuarioLogic usuarioLogic = new UsuarioLogic();
-            this.dgvUsuarios.DataSource = usuarioLogic.GetAll();
+            try
+            {
+                UsuarioLogic usuarioLogic = new UsuarioLogic();
+                this.dgvUsuarios.DataSource = usuarioLogic.GetAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al recuperar los datos del usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
+            }
         }
 
         private void Usuarios_Load(object sender, System.EventArgs e)

@@ -1,10 +1,11 @@
 ﻿using Business.Entities;
 using Data.Database;
+using System;
 using System.Collections.Generic;
 
 namespace Business.Logic
 {
-    public class UsuarioLogic : BusinessLogic 
+    public class UsuarioLogic : BusinessLogic
     {
         private UsuarioAdapter UsuarioData;
 
@@ -20,7 +21,15 @@ namespace Business.Logic
 
         public List<Usuario> GetAll()
         {
-            return this.UsuarioData.GetAll();
+            try
+            {
+                return this.UsuarioData.GetAll();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de usuarios", ex);
+                throw ExcepcionManejada;
+            }
         }
 
         public void Save(Usuario usuario)
