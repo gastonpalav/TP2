@@ -50,7 +50,7 @@ namespace UI.Desktop
 
             switch (this.Modo)
             {
-                case Modoform.Alta:
+                case Modoform.Modificacion:
                     this.btnAceptar.Text = "Guardar";
                     break;
 

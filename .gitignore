@@ -16,3 +16,12 @@
 /Business.Entities/obj/Debug
 /Business.Entities/obj/Release
 /UI.Desktop/obj/Release
+/Business.Logic/bin/Release
+/Business.Entities/bin/Release
+/Business.Logic/obj/Release
+/Data.Database/bin/Release
+/Data.Database/obj/Release
+/UI.Consola/obj/Release
+/UI.Desktop/bin/Release
+/UI.Web/obj/Release
+/Util/obj/Release

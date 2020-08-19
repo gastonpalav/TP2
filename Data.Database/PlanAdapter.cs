@@ -104,7 +104,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand(
-                    "UPDATE planes set desc_plan = @desc, id_especialidad = @id_espec," +
+                    "UPDATE planes set desc_plan = @desc, id_especialidad = @id_espec " +
                     "WHERE id_plan=@id", SqlConn);
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = plan.ID;
@@ -121,6 +121,45 @@ namespace Data.Database
             {
                 this.CloseConnection();
             }
+        }
+
+        protected void Insert(Plan plan)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdInsert = new SqlCommand(
+                    "insert into planes(desc_plan, id_especialidad) " +
+                    "values(@desc, @id_esp) " +
+                    "select @@identity",
+                    SqlConn);
+
+                cmdInsert.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = plan.Descripcion;
+                cmdInsert.Parameters.Add("@id_esp", SqlDbType.Int).Value = plan.IDEspecialidad;
+                plan.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al insertar plan", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
+        public void Save(Plan plan)
+        {
+            if (plan.State == BusinessEntity.States.New)
+            {
+                this.Insert(plan);
+            }
+            else if (plan.State == BusinessEntity.States.Deleted)
+            {
+                this.Delete(plan.ID);
+            }
+            else if (plan.State == BusinessEntity.States.Modified)
+            {
+                this.Update(plan);
+            }
+            plan.State = BusinessEntity.States.Unmodified;
         }
 
     }
