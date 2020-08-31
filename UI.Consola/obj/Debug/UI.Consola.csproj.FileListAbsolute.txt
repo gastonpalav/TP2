@@ -34,7 +34,6 @@ C:\repositorios\NET\practico02\TP2\UI.Consola\bin\Debug\Data.Database.dll
 C:\repositorios\NET\practico02\TP2\UI.Consola\bin\Debug\Business.Entities.pdb
 C:\repositorios\NET\practico02\TP2\UI.Consola\bin\Debug\Business.Logic.pdb
 C:\repositorios\NET\practico02\TP2\UI.Consola\bin\Debug\Data.Database.pdb
-C:\repositorios\NET\practico02\TP2\UI.Consola\obj\Debug\UI.Consola.csprojAssemblyReference.cache
 C:\repositorios\NET\practico02\TP2\UI.Consola\obj\Debug\UI.Consola.csproj.CoreCompileInputs.cache
 C:\repositorios\NET\practico02\TP2\UI.Consola\obj\Debug\UI.Consola.csproj.CopyComplete
 C:\repositorios\NET\practico02\TP2\UI.Consola\obj\Debug\UI.Consola.exe
