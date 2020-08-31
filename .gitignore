@@ -38,10 +38,20 @@
 *.userosscache
 *.sln.docstates
 *.obj
+*.pdb
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+
+#others
+
+*.suo
+*.user
+_ReSharper.*
+bin
+obj
+packages
 
 
 # Build results
