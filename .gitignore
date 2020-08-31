@@ -25,3 +25,36 @@
 /UI.Desktop/bin/Release
 /UI.Web/obj/Release
 /Util/obj/Release
+/UI.Consola/bin
+/UI.Consola/obj/Debug
+/Data.Database/bin
+/Data.Database/obj/Debug
+
+
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio 2015 cache/options directory
+.vs/
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
