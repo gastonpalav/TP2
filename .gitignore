@@ -71,6 +71,12 @@ bld/
 #wwwroot/
 
 
+*.exe
+*.pdb
+*.manifest
+*.cache
+
+
 
 # Librerías en bin resultado de compilación
 bin/
