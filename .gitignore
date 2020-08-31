@@ -25,9 +25,9 @@
 /UI.Desktop/bin/Release
 /UI.Web/obj/Release
 /Util/obj/Release
-/UI.Consola/bin
+/UI.Consola/bin/Debug
 /UI.Consola/obj/Debug
-/Data.Database/bin
+/Data.Database/bin/Debug
 /Data.Database/obj/Debug
 
 
