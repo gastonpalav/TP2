@@ -43,5 +43,10 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\btnAgregar.png" />
+    <Content Include="Assets\btnEliminar.png" />
+    <Content Include="Assets\modificar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
