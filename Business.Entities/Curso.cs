@@ -28,20 +28,20 @@ namespace Business.Entities
             set { _Descripcion = value; }
         }
 
-        private Int64 _IDComision;
+        private Comision _comision;
 
-        public Int64 IDComision
+        public Comision Comision
         {
-            get { return _IDComision; }
-            set { _IDComision = value; }
+            get { return _comision; }
+            set { _comision = value; }
         }
 
-        private Int64 _IDMateria;
+        private Materia _materia;
 
-        public Int64 IDMateria
+        public Materia Materia
         {
-            get { return _IDMateria; }
-            set { _IDMateria = value; }
+            get { return _materia; }
+            set { _materia = value; }
         }
     }
 }
