@@ -2,7 +2,7 @@
 
 namespace Business.Entities
 {
-    public class Personas : BusinessEntity
+    public class Persona : BusinessEntity
     {
         private String _Apellido;
 
@@ -36,12 +36,12 @@ namespace Business.Entities
             set { _FechaNacimiento = value; }
         }
 
-        private Int64 _IDPlan;
+        private Plan _Plan;
 
-        public Int64 IDPlan
+        public Plan Plan
         {
-            get { return _IDPlan; }
-            set { _IDPlan = value; }
+            get { return _Plan; }
+            set { _Plan = value; }
         }
 
         private Int32 _Legajo;
@@ -78,6 +78,9 @@ namespace Business.Entities
 
         public enum TipoPersonas
         {
+            Administrador,
+            Alumno,
+            Docente
         };
     }
 }
