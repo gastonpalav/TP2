@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tlpPlanes = new System.Windows.Forms.TableLayoutPanel();
-            this.lblID = new System.Windows.Forms.Label();
             this.lblDesc = new System.Windows.Forms.Label();
             this.lblID_Esp = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtDesc = new System.Windows.Forms.TextBox();
-            this.txtID_Esp = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.lblID = new System.Windows.Forms.Label();
+            this.cboEspecialidad = new System.Windows.Forms.ComboBox();
+            this.especialidadLogicBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tlpPlanes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.especialidadLogicBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpPlanes
@@ -49,10 +52,10 @@
             this.tlpPlanes.Controls.Add(this.lblID_Esp, 0, 2);
             this.tlpPlanes.Controls.Add(this.txtID, 1, 0);
             this.tlpPlanes.Controls.Add(this.txtDesc, 1, 1);
-            this.tlpPlanes.Controls.Add(this.txtID_Esp, 1, 2);
             this.tlpPlanes.Controls.Add(this.btnAceptar, 0, 3);
             this.tlpPlanes.Controls.Add(this.btnCancelar, 1, 3);
             this.tlpPlanes.Controls.Add(this.lblID, 0, 0);
+            this.tlpPlanes.Controls.Add(this.cboEspecialidad, 1, 2);
             this.tlpPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpPlanes.Location = new System.Drawing.Point(0, 0);
             this.tlpPlanes.Name = "tlpPlanes";
@@ -63,16 +66,6 @@
             this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tlpPlanes.Size = new System.Drawing.Size(403, 232);
             this.tlpPlanes.TabIndex = 0;
-            // 
-            // lblID
-            // 
-            this.lblID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(3, 8);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(18, 13);
-            this.lblID.TabIndex = 0;
-            this.lblID.Text = "ID";
             // 
             // lblDesc
             // 
@@ -96,34 +89,26 @@
             // 
             // txtID
             // 
-            this.txtID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtID.Location = new System.Drawing.Point(125, 4);
+            this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtID.Location = new System.Drawing.Point(124, 4);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(135, 20);
+            this.txtID.Size = new System.Drawing.Size(276, 20);
             this.txtID.TabIndex = 3;
             // 
             // txtDesc
             // 
-            this.txtDesc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtDesc.Location = new System.Drawing.Point(125, 32);
+            this.txtDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDesc.Location = new System.Drawing.Point(124, 32);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(135, 122);
+            this.txtDesc.Size = new System.Drawing.Size(276, 122);
             this.txtDesc.TabIndex = 4;
-            // 
-            // txtID_Esp
-            // 
-            this.txtID_Esp.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtID_Esp.Location = new System.Drawing.Point(125, 167);
-            this.txtID_Esp.Name = "txtID_Esp";
-            this.txtID_Esp.Size = new System.Drawing.Size(135, 20);
-            this.txtID_Esp.TabIndex = 5;
             // 
             // btnAceptar
             // 
             this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAceptar.Location = new System.Drawing.Point(44, 203);
+            this.btnAceptar.Location = new System.Drawing.Point(43, 203);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 6;
@@ -134,13 +119,36 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnCancelar.Location = new System.Drawing.Point(125, 203);
+            this.btnCancelar.Location = new System.Drawing.Point(124, 203);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // lblID
+            // 
+            this.lblID.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(3, 8);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(18, 13);
+            this.lblID.TabIndex = 0;
+            this.lblID.Text = "ID";
+            // 
+            // cboEspecialidad
+            // 
+            this.cboEspecialidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboEspecialidad.FormattingEnabled = true;
+            this.cboEspecialidad.Location = new System.Drawing.Point(124, 166);
+            this.cboEspecialidad.Name = "cboEspecialidad";
+            this.cboEspecialidad.Size = new System.Drawing.Size(276, 21);
+            this.cboEspecialidad.TabIndex = 8;
+            // 
+            // especialidadLogicBindingSource
+            // 
+            this.especialidadLogicBindingSource.DataSource = typeof(Business.Logic.EspecialidadLogic);
             // 
             // PlanDesktop
             // 
@@ -152,6 +160,7 @@
             this.Text = "Plan";
             this.tlpPlanes.ResumeLayout(false);
             this.tlpPlanes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.especialidadLogicBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -164,8 +173,9 @@
         private System.Windows.Forms.Label lblID_Esp;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtDesc;
-        private System.Windows.Forms.TextBox txtID_Esp;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ComboBox cboEspecialidad;
+        private System.Windows.Forms.BindingSource especialidadLogicBindingSource;
     }
 }

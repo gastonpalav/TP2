@@ -16,7 +16,7 @@ namespace Data.Database
 
                 this.OpenConnection();
 
-                SqlCommand cmdPlanes = new SqlCommand("Select * from planes", SqlConn);
+                SqlCommand cmdPlanes = new SqlCommand("Select pl.*, esp.desc_especialidad from planes pl inner join especialidades esp on pl.id_especialidad = esp.id_especialidad", SqlConn);
 
                 SqlDataReader drPlanes = cmdPlanes.ExecuteReader();
 
@@ -26,7 +26,11 @@ namespace Data.Database
 
                     pln.ID = (int)drPlanes["id_plan"];
                     pln.Descripcion = (string)drPlanes["desc_plan"];
-                    pln.IDEspecialidad = (int)drPlanes["id_especialidad"];
+                    pln.Especialidad = new Especialidad
+                    {
+                        ID = (int)drPlanes["id_especialidad"],
+                        Descripcion = (string)drPlanes["desc_especialidad"]
+                    };
 
                     planes.Add(pln);
                 }
@@ -51,7 +55,7 @@ namespace Data.Database
 
                 this.OpenConnection();
 
-                SqlCommand cmdPlanes = new SqlCommand("Select * from planes where id_plan = @id", SqlConn);
+                SqlCommand cmdPlanes = new SqlCommand("Select pl.*, esp.desc_especialidad from planes pl inner join especialidades esp on pl.id_especialidad = esp.id_especialidad where id_plan = @id ", SqlConn);
                 cmdPlanes.Parameters.Add("@id", SqlDbType.Int).Value = ID;
 
                 SqlDataReader drPlanes = cmdPlanes.ExecuteReader();
@@ -60,7 +64,11 @@ namespace Data.Database
                 {                    
                     plan.ID = (int)drPlanes["id_plan"];
                     plan.Descripcion = (string)drPlanes["desc_plan"];
-                    plan.IDEspecialidad = (int)drPlanes["id_especialidad"];
+                    plan.Especialidad = new Especialidad
+                    {
+                        ID = (int)drPlanes["id_especialidad"],
+                        Descripcion = (string)drPlanes["desc_especialidad"]
+                    };
                 }
 
                 drPlanes.Close();
@@ -109,7 +117,7 @@ namespace Data.Database
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = plan.ID;
                 cmdSave.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = plan.Descripcion;
-                cmdSave.Parameters.Add("@id_espec", SqlDbType.Int).Value = plan.IDEspecialidad;
+                //cmdSave.Parameters.Add("@id_espec", SqlDbType.Int).Value = plan.IDEspecialidad;
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -135,7 +143,7 @@ namespace Data.Database
                     SqlConn);
 
                 cmdInsert.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = plan.Descripcion;
-                cmdInsert.Parameters.Add("@id_esp", SqlDbType.Int).Value = plan.IDEspecialidad;
+                cmdInsert.Parameters.Add("@id_esp", SqlDbType.Int).Value = plan.Especialidad.ID;
                 plan.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
             }
             catch (Exception ex)

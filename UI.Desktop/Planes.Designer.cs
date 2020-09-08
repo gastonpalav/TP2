@@ -32,15 +32,15 @@
             this.tcPlanes = new System.Windows.Forms.ToolStripContainer();
             this.tlPlanes = new System.Windows.Forms.TableLayoutPanel();
             this.dvgPlanes = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsPlanes = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbElminar = new System.Windows.Forms.ToolStripButton();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcPlanes.ContentPanel.SuspendLayout();
             this.tcPlanes.TopToolStripPanel.SuspendLayout();
             this.tcPlanes.SuspendLayout();
@@ -102,27 +102,6 @@
             this.dvgPlanes.Size = new System.Drawing.Size(748, 390);
             this.dvgPlanes.TabIndex = 0;
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.DataPropertyName = "Descripcion";
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // id_especialidad
-            // 
-            this.id_especialidad.DataPropertyName = "IDEspecialidad";
-            this.id_especialidad.HeaderText = "Id Especialidad";
-            this.id_especialidad.Name = "id_especialidad";
-            this.id_especialidad.ReadOnly = true;
-            // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -153,7 +132,7 @@
             this.tsbElminar});
             this.tsPlanes.Location = new System.Drawing.Point(12, 0);
             this.tsPlanes.Name = "tsPlanes";
-            this.tsPlanes.Size = new System.Drawing.Size(112, 25);
+            this.tsPlanes.Size = new System.Drawing.Size(81, 25);
             this.tsPlanes.TabIndex = 0;
             this.tsPlanes.Text = "toolStrip1";
             // 
@@ -190,6 +169,27 @@
             this.tsbElminar.ToolTipText = "Eliminar";
             this.tsbElminar.Click += new System.EventHandler(this.tsbElminar_Click);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "Descripcion";
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // id_especialidad
+            // 
+            this.id_especialidad.DataPropertyName = "EspecialidadDescripcion";
+            this.id_especialidad.HeaderText = "Id Especialidad";
+            this.id_especialidad.Name = "id_especialidad";
+            this.id_especialidad.ReadOnly = true;
+            // 
             // Planes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,11 +220,11 @@
         private System.Windows.Forms.DataGridView dvgPlanes;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_especialidad;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbElminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_especialidad;
     }
 }

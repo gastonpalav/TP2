@@ -1,5 +1,6 @@
 ﻿using Business.Entities;
 using Business.Logic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -7,9 +8,15 @@ namespace UI.Desktop
 {
     public partial class PlanDesktop : ApplicationForm
     {
+        private List<Especialidad> listaEspecialidades;
         public PlanDesktop()
         {
             InitializeComponent();
+            EspecialidadLogic especialidad = new EspecialidadLogic();
+            listaEspecialidades = especialidad.GetAll();
+            this.cboEspecialidad.DataSource = listaEspecialidades;
+            this.cboEspecialidad.DisplayMember = "Descripcion";
+            
         }
 
         public PlanDesktop(Modoform modo) : this()
@@ -56,7 +63,9 @@ namespace UI.Desktop
             if (this.Modo == Modoform.Alta || this.Modo == Modoform.Modificacion)
             {
                 PlanActual.Descripcion = this.txtDesc.Text;
-                PlanActual.IDEspecialidad = int.Parse(this.txtID_Esp.Text);
+                PlanActual.Especialidad = new Especialidad();
+                int itemseleccionado = cboEspecialidad.SelectedIndex;
+                PlanActual.Especialidad.ID = this.listaEspecialidades[itemseleccionado].ID;
             }
         }
 
@@ -64,7 +73,7 @@ namespace UI.Desktop
         {
             this.txtID.Text = this.PlanActual.ID.ToString();
             this.txtDesc.Text = this.PlanActual.Descripcion;
-            this.txtID_Esp.Text = this.PlanActual.IDEspecialidad.ToString();
+            this.cboEspecialidad.SelectedValue = this.PlanActual.EspecialidadDescripcion;
 
             switch (this.Modo)
             {
@@ -119,7 +128,7 @@ namespace UI.Desktop
 
         private void Eliminar()
         {
-            DialogResult dr = MessageBox.Show("¿Esta seguro que desea eliminar este plan?.", "Eliminar Plan", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("¿Esta seguro que desea eliminar este plan?", "Eliminar Plan", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
             {

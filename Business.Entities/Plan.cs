@@ -16,16 +16,25 @@ namespace Business.Entities
 			set { _Descripcion = value; }
 		}
 
-		private Int64 _IDEspecialidad;
+        private Especialidad _Especialidad;
 
-		public Int64 IDEspecialidad
-		{
-			get { return _IDEspecialidad; }
-			set { _IDEspecialidad = value; }
-		}
+        public Especialidad Especialidad
+        {
+            get { return _Especialidad; }
+            set { _Especialidad = value; }
+        }
+
+        private string _EspecialidadDescripcion;
+
+        public string EspecialidadDescripcion
+        {
+            get { return Especialidad.Descripcion; }
+            set { _EspecialidadDescripcion = value; }
+        }
 
 
 
 
-	}
+
+    }
 }
