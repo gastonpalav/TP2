@@ -24,12 +24,12 @@ namespace Business.Entities
             set { _Especialidad = value; }
         }
 
-        private string _EspecialidadDescripcion;
+        //private string _EspecialidadDescripcion;
 
         public string EspecialidadDescripcion
         {
             get { return Especialidad.Descripcion; }
-            set { _EspecialidadDescripcion = value; }
+            //set { _EspecialidadDescripcion = value; }
         }
 
 

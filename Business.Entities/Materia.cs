@@ -32,18 +32,25 @@ namespace Business.Entities
 			set { _HSTotales = value; }
 		}
 
-		private Int64 _IDPlan;
+		private Plan _Plan;
 
-		public Int64 IDPlan
+		public Plan Plan
 		{
-			get { return _IDPlan; }
-			set { _IDPlan = value; }
+			get { return _Plan; }
+			set { _Plan = value; }
 		}
 
+        //private string _planDescripcion;
+
+        public string PlanDescripcion
+        {
+            get { return Plan.Descripcion; }
+            //set { _planDescripcion = value; }
+        }
 
 
 
 
 
-	}
+    }
 }
