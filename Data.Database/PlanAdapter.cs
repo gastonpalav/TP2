@@ -117,7 +117,7 @@ namespace Data.Database
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = plan.ID;
                 cmdSave.Parameters.Add("@desc", SqlDbType.VarChar, 50).Value = plan.Descripcion;
-                //cmdSave.Parameters.Add("@id_espec", SqlDbType.Int).Value = plan.IDEspecialidad;
+                cmdSave.Parameters.Add("@id_espec", SqlDbType.Int).Value = plan.Especialidad.ID;
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception Ex)
