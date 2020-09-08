@@ -43,5 +43,29 @@ namespace Business.Entities
             get { return _materia; }
             set { _materia = value; }
         }
+
+
+        private string _MateriaDescripcion;
+
+        public string MateriaDescripcion
+        {
+            get { return Materia.Descripcion; }
+            set { _MateriaDescripcion = value; }
+        }
+
+        private string _ComisionDescripcion;
+
+        public string  ComisionDescripcion
+        {
+            get { return Comision.Descripcion; }
+            set { _ComisionDescripcion = value; }
+        }
+
+
+
+
+
+
+
     }
 }

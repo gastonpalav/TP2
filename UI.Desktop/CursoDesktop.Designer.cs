@@ -51,7 +51,7 @@
             this.tblCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.97196F));
             this.tblCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.02804F));
             this.tblCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 244F));
-            this.tblCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 283F));
+            this.tblCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 284F));
             this.tblCursos.Controls.Add(this.lblId, 0, 0);
             this.tblCursos.Controls.Add(this.lblIdMateria, 0, 1);
             this.tblCursos.Controls.Add(this.lblIdcomision, 0, 2);
@@ -110,7 +110,7 @@
             // 
             this.lblAnioCalendario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAnioCalendario.AutoSize = true;
-            this.lblAnioCalendario.Location = new System.Drawing.Point(449, 45);
+            this.lblAnioCalendario.Location = new System.Drawing.Point(448, 45);
             this.lblAnioCalendario.Name = "lblAnioCalendario";
             this.lblAnioCalendario.Size = new System.Drawing.Size(238, 25);
             this.lblAnioCalendario.TabIndex = 5;
@@ -121,7 +121,7 @@
             // 
             this.lblCupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCupo.AutoSize = true;
-            this.lblCupo.Location = new System.Drawing.Point(449, 157);
+            this.lblCupo.Location = new System.Drawing.Point(448, 157);
             this.lblCupo.Name = "lblCupo";
             this.lblCupo.Size = new System.Drawing.Size(238, 25);
             this.lblCupo.TabIndex = 6;
@@ -133,29 +133,29 @@
             this.txtID.Location = new System.Drawing.Point(132, 42);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(311, 31);
+            this.txtID.Size = new System.Drawing.Size(310, 31);
             this.txtID.TabIndex = 7;
             // 
             // txtAnioCalendario
             // 
             this.txtAnioCalendario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAnioCalendario.Location = new System.Drawing.Point(693, 42);
+            this.txtAnioCalendario.Location = new System.Drawing.Point(692, 42);
             this.txtAnioCalendario.Name = "txtAnioCalendario";
-            this.txtAnioCalendario.Size = new System.Drawing.Size(278, 31);
+            this.txtAnioCalendario.Size = new System.Drawing.Size(279, 31);
             this.txtAnioCalendario.TabIndex = 10;
             // 
             // txtCupo
             // 
             this.txtCupo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCupo.Location = new System.Drawing.Point(693, 154);
+            this.txtCupo.Location = new System.Drawing.Point(692, 154);
             this.txtCupo.Name = "txtCupo";
-            this.txtCupo.Size = new System.Drawing.Size(278, 31);
+            this.txtCupo.Size = new System.Drawing.Size(279, 31);
             this.txtCupo.TabIndex = 11;
             // 
             // btnAceptar
             // 
             this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnAceptar.Location = new System.Drawing.Point(449, 336);
+            this.btnAceptar.Location = new System.Drawing.Point(448, 336);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(137, 51);
             this.btnAceptar.TabIndex = 0;
@@ -166,7 +166,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnCancelar.Location = new System.Drawing.Point(693, 336);
+            this.btnCancelar.Location = new System.Drawing.Point(692, 336);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(144, 51);
             this.btnCancelar.TabIndex = 1;
@@ -176,18 +176,20 @@
             // 
             // cboMateria
             // 
+            this.cboMateria.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cboMateria.FormattingEnabled = true;
-            this.cboMateria.Location = new System.Drawing.Point(132, 118);
+            this.cboMateria.Location = new System.Drawing.Point(132, 153);
             this.cboMateria.Name = "cboMateria";
-            this.cboMateria.Size = new System.Drawing.Size(121, 33);
+            this.cboMateria.Size = new System.Drawing.Size(310, 33);
             this.cboMateria.TabIndex = 12;
             // 
             // cboComision
             // 
+            this.cboComision.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cboComision.FormattingEnabled = true;
-            this.cboComision.Location = new System.Drawing.Point(132, 228);
+            this.cboComision.Location = new System.Drawing.Point(132, 262);
             this.cboComision.Name = "cboComision";
-            this.cboComision.Size = new System.Drawing.Size(121, 33);
+            this.cboComision.Size = new System.Drawing.Size(310, 33);
             this.cboComision.TabIndex = 13;
             // 
             // CursoDesktop

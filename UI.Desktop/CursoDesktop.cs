@@ -15,13 +15,25 @@ namespace UI.Desktop
 {
     public partial class CursoDesktop : ApplicationForm
     {
+        private List<Comision> listaComisiones;
+        private List<Materia> listaMaterias;
         
         public CursoDesktop()
         {
-            ComisionLogic Comision = new ComisionLogic();
-            this.cboComision.DataSource = Comision.GetAll();
             InitializeComponent();
-            
+            ComisionLogic Comision = new ComisionLogic();
+            listaComisiones = Comision.GetAll();
+            this.cboComision.DataSource = listaComisiones;
+            this.cboComision.ValueMember = "Descripcion";
+            this.cboComision.DisplayMember = "Descripcion";
+            MateriaLogic Materia = new MateriaLogic();
+            listaMaterias = Materia.GetAll();
+            this.cboMateria.DataSource = listaMaterias;
+            this.cboMateria.ValueMember = "Descripcion";
+            this.cboMateria.DisplayMember = "Descripcion";
+
+
+
         }
 
         
@@ -73,8 +85,8 @@ namespace UI.Desktop
             this.txtID.Text = this.CursoActual.ID.ToString();
             this.txtAnioCalendario.Text = this.CursoActual.AnioCalendario.ToString();
             this.txtCupo.Text = this.CursoActual.Cupo.ToString();
-            this.cboComision.SelectedValue = this.CursoActual.Comision;
-            this.cboMateria.SelectedValue = this.CursoActual.Materia;
+            this.cboComision.SelectedValue = this.CursoActual.ComisionDescripcion;
+            this.cboMateria.SelectedValue = this.CursoActual.MateriaDescripcion;
             switch(this.Modo)
             {
                 case Modoform.Alta:
@@ -116,6 +128,14 @@ namespace UI.Desktop
                 
                 CursoActual.AnioCalendario = Convert.ToInt32(this.txtAnioCalendario.Text);
                 CursoActual.Cupo = Convert.ToInt32(this.txtCupo.Text);
+                CursoActual.Materia = new Materia();
+                int itemSeleccionadoMateria = cboMateria.SelectedIndex;
+                CursoActual.Materia.ID = this.listaMaterias[itemSeleccionadoMateria].ID;
+                CursoActual.Comision = new Comision();
+                int itemSeleccionadoComision = cboComision.SelectedIndex;
+                CursoActual.Comision.ID = this.listaComisiones[itemSeleccionadoComision].ID;
+
+
 
             }
 
