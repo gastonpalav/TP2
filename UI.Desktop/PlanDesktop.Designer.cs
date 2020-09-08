@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tlpPlanes = new System.Windows.Forms.TableLayoutPanel();
             this.lblDesc = new System.Windows.Forms.Label();
             this.lblID_Esp = new System.Windows.Forms.Label();
@@ -38,9 +37,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
             this.cboEspecialidad = new System.Windows.Forms.ComboBox();
-            this.especialidadLogicBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tlpPlanes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.especialidadLogicBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpPlanes
@@ -146,10 +143,6 @@
             this.cboEspecialidad.Size = new System.Drawing.Size(276, 21);
             this.cboEspecialidad.TabIndex = 8;
             // 
-            // especialidadLogicBindingSource
-            // 
-            this.especialidadLogicBindingSource.DataSource = typeof(Business.Logic.EspecialidadLogic);
-            // 
             // PlanDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,7 +153,6 @@
             this.Text = "Plan";
             this.tlpPlanes.ResumeLayout(false);
             this.tlpPlanes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.especialidadLogicBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -176,6 +168,5 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox cboEspecialidad;
-        private System.Windows.Forms.BindingSource especialidadLogicBindingSource;
     }
 }
