@@ -186,7 +186,7 @@
             // id_especialidad
             // 
             this.id_especialidad.DataPropertyName = "EspecialidadDescripcion";
-            this.id_especialidad.HeaderText = "Id Especialidad";
+            this.id_especialidad.HeaderText = "Especialidad";
             this.id_especialidad.Name = "id_especialidad";
             this.id_especialidad.ReadOnly = true;
             // 

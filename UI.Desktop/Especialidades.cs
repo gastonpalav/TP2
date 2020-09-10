@@ -45,8 +45,8 @@ namespace UI.Desktop
 
         private void tsbAgregar_Click(object sender, EventArgs e)
         {
-            EspecialidadDesktop usuarioDesktop = new EspecialidadDesktop(ApplicationForm.Modoform.Alta);
-            usuarioDesktop.ShowDialog();
+            EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(ApplicationForm.Modoform.Alta);
+            especialidadDesktop.ShowDialog();
             this.Listar();
         }
 
@@ -54,7 +54,7 @@ namespace UI.Desktop
         {
             if ((dgvEspecialidades.SelectedRows.Count > 0))
             {
-                int ID = ((Business.Entities.Usuario)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
+                int ID = ((Business.Entities.Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
                 EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(ID, ApplicationForm.Modoform.Modificacion);
                 especialidadDesktop.ShowDialog();
                 this.Listar();
@@ -62,6 +62,21 @@ namespace UI.Desktop
             else
             {
                 MessageBox.Show("POR FAVOR SELECCIONAR UN REGISTRO");
+            }
+        }
+
+        private void tbsEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvEspecialidades.SelectedRows.Count > 0)
+            {
+                int ID = ((Business.Entities.Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
+                EspecialidadDesktop especialidadDesktop = new EspecialidadDesktop(ID, ApplicationForm.Modoform.Baja);
+                especialidadDesktop.ShowDialog();
+                this.Listar();
+            }
+            else
+            {
+                MessageBox.Show("Por favor seleccione un registro");
             }
         }
     }
