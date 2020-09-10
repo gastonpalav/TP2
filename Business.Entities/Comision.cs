@@ -24,14 +24,27 @@ namespace Business.Entities
 			set { _Descripcion = value; }
 		}
 
-		private Int64 _IDPlan;
-
-		public Int64 IDPlan
-		{
-			get { return _IDPlan; }
-			set { _IDPlan = value; }
-		}
 
 
-	}
+        private Plan _plan;
+
+        public Plan  Plan
+        {
+            get { return _plan; }
+            set { _plan = value; }
+        }
+
+
+        private string _PlanDescripcion;
+
+        public string PlanDescripcion
+        {
+            get { return Plan.Descripcion; }
+            
+        }
+
+
+
+
+    }
 }

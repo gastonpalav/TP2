@@ -131,7 +131,7 @@ namespace UI.Desktop
                 CursoActual.Materia = new Materia();
                 int itemSeleccionadoMateria = cboMateria.SelectedIndex;
                 CursoActual.Materia.ID = this.listaMaterias[itemSeleccionadoMateria].ID;
-                CursoActual.Comision = new Comision();
+                CursoActual.Comision = new Business.Entities.Comision();
                 int itemSeleccionadoComision = cboComision.SelectedIndex;
                 CursoActual.Comision.ID = this.listaComisiones[itemSeleccionadoComision].ID;
 

@@ -135,9 +135,9 @@ namespace Data.Database
                
                 cmdSave.ExecuteNonQuery();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos del curso", Ex);
+                Exception ExcepcionManejada = new Exception("Error al modificar datos del curso", ex);
                 throw ExcepcionManejada;
             }
             finally
