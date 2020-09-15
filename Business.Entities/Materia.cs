@@ -40,12 +40,9 @@ namespace Business.Entities
 			set { _Plan = value; }
 		}
 
-        //private string _planDescripcion;
-
         public string PlanDescripcion
         {
             get { return Plan.Descripcion; }
-            //set { _planDescripcion = value; }
         }
 
 

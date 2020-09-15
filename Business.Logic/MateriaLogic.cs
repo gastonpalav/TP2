@@ -1,17 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Data.Database;
 using Business.Entities;
 
 namespace Business.Logic
 {
     public class MateriaLogic : BusinessLogic
     {
+        private MateriaAdapter MateriaData;
+
+        public MateriaLogic()
+        {
+            this.MateriaData = new MateriaAdapter();
+        }
+
+        public Materia GetOne(int ID)
+        {
+            return this.MateriaData.GetOne(ID);
+        }
+
         public List<Materia> GetAll()
         {
-            return new List<Materia>();
+            try
+            {
+                return this.MateriaData.GetAll();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de materias", ex);
+                throw ExcepcionManejada;
+            }
+        }
+        public void Save(Materia mat)
+        {
+            this.MateriaData.Save(mat);
+        }
+
+        public void Delete(int ID)
+        {
+            this.MateriaData.Delete(ID);
         }
     }
 }
