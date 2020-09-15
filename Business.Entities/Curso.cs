@@ -50,7 +50,7 @@ namespace Business.Entities
         public string MateriaDescripcion
         {
             get { return Materia.Descripcion; }
-            set { _MateriaDescripcion = value; }
+            
         }
 
         private string _ComisionDescripcion;
@@ -58,7 +58,7 @@ namespace Business.Entities
         public string  ComisionDescripcion
         {
             get { return Comision.Descripcion; }
-            set { _ComisionDescripcion = value; }
+            
         }
 
 
