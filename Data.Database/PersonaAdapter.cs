@@ -8,13 +8,14 @@ namespace Data.Database
 {
     public class PersonaAdapter : Adapter
     {
-        public List<Persona> GetAll()
+        public List<Persona> GetAllPersonasByType(Persona.TipoPersonas tipoPersona)
         {
             List<Persona> personas = new List<Persona>();
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdGetAll = new SqlCommand("SELECT *,pl.desc_plan FROM personas pe, planes pl where pl.id_plan=pe.id_plan", SqlConn);
+                SqlCommand cmdGetAll = new SqlCommand("SELECT *,pl.desc_plan FROM personas pe, planes pl where pl.id_plan=pe.id_plan where tipo_persona = @tipo", SqlConn);
+                cmdGetAll.Parameters.Add("@idtipo", SqlDbType.Int).Value = tipoPersona;
                 SqlDataReader drPersonas = cmdGetAll.ExecuteReader();
 
                 while (drPersonas.Read())
@@ -33,20 +34,6 @@ namespace Data.Database
                         Descripcion = (string)drPersonas["desc_plan"]
                     };
 
-                    switch ((int)drPersonas["tipo_persona"])
-                    {
-                        case 0:
-                            per.TipoPersona = Persona.TipoPersonas.Administrador;
-                            break;
-
-                        case 1:
-                            per.TipoPersona = Persona.TipoPersonas.Docente;
-                            break;
-
-                        case 2:
-                            per.TipoPersona = Persona.TipoPersonas.Alumno;
-                            break;
-                    }
                     personas.Add(per);
                 }
                 drPersonas.Close();
@@ -171,6 +158,31 @@ namespace Data.Database
             finally
             {
                 this.CloseConnection();
+            }
+        }
+
+        public Persona.TipoPersonas GetTipoPersonaByUser(string user)
+        {
+            Persona.TipoPersonas tipo = new Persona.TipoPersonas();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetTipo = new SqlCommand("select tipo_persona from personas pe inner join usuarios us " +
+                                                      "on pe.id_persona = us.id_persona where us.nombre_usuario = @usu", SqlConn);
+
+                cmdGetTipo.Parameters.Add("@usu", SqlDbType.VarChar).Value = user;
+                SqlDataReader drPersonas = cmdGetTipo.ExecuteReader();
+                if (drPersonas.Read())
+                {
+                    tipo = (Persona.TipoPersonas)drPersonas["tipo_persona"];
+                }
+                drPersonas.Close();
+                return tipo;
+            }
+            catch (Exception ex)
+            {
+                Exception exception = new Exception("Error al modificar datos de la persona.", ex);
+                throw exception;
             }
         }
     }

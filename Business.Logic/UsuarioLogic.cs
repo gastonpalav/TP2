@@ -41,5 +41,17 @@ namespace Business.Logic
         {
             this.UsuarioData.Delete(idUsuario);
         }
+
+        public bool Authenticate(string usuario, string contraseña)
+        {
+            try
+            {
+                return this.UsuarioData.Authenticate(usuario, contraseña);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -47,6 +47,7 @@
     <Content Include="Assets\btnAgregar.png" />
     <Content Include="Assets\btnEliminar.png" />
     <Content Include="Assets\modificar.png" />
+    <Content Include="Assets\UTN.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

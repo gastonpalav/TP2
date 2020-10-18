@@ -178,5 +178,27 @@ namespace Data.Database
             }
             usuario.State = BusinessEntity.States.Unmodified;
         }
+
+        public bool Authenticate(string usuario, string contraseña)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdAuthenticate = new SqlCommand("select * from usuarios where(nombre_usuario = @usuario and clave = @contraseña)", SqlConn);
+                cmdAuthenticate.Parameters.Add("@usuario", SqlDbType.NVarChar).Value = usuario;
+                cmdAuthenticate.Parameters.Add("@contraseña", SqlDbType.NVarChar).Value = contraseña;
+                SqlDataReader drAuth = cmdAuthenticate.ExecuteReader();
+                return drAuth.Read();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos para iniciar sesion", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
     }
 }
