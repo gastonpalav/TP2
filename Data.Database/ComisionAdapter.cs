@@ -131,6 +131,7 @@ namespace Data.Database
                 cmdUpdate.Parameters.Add("@desc_comision", SqlDbType.VarChar, 50).Value = comision.Descripcion;
                 cmdUpdate.Parameters.Add("@anio_especialidad", SqlDbType.Int, 50).Value = comision.AnioEspecialidad;
                 cmdUpdate.Parameters.Add("@id_plan", SqlDbType.Int, 50).Value = comision.Plan.ID;
+                cmdUpdate.Parameters.Add("@id_comision", SqlDbType.Int, 50).Value = comision.ID;
                 cmdUpdate.ExecuteNonQuery();
 
             }

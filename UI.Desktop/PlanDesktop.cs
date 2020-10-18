@@ -12,6 +12,7 @@ namespace UI.Desktop
         public PlanDesktop()
         {
             InitializeComponent();
+
             EspecialidadLogic especialidad = new EspecialidadLogic();
             listaEspecialidades = especialidad.GetAll();
             this.cboEspecialidad.DataSource = listaEspecialidades;
@@ -63,7 +64,9 @@ namespace UI.Desktop
             if (this.Modo == Modoform.Alta || this.Modo == Modoform.Modificacion)
             {
                 PlanActual.Descripcion = this.txtDesc.Text;
+
                 PlanActual.Especialidad = new Especialidad();
+
                 int itemseleccionado = cboEspecialidad.SelectedIndex;
                 PlanActual.Especialidad.ID = this.listaEspecialidades[itemseleccionado].ID;
                 //PlanActual.Especialidad.Descripcion = this.listaEspecialidades[itemseleccionado].Descripcion;
