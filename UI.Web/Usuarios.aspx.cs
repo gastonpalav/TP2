@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
+using System.Text.RegularExpressions;
 
 namespace UI.Web
 {
@@ -207,5 +208,7 @@ namespace UI.Web
         {
             this.formPanel.Visible = true;
         }
+
+       
     }
 }
