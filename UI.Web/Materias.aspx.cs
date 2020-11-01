@@ -6,24 +6,23 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
-using System.Text.RegularExpressions;
 
 namespace UI.Web
 {
-    public partial class Usuarios : System.Web.UI.Page
+    public partial class Materias : System.Web.UI.Page
     {
-        private UsuarioLogic _logic;
+        private MateriaLogic _logic;
 
-        public UsuarioLogic Logic
+        public MateriaLogic Logic
         {
             get
-            { if(_logic==null)
+            {
+                if (_logic == null)
                 {
-                    _logic = new UsuarioLogic();
+                    _logic = new MateriaLogic();
                 }
                 return _logic;
             }
-            
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -36,9 +35,14 @@ namespace UI.Web
 
         private void LoadGrid()
         {
+            PlanLogic plan = new PlanLogic();
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
 
+            this.planDropDown.DataSource = plan.GetAll() ;
+            this.planDropDown.DataTextField = "Descripcion";
+            this.planDropDown.DataValueField = "ID";
+            this.planDropDown.DataBind();
         }
 
         public enum FormModes
@@ -54,11 +58,13 @@ namespace UI.Web
             set { this.ViewState["FormMode"] = value; }
         }
 
-        private Usuario Entity { get; set; }
-        private int SelectedID {
+        private Materia Entity { get; set; }
+
+        private int SelectedID
+        {
             get
             {
-                if(this.ViewState["SelectedID"] !=null)
+                if (this.ViewState["SelectedID"] != null)
                 {
                     return (int)this.ViewState["SelectedID"];
                 }
@@ -66,7 +72,7 @@ namespace UI.Web
                 {
                     return 0;
                 }
-            } 
+            }
             set
             {
                 this.ViewState["SelectedID"] = value;
@@ -78,7 +84,7 @@ namespace UI.Web
             get
             {
                 return (this.SelectedID != 0);
-                    }
+            }
         }
 
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,42 +92,41 @@ namespace UI.Web
             this.SelectedID = (int)this.gridView.SelectedValue;
 
         }
-
         private void LoadForm(int ID)
         {
             this.Entity = this.Logic.GetOne(ID);
-            this.nombreTextBox.Text = this.Entity.Nombre;
-            this.apellidoTextBox.Text = this.Entity.Apellido;
-            this.emailTextBox.Text = this.Entity.Email;
-            this.HabilitadoCheckBox.Checked = this.Entity.Habilitado;
-            this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
+            this.descripcionTextBox.Text = this.Entity.Descripcion;
+            this.hssemTextBox.Text = this.Entity.HSSemanales.ToString();
+            this.hstotTextBox.Text = this.Entity.HSTotales.ToString();
+
+            this.planDropDown.SelectedValue = this.Entity.Plan.ID.ToString();
         }
 
         protected void editarlinkButton_Click(object sender, EventArgs e)
         {
-            if(this.IsEntitySelected)
+            if (this.IsEntitySelected)
             {
                 this.EnableForm(true);
                 this.formPanel.Visible = true;
+                this.formActionPanel.Visible = true;
                 this.FormMode = FormModes.modificacion;
                 this.LoadForm(this.SelectedID);
             }
         }
 
-
-        private void LoadEntity(Usuario usuario)
+        private void LoadEntity(Materia materia)
         {
-            usuario.Nombre = this.nombreTextBox.Text;
-            usuario.Apellido = this.apellidoTextBox.Text;
-            usuario.Email = this.emailTextBox.Text;
-            usuario.NombreUsuario = this.nombreTextBox.Text;
-            usuario.Clave = this.claveTextBox.Text;
-            usuario.Habilitado = this.HabilitadoCheckBox.Checked;
+            materia.Descripcion = this.descripcionTextBox.Text;
+            materia.HSSemanales = int.Parse(this.hssemTextBox.Text);
+            materia.HSTotales = int.Parse(this.hstotTextBox.Text);
+
+            materia.Plan = new Plan();
+            materia.Plan.ID = int.Parse(this.planDropDown.SelectedItem.Value);
         }
 
-        private void SaveEntity(Usuario usuario)
+        private void SaveEntity(Materia materia)
         {
-            this.Logic.Save(usuario);
+            this.Logic.Save(materia);
         }
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
@@ -133,7 +138,7 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.modificacion:
-                    this.Entity = new Usuario();
+                    this.Entity = new Materia();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
@@ -141,7 +146,7 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.alta:
-                    this.Entity = new Usuario();
+                    this.Entity = new Materia();
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
@@ -149,31 +154,26 @@ namespace UI.Web
                 default:
                     break;
             }
-             this.formPanel.Visible = false;
 
-
-            }
-           
-        
-
+            this.formPanel.Visible = false;
+            this.formActionPanel.Visible = false;
+        }
 
         private void EnableForm(bool enable)
         {
-            this.nombreTextBox.Enabled = enable;
-            this.apellidoTextBox.Enabled = enable;
-            this.email.Enabled = enable;
-            this.nombreUsuarioTextBox.Enabled = enable;
-            this.claveTextBox.Enabled = enable;
-            this.claveLabel.Visible = enable;
-            this.repetirclaveTextBox.Enabled = enable;
-            this.repetirclaveLabel.Visible = enable;
+            this.descripcionTextBox.Enabled = enable;
+            this.hssemTextBox.Enabled = enable;
+            this.hstotTextBox.Enabled = enable;
+
+            this.planDropDown.Enabled = enable;
         }
 
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
         {
-            if(this.IsEntitySelected)
+            if (this.IsEntitySelected)
             {
                 this.formPanel.Visible = true;
+                this.formActionPanel.Visible = true;
                 this.FormMode = FormModes.baja;
                 this.EnableForm(false);
                 this.LoadForm(this.SelectedID);
@@ -183,32 +183,28 @@ namespace UI.Web
         private void DeleteEntity(int ID)
         {
             this.Logic.Delete(ID);
-
         }
-
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
             this.formPanel.Visible = true;
+            this.formActionPanel.Visible = true;
             this.FormMode = FormModes.alta;
             this.ClearForm();
             this.EnableForm(true);
         }
-
-
         private void ClearForm()
         {
-            this.nombreTextBox.Text = string.Empty;
-            this.apellidoTextBox.Text = string.Empty;
-            this.emailTextBox.Text = string.Empty;
-            this.HabilitadoCheckBox.Checked = false;
-            this.nombreUsuarioTextBox.Text = string.Empty;
-        }
+            this.descripcionTextBox.Text = string.Empty;
+            this.hssemTextBox.Text = string.Empty;
+            this.hstotTextBox.Text = string.Empty;
 
+            //esto no es etc
+            this.planDropDown.SelectedIndex = 0;
+        }
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {
+            this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
         }
-
-       
     }
 }
