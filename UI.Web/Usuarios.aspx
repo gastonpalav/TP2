@@ -39,7 +39,7 @@
         <br />
         <asp:Label ID="repetirclaveLabel" runat="server" Text="Repetir clave: "></asp:Label>
         <asp:TextBox ID="repetirclaveTextBox" TextMode="Password" runat="server"></asp:TextBox>
-        <asp:CompareValidator ID="cvClaves" runat="server" ControlToCompare="claveTextBox" ControlToValidate="repetirclaveTextBox" ErrorMessage="Las claves no coinciden" ForeColor="Red" Type="String" ToolTip="Las claves no coinciden" ValidationGroup="vg">*</asp:CompareValidator>
+        <asp:CompareValidator ID="cvClaves" runat="server" ControlToCompare="claveTextBox" ControlToValidate="repetirclaveTextBox" Operator="DataTypeCheck" ErrorMessage="Las claves no coinciden" ForeColor="Red" Type="String" ToolTip="Las claves no coinciden" ValidationGroup="vg">*</asp:CompareValidator>
         <br />
     </asp:Panel>
     <asp:Panel ID="gridActionsPanel" runat="server" >

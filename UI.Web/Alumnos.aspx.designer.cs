@@ -213,6 +213,15 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator fechaNacimientorRequerida;
 
         /// <summary>
+        /// cvlFecha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvlFecha;
+
+        /// <summary>
         /// legajoLabel control.
         /// </summary>
         /// <remarks>

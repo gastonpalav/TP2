@@ -148,11 +148,11 @@ namespace Data.Database
                         cmdUpdate.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 0;
                         break;
 
-                    case Persona.TipoPersonas.Docente:
+                    case Persona.TipoPersonas.Alumno:
                         cmdUpdate.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 1;
                         break;
 
-                    case Persona.TipoPersonas.Alumno:
+                    case Persona.TipoPersonas.Docente:
                         cmdUpdate.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 2;
                         break;
                 }
@@ -219,23 +219,27 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdInsert = new SqlCommand("insert into personas (nombre,apellido,direccion,email,telefono,fecha_nac,legajo,tipo_persona,id_plan) values (@nombre,@apellido,@direccion,@telefono,@fecha_nac,@legajo,@tipo_persona) select @@identity", SqlConn);
+                SqlCommand cmdInsert = new SqlCommand("insert into personas (nombre,apellido,direccion,email,telefono,fecha_nac,legajo,tipo_persona,id_plan) values (@nombre,@apellido,@direccion,@mail,@telefono,@fecha_nac,@legajo,@tipo_persona,@idplan) select @@identity", SqlConn);
                 cmdInsert.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
                 cmdInsert.Parameters.Add("@apellido", SqlDbType.VarChar).Value = persona.Apellido;
                 cmdInsert.Parameters.Add("@direccion", SqlDbType.VarChar, 50).Value = persona.Direccion;
+                cmdInsert.Parameters.Add("@mail", SqlDbType.VarChar, 50).Value = persona.Email;
+                cmdInsert.Parameters.Add("@telefono", SqlDbType.VarChar, 50).Value = persona.Telefono;
                 cmdInsert.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
                 cmdInsert.Parameters.Add("@legajo", SqlDbType.VarChar).Value = persona.Legajo;
+                cmdInsert.Parameters.Add("@idplan", SqlDbType.Int).Value = persona.Plan.ID;
+
                 switch (persona.TipoPersona)
                 {
                     case Persona.TipoPersonas.Administrador:
                         cmdInsert.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 0;
                         break;
 
-                    case Persona.TipoPersonas.Docente:
+                    case Persona.TipoPersonas.Alumno:
                         cmdInsert.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 1;
                         break;
 
-                    case Persona.TipoPersonas.Alumno:
+                    case Persona.TipoPersonas.Docente:
                         cmdInsert.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 2;
                         break;
                 }

@@ -104,10 +104,8 @@ namespace UI.Web
             this.emailTextBox.Text = this.Entity.Email;
             this.direccionTextBox.Text = this.Entity.Direccion;
             this.telefonoTextBox.Text = this.Entity.Telefono;
-            this.fechaNacimientoTextBox.Text = this.Entity.FechaNacimiento.ToString();
-            this.legajoTextBox.Text = this.Entity.Legajo.ToString();
-            
-
+            this.fechaNacimientoTextBox.Text = this.Entity.FechaNacimiento.ToShortDateString();
+            this.legajoTextBox.Text = this.Entity.Legajo.ToString();  
 
         }
 
@@ -179,6 +177,7 @@ namespace UI.Web
             if (this.IsEntitySelected)
             {
                 this.formPanel.Visible = true;
+                this.formActionPanel.Visible = true;
                 this.FormMode = FormModes.baja;
                 this.formActionPanel.Visible = true;
                 this.EnableForm(false);
@@ -189,6 +188,7 @@ namespace UI.Web
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
             this.formPanel.Visible = true;
+            this.formActionPanel.Visible = true;
             this.FormMode = FormModes.alta;
             this.formActionPanel.Visible = true;
             this.ClearForm();
@@ -231,11 +231,13 @@ namespace UI.Web
                     break;
             }
             this.formPanel.Visible = false;
+            this.formActionPanel.Visible = false;
         }
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {
-            this.formPanel.Visible = true;
+            this.formActionPanel.Visible = false;
+            this.formPanel.Visible = false;
         }
     }
 }

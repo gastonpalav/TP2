@@ -100,10 +100,9 @@ namespace UI.Web
             this.emailTextBox.Text = this.Entity.Email;
             this.direccionTextBox.Text = this.Entity.Direccion;
             this.telefonoTextBox.Text = this.Entity.Telefono;
-            this.fechaNacimientoTextBox.Text = this.Entity.FechaNacimiento.ToString();
+            this.fechaNacimientoTextBox.Text = this.Entity.FechaNacimiento.ToShortDateString();
             this.legajoTextBox.Text = this.Entity.Legajo.ToString();
-            this.DropDownListPlan.SelectedValue = this.Entity.Plan.Descripcion;
-
+            this.DropDownListPlan.SelectedValue = this.Entity.Plan.ID.ToString();
 
         }
 
@@ -130,13 +129,17 @@ namespace UI.Web
             this.fechaNacimientoTextBox.Enabled = enable;
             this.legajoTextBox.Enabled = enable;
             this.DropDownListPlan.Enabled = enable;
-            
-            int i = 0;
-            foreach (var item in listaPlanes)
-            {
-                DropDownListPlan.Items.Insert(i, new ListItem(item.Descripcion));
-                i++;
-            }
+
+            this.DropDownListPlan.DataTextField = "Descripcion";
+            this.DropDownListPlan.DataValueField = "ID";
+            this.DropDownListPlan.DataSource = listaPlanes;
+            this.DropDownListPlan.DataBind();
+            //int i = 0;
+            //foreach (var item in listaPlanes)
+            //{
+            //    DropDownListPlan.Items.Insert(i, new ListItem(item.Descripcion));
+            //    i++;
+            //}
             
 
         }
@@ -152,8 +155,11 @@ namespace UI.Web
             persona.FechaNacimiento = DateTime.Parse(this.fechaNacimientoTextBox.Text);
             persona.Telefono = this.telefonoTextBox.Text;
             persona.Plan = new Plan();
-            int itemSeleccionadoPlan = DropDownListPlan.SelectedIndex;
-            persona.Plan.ID = this.listaPlanes[itemSeleccionadoPlan].ID;
+
+            //int itemSeleccionadoPlan = DropDownListPlan.SelectedIndex;
+            //persona.Plan.ID = this.listaPlanes[itemSeleccionadoPlan].ID;
+
+            persona.Plan.ID = int.Parse(this.DropDownListPlan.SelectedItem.Value);
 
 
         }
@@ -174,6 +180,7 @@ namespace UI.Web
             if (this.IsEntitySelected)
             {
                 this.formPanel.Visible = true;
+                this.formActionPanel.Visible = true;
                 this.FormMode = FormModes.baja;
                 this.formActionPanel.Visible = true;
                 this.EnableForm(false);
@@ -226,11 +233,13 @@ namespace UI.Web
                     break;
             }
             this.formPanel.Visible = false;
+            this.formActionPanel.Visible = false;
         }
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {
-            this.formPanel.Visible = true;
+            this.formActionPanel.Visible = false;
+            this.formPanel.Visible = false;
         }
     }
 }
