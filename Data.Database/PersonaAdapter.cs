@@ -23,7 +23,8 @@ namespace Data.Database
                     Persona per = new Persona();
                     per.ID = (int)drPersonas["id_persona"];
                     per.Nombre = (string)drPersonas["nombre"];
-                    per.Apellido = (string)drPersonas["direccion"];
+                    per.Apellido = (string)drPersonas["apellido"];
+                    per.Direccion = (string)drPersonas["direccion"];
                     per.Email = (string)drPersonas["email"];
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
                     per.Legajo = (int)drPersonas["legajo"];
@@ -70,8 +71,6 @@ namespace Data.Database
                     per.Email = (string)drPersonas["email"];
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
                     per.Legajo = (int)drPersonas["legajo"];
-                    per.Plan.ID = (int)drPersonas["id_plan"];
-                    var algo = (int)drPersonas["id_plan"];
                     per.Plan = new Plan
                     {
                         ID = (int)drPersonas["id_plan"],
@@ -136,6 +135,9 @@ namespace Data.Database
                 SqlCommand cmdUpdate = new SqlCommand("UPDATE personas SET nombre=@nombre , apellido=@apellido,email=@email,direccion=@direccion,telefono=@telefono,fecha_nac=@fecha_nac,legajo=@legajo,id_plan=@id_plan, tipo_persona=@tipo_persona WHERE id_persona=@id_persona", SqlConn);
                 cmdUpdate.Parameters.Add("@id_persona", SqlDbType.Int).Value = persona.ID;
                 cmdUpdate.Parameters.Add("@nombre", SqlDbType.VarChar).Value = persona.Nombre;
+                cmdUpdate.Parameters.Add("@email", SqlDbType.VarChar).Value = persona.Email;
+                cmdUpdate.Parameters.Add("@telefono", SqlDbType.VarChar).Value = persona.Telefono;
+                cmdUpdate.Parameters.Add("@direccion", SqlDbType.VarChar).Value = persona.Direccion;
                 cmdUpdate.Parameters.Add("@apellido", SqlDbType.Int).Value = persona.ID;
                 cmdUpdate.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
                 cmdUpdate.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;
@@ -229,7 +231,7 @@ namespace Data.Database
             }
             catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al insertar datos del curso", ex);
+                Exception ExcepcionManejada = new Exception("Error al insertar datos de la persona", ex);
                 throw ExcepcionManejada;
             }
 

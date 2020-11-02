@@ -14,6 +14,12 @@ namespace UI.Web
     {
         private PersonaLogic _logic;
         private List<Plan> listaPlanes;
+
+        public Alumnos()
+        {
+            PlanLogic planLogic = new PlanLogic();
+            listaPlanes = planLogic.GetAll();
+        }
         public PersonaLogic Logic
         {
             get
@@ -108,6 +114,7 @@ namespace UI.Web
             {
                 this.EnableForm(true);
                 this.formPanel.Visible = true;
+                this.formActionPanel.Visible = true;
                 this.FormMode = FormModes.modificacion;
                 this.LoadForm(this.SelectedID);
             }
@@ -123,11 +130,14 @@ namespace UI.Web
             this.fechaNacimientoTextBox.Enabled = enable;
             this.legajoTextBox.Enabled = enable;
             this.DropDownListPlan.Enabled = enable;
-            PlanLogic planLogic = new PlanLogic();
-            listaPlanes = planLogic.GetAll();
-            this.DropDownListPlan.DataSource = listaPlanes;
-            this.DropDownListPlan.DataValueField = "Descripcion";
-            this.DropDownListPlan.DataTextField = "Descripcion";
+            
+            int i = 0;
+            foreach (var item in listaPlanes)
+            {
+                DropDownListPlan.Items.Insert(i, new ListItem(item.Descripcion));
+                i++;
+            }
+            
 
         }
 
@@ -136,10 +146,14 @@ namespace UI.Web
             persona.Nombre = this.nombreTextBox.Text;
             persona.Apellido = this.apellidoTextBox.Text;
             persona.Email = this.emailTextBox.Text;
+            persona.Direccion = this.direccionTextBox.Text;
+            persona.TipoPersona = Persona.TipoPersonas.Alumno;
             persona.Legajo = int.Parse(this.legajoTextBox.Text);
             persona.FechaNacimiento = DateTime.Parse(this.fechaNacimientoTextBox.Text);
             persona.Telefono = this.telefonoTextBox.Text;
-            persona.Plan.Descripcion = this.DropDownListPlan.SelectedValue;
+            persona.Plan = new Plan();
+            int itemSeleccionadoPlan = DropDownListPlan.SelectedIndex;
+            persona.Plan.ID = this.listaPlanes[itemSeleccionadoPlan].ID;
 
 
         }
@@ -161,6 +175,7 @@ namespace UI.Web
             {
                 this.formPanel.Visible = true;
                 this.FormMode = FormModes.baja;
+                this.formActionPanel.Visible = true;
                 this.EnableForm(false);
                 this.LoadForm(this.SelectedID);
             }
@@ -169,6 +184,7 @@ namespace UI.Web
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
             this.formPanel.Visible = true;
+            this.formActionPanel.Visible = true;
             this.FormMode = FormModes.alta;
             this.ClearForm();
             this.EnableForm(true);

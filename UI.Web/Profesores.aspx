@@ -46,6 +46,10 @@
         <asp:Label ID="legajoLabel" runat="server" Text="Legajo: "></asp:Label>
         <asp:TextBox ID="legajoTextBox" runat="server"></asp:TextBox>
          <asp:RequiredFieldValidator ID="legajoRequerido" runat="server" ForeColor="Red" ControlToValidate="legajoTextBox" ValidationGroup="vg" ErrorMessage="Requerido"></asp:RequiredFieldValidator>
+        <br />
+        <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
+         <asp:DropDownList ID="DropDownListPlan" runat="server">
+         </asp:DropDownList>
     </asp:Panel>
     <asp:Panel ID="gridActionsPanel" runat="server" >
         <asp:LinkButton ID="editarlinkButton" runat="server" OnClick="editarlinkButton_Click">Editar</asp:LinkButton>
