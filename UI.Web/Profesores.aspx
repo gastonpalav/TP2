@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Alumnos.aspx.cs" Inherits="UI.Web.Alumnos" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Profesores.aspx.cs" Inherits="UI.Web.Profesores" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
-     <asp:Panel ID="gridPanel" runat="server">
-        <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged">
+<asp:Content ID="Content" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
+    <asp:Panel ID="gridPanel" runat="server">
+        <asp:GridView ID="gridViewProfesores" runat="server" AutogenerateColumns="false" SelectedRowStyle-color="Black" DataKeyNames="ID" OnSelectedIndexChanged="gridViewProfesores_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                 <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
@@ -15,7 +15,7 @@
             </Columns>
             <SelectedRowStyle BackColor="Black" ForeColor="White" />
         </asp:GridView>
-         </asp:Panel>
+    </asp:Panel>
     <asp:Panel ID="formPanel" Visible="false" runat="server">
         <asp:Label ID="nombreLabel" runat="server" Text="Nombre: "></asp:Label>
         <asp:TextBox ID="nombreTextBox" runat="server"></asp:TextBox>
@@ -46,11 +46,6 @@
         <asp:Label ID="legajoLabel" runat="server" Text="Legajo: "></asp:Label>
         <asp:TextBox ID="legajoTextBox" runat="server"></asp:TextBox>
          <asp:RequiredFieldValidator ID="legajoRequerido" runat="server" ForeColor="Red" ControlToValidate="legajoTextBox" ValidationGroup="vg" ErrorMessage="Requerido"></asp:RequiredFieldValidator>
-        <br />
-         <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
-         <asp:DropDownList ID="DropDownListPlan" runat="server">
-         </asp:DropDownList>
-        
     </asp:Panel>
     <asp:Panel ID="gridActionsPanel" runat="server" >
         <asp:LinkButton ID="editarlinkButton" runat="server" OnClick="editarlinkButton_Click">Editar</asp:LinkButton>
@@ -64,4 +59,6 @@
     <asp:Panel ID="ValidationActionPanel" runat="server">
         <asp:ValidationSummary ID="ValidationSummary" runat="server" ForeColor="Red" ValidationGroup="vg" />
     </asp:Panel>
-    </asp:Content>
+
+
+</asp:Content>

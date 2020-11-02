@@ -70,6 +70,7 @@
     <Content Include="Alumnos.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Materias.aspx" />
+    <Content Include="Profesores.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
@@ -91,6 +92,13 @@
     </Compile>
     <Compile Include="Materias.aspx.designer.cs">
       <DependentUpon>Materias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesores.aspx.cs">
+      <DependentUpon>Profesores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesores.aspx.designer.cs">
+      <DependentUpon>Profesores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
