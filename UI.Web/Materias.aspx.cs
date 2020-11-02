@@ -36,13 +36,17 @@ namespace UI.Web
         private void LoadGrid()
         {
             PlanLogic plan = new PlanLogic();
+
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
 
-            this.planDropDown.DataSource = plan.GetAll() ;
-            this.planDropDown.DataTextField = "Descripcion";
-            this.planDropDown.DataValueField = "ID";
-            this.planDropDown.DataBind();
+            if (this.planDropDown.Items.Count == 1)
+            {
+                this.planDropDown.DataSource = plan.GetAll();
+                this.planDropDown.DataTextField = "Descripcion";
+                this.planDropDown.DataValueField = "ID";
+                this.planDropDown.DataBind();
+            }           
         }
 
         public enum FormModes
@@ -200,6 +204,7 @@ namespace UI.Web
 
             //esto no es etc
             this.planDropDown.SelectedIndex = 0;
+
         }
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {

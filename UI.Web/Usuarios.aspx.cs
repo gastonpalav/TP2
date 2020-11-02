@@ -103,6 +103,7 @@ namespace UI.Web
             {
                 this.EnableForm(true);
                 this.formPanel.Visible = true;
+                this.formActionPanel.Visible = true;
                 this.FormMode = FormModes.modificacion;
                 this.LoadForm(this.SelectedID);
             }
@@ -149,13 +150,10 @@ namespace UI.Web
                 default:
                     break;
             }
-             this.formPanel.Visible = false;
 
-
-            }
-           
-        
-
+            this.formPanel.Visible = false;
+            this.formActionPanel.Visible = false;
+        }
 
         private void EnableForm(bool enable)
         {
@@ -174,6 +172,7 @@ namespace UI.Web
             if(this.IsEntitySelected)
             {
                 this.formPanel.Visible = true;
+                this.formActionPanel.Visible = true;
                 this.FormMode = FormModes.baja;
                 this.EnableForm(false);
                 this.LoadForm(this.SelectedID);
@@ -189,6 +188,7 @@ namespace UI.Web
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
             this.formPanel.Visible = true;
+            this.formActionPanel.Visible = true;
             this.FormMode = FormModes.alta;
             this.ClearForm();
             this.EnableForm(true);
@@ -206,6 +206,7 @@ namespace UI.Web
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {
+            this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
         }
 

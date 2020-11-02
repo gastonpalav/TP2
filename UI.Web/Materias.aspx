@@ -32,6 +32,7 @@
         <asp:DropDownList ID="planDropDown" runat="server" AppendDataBoundItems="True">
             <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
         </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="revPlan" runat="server" ControlToValidate="planDropDown" ErrorMessage="Seleccione un plan" ForeColor="Red" ToolTip="No seleccionó un plan" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
         <br />
     </asp:Panel>
     <asp:Panel ID="gridActionsPanel" runat="server" >
@@ -40,7 +41,7 @@
         <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
     </asp:Panel>
     <asp:Panel ID="formActionPanel" Visible="false" runat="server">
-        <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
+        <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click" ValidationGroup="vg">Aceptar</asp:LinkButton>
         <asp:LinkButton ID="cancelarLinkButtom" runat="server" OnClick="cancelarLinkButtom_Click">Cancelar</asp:LinkButton>
     </asp:Panel>
     <asp:Panel ID="ValidationActionPanel" runat="server">

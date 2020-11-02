@@ -39,7 +39,7 @@
         <br />
         <asp:Label ID="repetirclaveLabel" runat="server" Text="Repetir clave: "></asp:Label>
         <asp:TextBox ID="repetirclaveTextBox" TextMode="Password" runat="server"></asp:TextBox>
-        <asp:CompareValidator ID="cvClaves" runat="server" ControlToCompare="claveTextBox" ControlToValidate="repetirclaveTextBox" ErrorMessage="Las claves no coinciden" ForeColor="Red" ToolTip="Las claves no coinciden" ValidationGroup="vg">*</asp:CompareValidator>
+        <asp:CompareValidator ID="cvClaves" runat="server" ControlToCompare="claveTextBox" ControlToValidate="repetirclaveTextBox" ErrorMessage="Las claves no coinciden" ForeColor="Red" Type="String" ToolTip="Las claves no coinciden" ValidationGroup="vg">*</asp:CompareValidator>
         <br />
     </asp:Panel>
     <asp:Panel ID="gridActionsPanel" runat="server" >
@@ -47,8 +47,8 @@
         <asp:LinkButton ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click">Eliminar</asp:LinkButton>
         <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
     </asp:Panel>
-    <asp:Panel ID="formActionPanel" runat="server">
-        <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
+    <asp:Panel ID="formActionPanel" Visible="false" runat="server">
+        <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click" ValidationGroup="vg" >Aceptar</asp:LinkButton>
         <asp:LinkButton ID="cancelarLinkButtom" runat="server" OnClick="cancelarLinkButtom_Click">Cancelar</asp:LinkButton>
     </asp:Panel>
     <asp:Panel ID="ValidationActionPanel" runat="server">
