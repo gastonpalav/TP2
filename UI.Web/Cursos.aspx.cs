@@ -1,53 +1,61 @@
-﻿using System;
+﻿using Business.Entities;
+using Business.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Business.Entities;
-using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Comisiones : System.Web.UI.Page
+    public partial class Cursos : System.Web.UI.Page
     {
-        private ComisionLogic _logic;
-        public Comision Entity { get; set; }
-        private List<Plan> listaPlanes;
+        private CursoLogic _Logic;
+        private List<Comision> listaComision;
+        private List<Materia> listaMaterias;
+        public Curso Entity { get; set; }
+        public CursoLogic Logic
+        {
+            get
+            {
+                if (_Logic == null)
+                {
+                    _Logic = new CursoLogic();
+                }
+                return _Logic;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 LoadGrid();
             }
-
         }
 
         private void LoadGrid()
         {
-            PlanLogic plan = new PlanLogic();
+            MateriaLogic materia = new MateriaLogic();
+            ComisionLogic comision = new ComisionLogic();
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
-            if (this.planDropDown.Items.Count == 1)
+            if (this.MateriaDropDown.Items.Count == 1)
             {
-                this.planDropDown.DataSource = plan.GetAll();
-                this.planDropDown.DataTextField = "Descripcion";
-                this.planDropDown.DataValueField = "ID";
-                this.planDropDown.DataBind();
+                this.MateriaDropDown.DataSource = materia.GetAll();
+                this.MateriaDropDown.DataTextField = "Descripcion";
+                this.MateriaDropDown.DataValueField = "ID";
+                this.MateriaDropDown.DataBind();
+            }
+            if (this.ComisionDropDown.Items.Count == 1)
+            {
+                this.ComisionDropDown.DataSource = comision.GetAll();
+                this.ComisionDropDown.DataTextField = "Descripcion";
+                this.ComisionDropDown.DataValueField = "ID";
+                this.ComisionDropDown.DataBind();
             }
 
-        }
-
-        public ComisionLogic Logic
-        {
-            get
-            {
-                if (_logic == null)
-                {
-                    _logic = new ComisionLogic();
-                }
-                return _logic;
-            }
         }
 
         public enum FormModes
@@ -63,10 +71,14 @@ namespace UI.Web
             set { this.ViewState["FormMode"] = value; }
         }
 
+
+
+
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.SelectedID = (int)this.gridView.SelectedValue;
         }
+
 
         private int SelectedID
         {
@@ -87,7 +99,6 @@ namespace UI.Web
             }
         }
 
-
         private bool IsEntitySelected
         {
             get
@@ -101,9 +112,20 @@ namespace UI.Web
         {
             this.Entity = this.Logic.GetOne(ID);
             this.descripcionTextBox.Text = this.Entity.Descripcion;
-            this.anioEspecialidadTextBox.Text = this.Entity.AnioEspecialidad.ToString();
-            this.planDropDown.SelectedValue = this.Entity.Plan.ID.ToString();
+            this.anioCalendarioTextBox.Text = this.Entity.AnioCalendario.ToString();
+            this.cupoTextBox.Text = this.Entity.Cupo.ToString();
+            this.MateriaDropDown.SelectedValue = this.Entity.Materia.ID.ToString();
+            this.ComisionDropDown.SelectedValue = this.Entity.Comision.ID.ToString();
 
+        }
+
+        private void EnableForm(bool enable)
+        {
+            this.descripcionTextBox.Enabled = enable;
+            this.anioCalendarioTextBox.Enabled = enable;
+            this.MateriaDropDown.Enabled = enable;
+            this.ComisionDropDown.Enabled = enable;
+            this.cupoTextBox.Enabled = enable;
         }
 
         protected void editarlinkButton_Click(object sender, EventArgs e)
@@ -118,25 +140,23 @@ namespace UI.Web
             }
         }
 
-        private void EnableForm(bool enable)
+        private void LoadEntity(Curso curso)
         {
-            this.descripcionTextBox.Enabled = enable;
-            this.anioEspecialidadTextBox.Enabled = enable;
-            this.planDropDown.Enabled = enable;
-        }
-        private void LoadEntity(Comision comision)
-        {
-            comision.Descripcion = this.descripcionTextBox.Text;
-            comision.AnioEspecialidad = int.Parse(this.anioEspecialidadTextBox.Text);
-            comision.Plan = new Plan();
-            int itemSeleccionadoPlan = planDropDown.SelectedIndex;
-            comision.Plan.ID = this.listaPlanes[itemSeleccionadoPlan].ID;
+            curso.Descripcion = this.descripcionTextBox.Text;
+            curso.AnioCalendario = int.Parse(this.anioCalendarioTextBox.Text);
+            curso.Comision = new Comision();
+            curso.Materia = new Materia();
+            int itemSeleccionadoComision = ComisionDropDown.SelectedIndex;
+            int itemSeleccionadoMateria = MateriaDropDown.SelectedIndex;
+            curso.Comision.ID= this.listaComision[itemSeleccionadoComision].ID;
+            curso.Materia.ID = this.listaMaterias[itemSeleccionadoMateria].ID;
 
 
         }
-        private void SaveEntity(Comision comision)
+
+        private void SaveEntity(Curso curso)
         {
-            this.Logic.Save(comision);
+            this.Logic.Save(curso);
         }
 
         private void DeleteEntity(int ID)
@@ -144,6 +164,7 @@ namespace UI.Web
             this.Logic.Delete(ID);
 
         }
+
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
         {
             if (this.IsEntitySelected)
@@ -168,7 +189,8 @@ namespace UI.Web
         private void ClearForm()
         {
             this.descripcionTextBox.Text = string.Empty;
-            this.anioEspecialidadTextBox.Text = string.Empty;
+            this.anioCalendarioTextBox.Text = string.Empty;
+            this.cupoTextBox.Text = string.Empty;
         }
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
@@ -180,7 +202,7 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.modificacion:
-                    this.Entity = new Comision();
+                    this.Entity = new Curso();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
@@ -188,7 +210,7 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.alta:
-                    this.Entity = new Comision();
+                    this.Entity = new Curso();
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
@@ -197,7 +219,7 @@ namespace UI.Web
                     break;
             }
             this.formPanel.Visible = false;
-        
+
         }
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
