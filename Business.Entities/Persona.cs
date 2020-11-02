@@ -44,6 +44,15 @@ namespace Business.Entities
             set { _Plan = value; }
         }
 
+        private string _planDescripcion;
+
+        public string PlanDescripcion
+        {
+            get { return Plan.Descripcion; }
+
+        }
+
+
         private Int32 _Legajo;
 
         public Int32 Legajo
