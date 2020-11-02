@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class MenuAlumno : Form
+    public partial class ReporteMaterias : Form
     {
-        public MenuAlumno()
+        public ReporteMaterias()
         {
             InitializeComponent();
-        }
-
-        private void inscribirseAUnaMateriaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

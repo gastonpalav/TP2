@@ -41,5 +41,10 @@ namespace Business.Logic
         {
             this.CursoData.Delete(idCurso);
         }
+
+        public List<Curso> BuscarComisionesPorMateria(string materia)
+        {
+            return this.CursoData.BuscarComisionesPorMateria(materia);
+        }
     }
 }

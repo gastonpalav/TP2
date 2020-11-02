@@ -32,14 +32,13 @@ namespace Data.Database
                         ID = (int)drCurso["id_materia"],
                         Descripcion = (string)drCurso["desc_materia"]
                     };
-                        
-                    cs.Comision=new Comision
+
+                    cs.Comision = new Comision
                     {
-                        ID= (int)drCurso["id_comision"],
-                        Descripcion=(string)drCurso["desc_comision"]
+                        ID = (int)drCurso["id_comision"],
+                        Descripcion = (string)drCurso["desc_comision"]
                     };
-                    
-                    
+
                     cursos.Add(cs);
                 }
                 drCurso.Close();
@@ -52,7 +51,39 @@ namespace Data.Database
                 Exception ExcepcionManejada = new Exception("Error al recuperar la lista de cursos", ex);
                 throw ExcepcionManejada;
             }
-            
+        }
+
+        public List<Curso> BuscarComisionesPorMateria(string materia)
+        {
+            List<Curso> cursos = new List<Curso>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand sqlCommand = new SqlCommand("select cu.id_comision, co.desc_comision from cursos cu inner join comisiones co on cu.id_comision = co.id_comision where id_materia = @id_materia and anio_calendario = @anio_calendario", SqlConn);
+                sqlCommand.Parameters.Add("@id_materia", SqlDbType.Int).Value = materia;
+                sqlCommand.Parameters.Add("@anio_calendario", SqlDbType.Int).Value = DateTime.Today.Year;
+                SqlDataReader drCurso = sqlCommand.ExecuteReader();
+
+                while (drCurso.Read())
+                {
+                    Curso c = new Curso();
+                    c.Comision.ID = (int)drCurso["id_comision"];
+                    c.Comision.Descripcion = (string)drCurso["desc_comision"];
+                    cursos.Add(c);
+                }
+
+                drCurso.Close();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de los Cursos.", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return cursos;
         }
 
         public Curso GetOne(int ID)
@@ -132,7 +163,7 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@id_materia", SqlDbType.VarChar, 50).Value = curso.Materia.ID;
                 cmdSave.Parameters.Add("@anio_calendario", SqlDbType.Int).Value = curso.AnioCalendario;
                 cmdSave.Parameters.Add("@cupo", SqlDbType.VarChar, 50).Value = curso.Cupo;
-               
+
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -150,7 +181,6 @@ namespace Data.Database
         {
             try
             {
-                
                 this.OpenConnection();
                 SqlCommand cmdInsert = new SqlCommand(
                     "insert into cursos(id_materia,id_comision,anio_calendario,cupo) " +
@@ -158,7 +188,6 @@ namespace Data.Database
                     "select @@identity",
                     SqlConn);
 
-                
                 cmdInsert.Parameters.Add("@anio_calendario", SqlDbType.Int, 50).Value = curso.AnioCalendario;
                 cmdInsert.Parameters.Add("@cupo", SqlDbType.Int, 50).Value = curso.Cupo;
                 cmdInsert.Parameters.Add("@id_materia", SqlDbType.Int, 50).Value = curso.Materia.ID;
@@ -190,4 +219,3 @@ namespace Data.Database
         }
     }
 }
-    
