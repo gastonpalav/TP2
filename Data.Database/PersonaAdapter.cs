@@ -138,7 +138,7 @@ namespace Data.Database
                 cmdUpdate.Parameters.Add("@email", SqlDbType.VarChar).Value = persona.Email;
                 cmdUpdate.Parameters.Add("@telefono", SqlDbType.VarChar).Value = persona.Telefono;
                 cmdUpdate.Parameters.Add("@direccion", SqlDbType.VarChar).Value = persona.Direccion;
-                cmdUpdate.Parameters.Add("@apellido", SqlDbType.Int).Value = persona.ID;
+                cmdUpdate.Parameters.Add("@apellido", SqlDbType.VarChar).Value = persona.ID;
                 cmdUpdate.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
                 cmdUpdate.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;
                 cmdUpdate.Parameters.Add("@id_plan", SqlDbType.Int).Value = persona.Plan.ID;
@@ -220,12 +220,25 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdInsert = new SqlCommand("insert into personas (nombre,apellido,direccion,email,telefono,fecha_nac,legajo,tipo_persona,id_plan) values (@nombre,@apellido,@direccion,@telefono,@fecha_nac,@legajo,@tipo_persona) select @@identity", SqlConn);
-                cmdInsert.Parameters.Add("@nombre", SqlDbType.Int, 50).Value = persona.Nombre;
+                cmdInsert.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
                 cmdInsert.Parameters.Add("@apellido", SqlDbType.VarChar).Value = persona.Apellido;
-                cmdInsert.Parameters.Add("@direccion", SqlDbType.Int, 50).Value = persona.Direccion;
+                cmdInsert.Parameters.Add("@direccion", SqlDbType.VarChar, 50).Value = persona.Direccion;
                 cmdInsert.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
                 cmdInsert.Parameters.Add("@legajo", SqlDbType.VarChar).Value = persona.Legajo;
-                cmdInsert.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = persona.TipoPersona;
+                switch (persona.TipoPersona)
+                {
+                    case Persona.TipoPersonas.Administrador:
+                        cmdInsert.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 0;
+                        break;
+
+                    case Persona.TipoPersonas.Docente:
+                        cmdInsert.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 1;
+                        break;
+
+                    case Persona.TipoPersonas.Alumno:
+                        cmdInsert.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 2;
+                        break;
+                }
                 persona.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
 
             }
