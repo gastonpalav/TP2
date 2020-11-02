@@ -14,8 +14,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdGetAll = new SqlCommand("SELECT *,pl.desc_plan FROM personas pe, planes pl where pl.id_plan=pe.id_plan where tipo_persona = @tipo", SqlConn);
-                cmdGetAll.Parameters.Add("@idtipo", SqlDbType.Int).Value = tipoPersona;
+                SqlCommand cmdGetAll = new SqlCommand("SELECT *,pl.desc_plan from personas pe inner join planes pl on pl.id_plan=pe.id_plan where pe.tipo_persona = @tipo", SqlConn);
+                cmdGetAll.Parameters.Add("@tipo", SqlDbType.Int).Value = tipoPersona;
                 SqlDataReader drPersonas = cmdGetAll.ExecuteReader();
 
                 while (drPersonas.Read())
@@ -58,7 +58,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdGetOne = new SqlCommand("select * from personas where id_persona = @id", SqlConn);
+                SqlCommand cmdGetOne = new SqlCommand("select *,desc_plan from personas pe inner join planes p on p.id_plan=pe.id_plan where id_persona = @id", SqlConn);
                 cmdGetOne.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drPersonas = cmdGetOne.ExecuteReader();
                 if (drPersonas.Read())
@@ -71,6 +71,13 @@ namespace Data.Database
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
                     per.Legajo = (int)drPersonas["legajo"];
                     per.Plan.ID = (int)drPersonas["id_plan"];
+                    var algo = (int)drPersonas["id_plan"];
+                    per.Plan = new Plan
+                    {
+                        ID = (int)drPersonas["id_plan"],
+                        Descripcion = (string)drPersonas["desc_plan"]
+
+                    };
                     per.Telefono = (string)drPersonas["telefono"];
                     switch ((int)drPersonas["tipo_persona"])
                     {
@@ -167,8 +174,9 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdGetTipo = new SqlCommand("select tipo_persona from personas pe inner join usuarios us " +
-                                                      "on pe.id_persona = us.id_persona where us.nombre_usuario = @usu", SqlConn);
+                SqlCommand cmdGetTipo = new SqlCommand("select tipo_persona from personas pe inner join usuarios us on pe.id_persona = us.id_persona where us.nombre_usuario = @usu", SqlConn);
+
+
 
                 cmdGetTipo.Parameters.Add("@usu", SqlDbType.VarChar).Value = user;
                 SqlDataReader drPersonas = cmdGetTipo.ExecuteReader();
@@ -184,6 +192,47 @@ namespace Data.Database
                 Exception exception = new Exception("Error al modificar datos de la persona.", ex);
                 throw exception;
             }
+        }
+
+        public void Save(Persona persona)
+        {
+            if (persona.State == BusinessEntity.States.New)
+            {
+                this.Insert(persona);
+            }
+            if (persona.State == BusinessEntity.States.Modified)
+            {
+                this.Update(persona);
+            }
+            if (persona.State == BusinessEntity.States.Deleted)
+            {
+                this.Delete(persona.ID);
+            }
+            persona.State = BusinessEntity.States.Unmodified;
+
+        }
+
+        protected void Insert(Persona persona)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdInsert = new SqlCommand("insert into personas (nombre,apellido,direccion,email,telefono,fecha_nac,legajo,tipo_persona,id_plan) values (@nombre,@apellido,@direccion,@telefono,@fecha_nac,@legajo,@tipo_persona) select @@identity", SqlConn);
+                cmdInsert.Parameters.Add("@nombre", SqlDbType.Int, 50).Value = persona.Nombre;
+                cmdInsert.Parameters.Add("@apellido", SqlDbType.VarChar).Value = persona.Apellido;
+                cmdInsert.Parameters.Add("@direccion", SqlDbType.Int, 50).Value = persona.Direccion;
+                cmdInsert.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
+                cmdInsert.Parameters.Add("@legajo", SqlDbType.VarChar).Value = persona.Legajo;
+                cmdInsert.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = persona.TipoPersona;
+                persona.ID = Decimal.ToInt32((decimal)cmdInsert.ExecuteScalar());
+
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al insertar datos del curso", ex);
+                throw ExcepcionManejada;
+            }
+
         }
     }
 }
