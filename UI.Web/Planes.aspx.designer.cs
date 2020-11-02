@@ -11,7 +11,7 @@ namespace UI.Web
 {
 
 
-    public partial class Materias
+    public partial class Planes
     {
 
         /// <summary>
@@ -69,103 +69,31 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcion;
 
         /// <summary>
-        /// hssemLabel control.
+        /// especLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hssemLabel;
+        protected global::System.Web.UI.WebControls.Label especLabel;
 
         /// <summary>
-        /// hssemTextBox control.
+        /// especDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hssemTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList especDropDown;
 
         /// <summary>
-        /// rfvHssem control.
+        /// revEspec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvHssem;
-
-        /// <summary>
-        /// rngHssem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rngHssem;
-
-        /// <summary>
-        /// hstotLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hstotLabel;
-
-        /// <summary>
-        /// hstotTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hstotTextBox;
-
-        /// <summary>
-        /// revHstot control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator revHstot;
-
-        /// <summary>
-        /// rngHstot control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rngHstot;
-
-        /// <summary>
-        /// planLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label planLabel;
-
-        /// <summary>
-        /// planDropDown control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList planDropDown;
-
-        /// <summary>
-        /// revPlan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator revPlan;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator revEspec;
 
         /// <summary>
         /// gridActionsPanel control.
