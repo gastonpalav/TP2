@@ -11,7 +11,7 @@ namespace UI.Web
 {
 
 
-    public partial class Materias
+    public partial class Profesores
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Panel gridPanel;
 
         /// <summary>
-        /// gridView control.
+        /// gridViewProfesores control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridView;
+        protected global::System.Web.UI.WebControls.GridView gridViewProfesores;
 
         /// <summary>
         /// formPanel control.
@@ -42,103 +42,211 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Panel formPanel;
 
         /// <summary>
-        /// descripcionLabel control.
+        /// nombreLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label descripcionLabel;
+        protected global::System.Web.UI.WebControls.Label nombreLabel;
 
         /// <summary>
-        /// descripcionTextBox control.
+        /// nombreTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox descripcionTextBox;
+        protected global::System.Web.UI.WebControls.TextBox nombreTextBox;
 
         /// <summary>
-        /// rfvDescripcion control.
+        /// nombreRequerido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcion;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator nombreRequerido;
 
         /// <summary>
-        /// hssemLabel control.
+        /// apellidoLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hssemLabel;
+        protected global::System.Web.UI.WebControls.Label apellidoLabel;
 
         /// <summary>
-        /// hssemTextBox control.
+        /// apellidoTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hssemTextBox;
+        protected global::System.Web.UI.WebControls.TextBox apellidoTextBox;
 
         /// <summary>
-        /// rfvHssem control.
+        /// apellidoRequerido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvHssem;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator apellidoRequerido;
 
         /// <summary>
-        /// rngHssem control.
+        /// emailLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rngHssem;
+        protected global::System.Web.UI.WebControls.Label emailLabel;
 
         /// <summary>
-        /// hstotLabel control.
+        /// emailTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hstotLabel;
+        protected global::System.Web.UI.WebControls.TextBox emailTextBox;
 
         /// <summary>
-        /// hstotTextBox control.
+        /// emailRequerido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hstotTextBox;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator emailRequerido;
 
         /// <summary>
-        /// revHstot control.
+        /// emailValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator revHstot;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator emailValidator;
 
         /// <summary>
-        /// rngHstot control.
+        /// direccionLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rngHstot;
+        protected global::System.Web.UI.WebControls.Label direccionLabel;
+
+        /// <summary>
+        /// direccionTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox direccionTextBox;
+
+        /// <summary>
+        /// direccionRequerido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator direccionRequerido;
+
+        /// <summary>
+        /// telefonoLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label telefonoLabel;
+
+        /// <summary>
+        /// telefonoTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox telefonoTextBox;
+
+        /// <summary>
+        /// telefonoRequerido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator telefonoRequerido;
+
+        /// <summary>
+        /// fechaNacimientoLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label fechaNacimientoLabel;
+
+        /// <summary>
+        /// fechaNacimientoTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fechaNacimientoTextBox;
+
+        /// <summary>
+        /// fechaNacimientorRequerida control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator fechaNacimientorRequerida;
+
+        /// <summary>
+        /// cvlFecha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvlFecha;
+
+        /// <summary>
+        /// legajoLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label legajoLabel;
+
+        /// <summary>
+        /// legajoTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox legajoTextBox;
+
+        /// <summary>
+        /// legajoRequerido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator legajoRequerido;
 
         /// <summary>
         /// planLabel control.
@@ -150,22 +258,13 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Label planLabel;
 
         /// <summary>
-        /// planDropDown control.
+        /// DropDownListPlan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList planDropDown;
-
-        /// <summary>
-        /// revPlan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator revPlan;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListPlan;
 
         /// <summary>
         /// gridActionsPanel control.

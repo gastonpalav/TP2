@@ -24,9 +24,20 @@ namespace Business.Logic
             return this.PersonaAdapter.GetAllPersonasByType(tipoPersona);
         }
 
-        public Persona GetOneById(int iD)
+        public Persona GetOneById(int ID)
         {
-            throw new NotImplementedException();
+            return this.PersonaAdapter.GetOne(ID);
         }
-    }
+
+        public void Save(Persona persona)
+        {
+
+            this.PersonaAdapter.Save(persona);
+        }
+
+        public void Delete(int ID)
+        {
+            this.PersonaAdapter.Delete(ID);     
+        }
+}
 }

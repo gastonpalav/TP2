@@ -11,7 +11,7 @@ namespace UI.Web
 {
 
 
-    public partial class Materias
+    public partial class Cursos
     {
 
         /// <summary>
@@ -69,103 +69,112 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcion;
 
         /// <summary>
-        /// hssemLabel control.
+        /// anioCalendarioLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hssemLabel;
+        protected global::System.Web.UI.WebControls.Label anioCalendarioLabel;
 
         /// <summary>
-        /// hssemTextBox control.
+        /// anioCalendarioTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hssemTextBox;
+        protected global::System.Web.UI.WebControls.TextBox anioCalendarioTextBox;
 
         /// <summary>
-        /// rfvHssem control.
+        /// rfanioCalendario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvHssem;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfanioCalendario;
 
         /// <summary>
-        /// rngHssem control.
+        /// cupoLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rngHssem;
+        protected global::System.Web.UI.WebControls.Label cupoLabel;
 
         /// <summary>
-        /// hstotLabel control.
+        /// cupoTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hstotLabel;
+        protected global::System.Web.UI.WebControls.TextBox cupoTextBox;
 
         /// <summary>
-        /// hstotTextBox control.
+        /// rfvCupo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hstotTextBox;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCupo;
 
         /// <summary>
-        /// revHstot control.
+        /// MateriaLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator revHstot;
+        protected global::System.Web.UI.WebControls.Label MateriaLabel;
 
         /// <summary>
-        /// rngHstot control.
+        /// MateriaDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rngHstot;
+        protected global::System.Web.UI.WebControls.DropDownList MateriaDropDown;
 
         /// <summary>
-        /// planLabel control.
+        /// rfvMateria control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label planLabel;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMateria;
 
         /// <summary>
-        /// planDropDown control.
+        /// ComisionLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList planDropDown;
+        protected global::System.Web.UI.WebControls.Label ComisionLabel;
 
         /// <summary>
-        /// revPlan control.
+        /// ComisionDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator revPlan;
+        protected global::System.Web.UI.WebControls.DropDownList ComisionDropDown;
+
+        /// <summary>
+        /// rfvComision control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvComision;
 
         /// <summary>
         /// gridActionsPanel control.

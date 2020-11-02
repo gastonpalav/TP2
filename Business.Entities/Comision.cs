@@ -43,8 +43,5 @@ namespace Business.Entities
             
         }
 
-
-
-
     }
 }

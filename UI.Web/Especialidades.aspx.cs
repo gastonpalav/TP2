@@ -9,20 +9,21 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Materias : System.Web.UI.Page
+    public partial class Especialidades : System.Web.UI.Page
     {
-        private MateriaLogic _logic;
+        private EspecialidadLogic _logic;
 
-        public MateriaLogic Logic
+        public EspecialidadLogic Logic
         {
             get
             {
                 if (_logic == null)
                 {
-                    _logic = new MateriaLogic();
+                    _logic = new EspecialidadLogic();
                 }
                 return _logic;
             }
+
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -35,18 +36,9 @@ namespace UI.Web
 
         private void LoadGrid()
         {
-            PlanLogic plan = new PlanLogic();
-
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
 
-            if (this.planDropDown.Items.Count == 1)
-            {
-                this.planDropDown.DataSource = plan.GetAll();
-                this.planDropDown.DataTextField = "Descripcion";
-                this.planDropDown.DataValueField = "ID";
-                this.planDropDown.DataBind();
-            }           
         }
 
         public enum FormModes
@@ -62,8 +54,7 @@ namespace UI.Web
             set { this.ViewState["FormMode"] = value; }
         }
 
-        private Materia Entity { get; set; }
-
+        private Especialidad Entity { get; set; }
         private int SelectedID
         {
             get
@@ -96,13 +87,11 @@ namespace UI.Web
             this.SelectedID = (int)this.gridView.SelectedValue;
 
         }
+
         private void LoadForm(int ID)
         {
             this.Entity = this.Logic.GetOne(ID);
-            this.descripcionTextBox.Text = this.Entity.Descripcion;
-            this.hssemTextBox.Text = this.Entity.HSSemanales.ToString();
-            this.hstotTextBox.Text = this.Entity.HSTotales.ToString();
-            this.planDropDown.SelectedValue = this.Entity.Plan.ID.ToString();
+            this.descTextBox.Text = this.Entity.Descripcion;
         }
 
         protected void editarlinkButton_Click(object sender, EventArgs e)
@@ -117,19 +106,14 @@ namespace UI.Web
             }
         }
 
-        private void LoadEntity(Materia materia)
+        private void LoadEntity(Especialidad espec)
         {
-            materia.Descripcion = this.descripcionTextBox.Text;
-            materia.HSSemanales = int.Parse(this.hssemTextBox.Text);
-            materia.HSTotales = int.Parse(this.hstotTextBox.Text);
-
-            materia.Plan = new Plan();
-            materia.Plan.ID = int.Parse(this.planDropDown.SelectedItem.Value);
+            espec.Descripcion = this.descTextBox.Text;
         }
 
-        private void SaveEntity(Materia materia)
+        private void SaveEntity(Especialidad espec)
         {
-            this.Logic.Save(materia);
+            this.Logic.Save(espec);
         }
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
@@ -141,7 +125,7 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.modificacion:
-                    this.Entity = new Materia();
+                    this.Entity = new Especialidad();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
@@ -149,7 +133,7 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.alta:
-                    this.Entity = new Materia();
+                    this.Entity = new Especialidad();
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
@@ -164,11 +148,7 @@ namespace UI.Web
 
         private void EnableForm(bool enable)
         {
-            this.descripcionTextBox.Enabled = enable;
-            this.hssemTextBox.Enabled = enable;
-            this.hstotTextBox.Enabled = enable;
-
-            this.planDropDown.Enabled = enable;
+            this.descTextBox.Enabled = enable;            
         }
 
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
@@ -186,7 +166,9 @@ namespace UI.Web
         private void DeleteEntity(int ID)
         {
             this.Logic.Delete(ID);
+
         }
+
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
             this.formPanel.Visible = true;
@@ -195,20 +177,19 @@ namespace UI.Web
             this.ClearForm();
             this.EnableForm(true);
         }
+
+
         private void ClearForm()
         {
-            this.descripcionTextBox.Text = string.Empty;
-            this.hssemTextBox.Text = string.Empty;
-            this.hstotTextBox.Text = string.Empty;
-
-            //esto no es
-            this.planDropDown.SelectedIndex = 0;
-
+            this.descTextBox.Text = string.Empty;
         }
+
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
         }
+
+
     }
 }

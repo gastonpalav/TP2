@@ -11,7 +11,7 @@ namespace UI.Web
 {
 
 
-    public partial class Materias
+    public partial class Comisiones
     {
 
         /// <summary>
@@ -69,76 +69,31 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcion;
 
         /// <summary>
-        /// hssemLabel control.
+        /// anioEspecialidadLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hssemLabel;
+        protected global::System.Web.UI.WebControls.Label anioEspecialidadLabel;
 
         /// <summary>
-        /// hssemTextBox control.
+        /// anioEspecialidadTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hssemTextBox;
+        protected global::System.Web.UI.WebControls.TextBox anioEspecialidadTextBox;
 
         /// <summary>
-        /// rfvHssem control.
+        /// rfanioEspecialidad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvHssem;
-
-        /// <summary>
-        /// rngHssem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rngHssem;
-
-        /// <summary>
-        /// hstotLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hstotLabel;
-
-        /// <summary>
-        /// hstotTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hstotTextBox;
-
-        /// <summary>
-        /// revHstot control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator revHstot;
-
-        /// <summary>
-        /// rngHstot control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator rngHstot;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfanioEspecialidad;
 
         /// <summary>
         /// planLabel control.
