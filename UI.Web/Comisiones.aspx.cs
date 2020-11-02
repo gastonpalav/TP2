@@ -9,44 +9,45 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Materias : System.Web.UI.Page
+    public partial class Comisiones : System.Web.UI.Page
     {
-        private MateriaLogic _logic;
-
-        public MateriaLogic Logic
-        {
-            get
-            {
-                if (_logic == null)
-                {
-                    _logic = new MateriaLogic();
-                }
-                return _logic;
-            }
-        }
-
+        private ComisionLogic _logic;
+        public Comision Entity { get; set; }
+        private List<Plan> listaPlanes;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 LoadGrid();
             }
+
         }
 
         private void LoadGrid()
         {
             PlanLogic plan = new PlanLogic();
-
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
-
             if (this.planDropDown.Items.Count == 1)
             {
                 this.planDropDown.DataSource = plan.GetAll();
                 this.planDropDown.DataTextField = "Descripcion";
                 this.planDropDown.DataValueField = "ID";
                 this.planDropDown.DataBind();
-            }           
+            }
+
+        }
+
+        public ComisionLogic Logic
+        {
+            get
+            {
+                if (_logic == null)
+                {
+                    _logic = new ComisionLogic();
+                }
+                return _logic;
+            }
         }
 
         public enum FormModes
@@ -62,7 +63,10 @@ namespace UI.Web
             set { this.ViewState["FormMode"] = value; }
         }
 
-        private Materia Entity { get; set; }
+        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.SelectedID = (int)this.gridView.SelectedValue;
+        }
 
         private int SelectedID
         {
@@ -83,6 +87,7 @@ namespace UI.Web
             }
         }
 
+
         private bool IsEntitySelected
         {
             get
@@ -91,18 +96,14 @@ namespace UI.Web
             }
         }
 
-        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.SelectedID = (int)this.gridView.SelectedValue;
 
-        }
         private void LoadForm(int ID)
         {
             this.Entity = this.Logic.GetOne(ID);
             this.descripcionTextBox.Text = this.Entity.Descripcion;
-            this.hssemTextBox.Text = this.Entity.HSSemanales.ToString();
-            this.hstotTextBox.Text = this.Entity.HSTotales.ToString();
+            this.anioEspecialidadTextBox.Text = this.Entity.AnioEspecialidad.ToString();
             this.planDropDown.SelectedValue = this.Entity.Plan.ID.ToString();
+
         }
 
         protected void editarlinkButton_Click(object sender, EventArgs e)
@@ -117,19 +118,63 @@ namespace UI.Web
             }
         }
 
-        private void LoadEntity(Materia materia)
+        private void EnableForm(bool enable)
         {
-            materia.Descripcion = this.descripcionTextBox.Text;
-            materia.HSSemanales = int.Parse(this.hssemTextBox.Text);
-            materia.HSTotales = int.Parse(this.hstotTextBox.Text);
+            this.descripcionTextBox.Enabled = enable;
+            this.anioEspecialidadTextBox.Enabled = enable;
+            this.planDropDown.Enabled = enable;
+            //int i = 0;
+            //foreach (var item in listaPlanes)
+            //{
+            //    planDropDown.Items.Insert(i, new ListItem(item.Descripcion));
+            //    i++;
+            //}
+        }
+        private void LoadEntity(Comision comision)
+        {
+            comision.Descripcion = this.descripcionTextBox.Text;
+            comision.AnioEspecialidad = int.Parse(this.anioEspecialidadTextBox.Text);
+            comision.Plan = new Plan();
+            int itemSeleccionadoPlan = planDropDown.SelectedIndex;
+            comision.Plan.ID = this.listaPlanes[itemSeleccionadoPlan].ID;
 
-            materia.Plan = new Plan();
-            materia.Plan.ID = int.Parse(this.planDropDown.SelectedItem.Value);
+
+        }
+        private void SaveEntity(Comision comision)
+        {
+            this.Logic.Save(comision);
         }
 
-        private void SaveEntity(Materia materia)
+        private void DeleteEntity(int ID)
         {
-            this.Logic.Save(materia);
+            this.Logic.Delete(ID);
+
+        }
+        protected void eliminarLinkButton_Click(object sender, EventArgs e)
+        {
+            if (this.IsEntitySelected)
+            {
+                this.formPanel.Visible = true;
+                this.FormMode = FormModes.baja;
+                this.formActionPanel.Visible = true;
+                this.EnableForm(false);
+                this.LoadForm(this.SelectedID);
+            }
+        }
+
+        protected void nuevoLinkButton_Click(object sender, EventArgs e)
+        {
+            this.formPanel.Visible = true;
+            this.formActionPanel.Visible = true;
+            this.FormMode = FormModes.alta;
+            this.ClearForm();
+            this.EnableForm(true);
+        }
+
+        private void ClearForm()
+        {
+            this.descripcionTextBox.Text = string.Empty;
+            this.anioEspecialidadTextBox.Text = string.Empty;
         }
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
@@ -141,7 +186,7 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.modificacion:
-                    this.Entity = new Materia();
+                    this.Entity = new Comision();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
@@ -149,7 +194,7 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.alta:
-                    this.Entity = new Materia();
+                    this.Entity = new Comision();
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
@@ -157,58 +202,13 @@ namespace UI.Web
                 default:
                     break;
             }
-
             this.formPanel.Visible = false;
-            this.formActionPanel.Visible = false;
+        
         }
 
-        private void EnableForm(bool enable)
-        {
-            this.descripcionTextBox.Enabled = enable;
-            this.hssemTextBox.Enabled = enable;
-            this.hstotTextBox.Enabled = enable;
-
-            this.planDropDown.Enabled = enable;
-        }
-
-        protected void eliminarLinkButton_Click(object sender, EventArgs e)
-        {
-            if (this.IsEntitySelected)
-            {
-                this.formPanel.Visible = true;
-                this.formActionPanel.Visible = true;
-                this.FormMode = FormModes.baja;
-                this.EnableForm(false);
-                this.LoadForm(this.SelectedID);
-            }
-        }
-
-        private void DeleteEntity(int ID)
-        {
-            this.Logic.Delete(ID);
-        }
-        protected void nuevoLinkButton_Click(object sender, EventArgs e)
-        {
-            this.formPanel.Visible = true;
-            this.formActionPanel.Visible = true;
-            this.FormMode = FormModes.alta;
-            this.ClearForm();
-            this.EnableForm(true);
-        }
-        private void ClearForm()
-        {
-            this.descripcionTextBox.Text = string.Empty;
-            this.hssemTextBox.Text = string.Empty;
-            this.hstotTextBox.Text = string.Empty;
-
-            //esto no es
-            this.planDropDown.SelectedIndex = 0;
-
-        }
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {
-            this.formActionPanel.Visible = false;
-            this.formPanel.Visible = false;
+            this.formPanel.Visible = true;
         }
     }
 }
