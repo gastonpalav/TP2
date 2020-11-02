@@ -34,5 +34,10 @@ namespace Business.Logic
 
             this.PersonaAdapter.Save(persona);
         }
-    }
+
+        public void Delete(int ID)
+        {
+            this.PersonaAdapter.Delete(ID);     
+        }
+}
 }
