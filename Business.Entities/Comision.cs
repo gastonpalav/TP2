@@ -35,7 +35,7 @@ namespace Business.Entities
         }
 
 
-        private string _PlanDescripcion;
+        //private string _PlanDescripcion;
 
         public string PlanDescripcion
         {

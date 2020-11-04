@@ -13,13 +13,13 @@ namespace UI.Web
     public partial class Alumnos : System.Web.UI.Page
     {
         private PersonaLogic _logic;
-        private List<Plan> listaPlanes;
+        //private List<Plan> listaPlanes;
 
-        public Alumnos()
-        {
-            PlanLogic planLogic = new PlanLogic();
-            listaPlanes = planLogic.GetAll();
-        }
+        //public Alumnos()
+        //{
+        //    PlanLogic planLogic = new PlanLogic();
+        //    listaPlanes = planLogic.GetAll();
+        //}
         public PersonaLogic Logic
         {
             get
@@ -42,9 +42,18 @@ namespace UI.Web
 
         private void LoadGrid()
         {
+            PlanLogic plan = new PlanLogic();
 
             this.gridView.DataSource = this.Logic.GetAllPersonasByType(Persona.TipoPersonas.Alumno);
             this.gridView.DataBind();
+
+            if (this.planDropDown.Items.Count == 1)
+            {
+                this.planDropDown.DataSource = plan.GetAll();
+                this.planDropDown.DataTextField = "Descripcion";
+                this.planDropDown.DataValueField = "ID";
+                this.planDropDown.DataBind();
+            }
 
         }
         public enum FormModes
@@ -102,7 +111,7 @@ namespace UI.Web
             this.telefonoTextBox.Text = this.Entity.Telefono;
             this.fechaNacimientoTextBox.Text = this.Entity.FechaNacimiento.ToShortDateString();
             this.legajoTextBox.Text = this.Entity.Legajo.ToString();
-            this.DropDownListPlan.SelectedValue = this.Entity.Plan.ID.ToString();
+            this.planDropDown.SelectedValue = this.Entity.Plan.ID.ToString();
 
         }
 
@@ -128,12 +137,12 @@ namespace UI.Web
             this.telefonoTextBox.Enabled = enable;
             this.fechaNacimientoTextBox.Enabled = enable;
             this.legajoTextBox.Enabled = enable;
-            this.DropDownListPlan.Enabled = enable;
+            this.planDropDown.Enabled = enable;
 
-            this.DropDownListPlan.DataTextField = "Descripcion";
-            this.DropDownListPlan.DataValueField = "ID";
-            this.DropDownListPlan.DataSource = listaPlanes;
-            this.DropDownListPlan.DataBind();
+            //this.DropDownListPlan.DataTextField = "Descripcion";
+            //this.DropDownListPlan.DataValueField = "ID";
+            //this.DropDownListPlan.DataSource = listaPlanes;
+            //this.DropDownListPlan.DataBind();
             //int i = 0;
             //foreach (var item in listaPlanes)
             //{
@@ -154,12 +163,13 @@ namespace UI.Web
             persona.Legajo = int.Parse(this.legajoTextBox.Text);
             persona.FechaNacimiento = DateTime.Parse(this.fechaNacimientoTextBox.Text);
             persona.Telefono = this.telefonoTextBox.Text;
+
             persona.Plan = new Plan();
 
             //int itemSeleccionadoPlan = DropDownListPlan.SelectedIndex;
             //persona.Plan.ID = this.listaPlanes[itemSeleccionadoPlan].ID;
 
-            persona.Plan.ID = int.Parse(this.DropDownListPlan.SelectedItem.Value);
+            persona.Plan.ID = int.Parse(this.planDropDown.SelectedItem.Value);
 
 
         }
@@ -204,7 +214,9 @@ namespace UI.Web
             this.emailTextBox.Text = string.Empty;
             this.direccionTextBox.Text = string.Empty;
             this.telefonoTextBox.Text = string.Empty;
+            this.legajoTextBox.Text = string.Empty;
             this.fechaNacimientoTextBox.Text = string.Empty;
+            this.planDropDown.SelectedIndex = 0;
         }
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
@@ -234,12 +246,16 @@ namespace UI.Web
             }
             this.formPanel.Visible = false;
             this.formActionPanel.Visible = false;
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
     }
 }

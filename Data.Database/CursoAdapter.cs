@@ -158,11 +158,11 @@ namespace Data.Database
                     "UPDATE cursos set anio_calendario=@anio_calendario,cupo=@cupo,id_materia=@id_materia,id_comision=@id_comision " +
                     "WHERE id_curso=@id", SqlConn);
 
-                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = curso.ID;
-                cmdSave.Parameters.Add("@id_comision", SqlDbType.VarChar, 50).Value = curso.Comision.ID;
-                cmdSave.Parameters.Add("@id_materia", SqlDbType.VarChar, 50).Value = curso.Materia.ID;
-                cmdSave.Parameters.Add("@anio_calendario", SqlDbType.Int).Value = curso.AnioCalendario;
-                cmdSave.Parameters.Add("@cupo", SqlDbType.VarChar, 50).Value = curso.Cupo;
+                cmdSave.Parameters.Add("@id", SqlDbType.Int, 50).Value = curso.ID;
+                cmdSave.Parameters.Add("@id_comision", SqlDbType.Int, 50).Value = curso.Comision.ID;
+                cmdSave.Parameters.Add("@id_materia", SqlDbType.Int, 50).Value = curso.Materia.ID;
+                cmdSave.Parameters.Add("@anio_calendario", SqlDbType.Int, 50).Value = curso.AnioCalendario;
+                cmdSave.Parameters.Add("@cupo", SqlDbType.Int, 50).Value = curso.Cupo;
 
                 cmdSave.ExecuteNonQuery();
             }

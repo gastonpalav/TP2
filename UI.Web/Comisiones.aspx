@@ -21,6 +21,7 @@
         <asp:Label ID="anioEspecialidadLabel" runat="server" Text="Año especialidad: "></asp:Label>
         <asp:TextBox ID="anioEspecialidadTextBox" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="rfanioEspecialidad" runat="server" ControlToValidate="anioEspecialidadTextBox"  ErrorMessage="El Año de especialidad no puede estar vacío" ForeColor="Red" ToolTip="El Año de especialidad no puede estar vacío" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+        <asp:RangeValidator ID="rngAnio" runat="server" ControlToValidate="anioEspecialidadTextBox" Type="Integer" MinimumValue="1" MaximumValue="3000" ErrorMessage="Ingrese un año valido." ForeColor="Red" ToolTip="Ingrese un numero valido." ValidationGroup="vg"/>        
         <br />
         <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
         <asp:DropDownList ID="planDropDown" runat="server" AppendDataBoundItems="True">

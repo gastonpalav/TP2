@@ -48,10 +48,13 @@
         <asp:Label ID="legajoLabel" runat="server" Text="Legajo: "></asp:Label>
         <asp:TextBox ID="legajoTextBox" runat="server"></asp:TextBox>
          <asp:RequiredFieldValidator ID="legajoRequerido" runat="server" ForeColor="Red" ControlToValidate="legajoTextBox" ValidationGroup="vg" ErrorMessage="Requerido"></asp:RequiredFieldValidator>
+         <asp:RangeValidator ID="rngLegajo" runat="server" ControlToValidate="legajoTextBox" Type="Integer" MinimumValue="1" MaximumValue="10000" ErrorMessage="Ingrese un legajo valido." ForeColor="Red" ToolTip="Ingrese un legajo valido." ValidationGroup="vg"/>
+
         <br />
         <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
-         <asp:DropDownList ID="DropDownListPlan" runat="server">
-         </asp:DropDownList>
+        <asp:DropDownList ID="planDropDown" runat="server" AppendDataBoundItems="True">
+            <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
+        </asp:DropDownList>
     </asp:Panel>
     <asp:Panel ID="gridActionsPanel" runat="server" >
         <asp:LinkButton ID="editarlinkButton" runat="server" OnClick="editarlinkButton_Click">Editar</asp:LinkButton>
@@ -65,6 +68,5 @@
     <asp:Panel ID="ValidationActionPanel" runat="server">
         <asp:ValidationSummary ID="ValidationSummary" runat="server" ForeColor="Red" ValidationGroup="vg" />
     </asp:Panel>
-
 
 </asp:Content>

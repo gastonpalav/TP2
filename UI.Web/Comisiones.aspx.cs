@@ -13,7 +13,7 @@ namespace UI.Web
     {
         private ComisionLogic _logic;
         public Comision Entity { get; set; }
-        private List<Plan> listaPlanes;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -129,10 +129,8 @@ namespace UI.Web
             comision.Descripcion = this.descripcionTextBox.Text;
             comision.AnioEspecialidad = int.Parse(this.anioEspecialidadTextBox.Text);
             comision.Plan = new Plan();
-            int itemSeleccionadoPlan = planDropDown.SelectedIndex;
-            comision.Plan.ID = this.listaPlanes[itemSeleccionadoPlan].ID;
 
-
+            comision.Plan.ID = int.Parse(this.planDropDown.SelectedItem.Value);
         }
         private void SaveEntity(Comision comision)
         {
@@ -169,6 +167,8 @@ namespace UI.Web
         {
             this.descripcionTextBox.Text = string.Empty;
             this.anioEspecialidadTextBox.Text = string.Empty;
+            this.planDropDown.SelectedIndex = 0;
+
         }
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
@@ -197,12 +197,17 @@ namespace UI.Web
                     break;
             }
             this.formPanel.Visible = false;
-        
+            this.formActionPanel.Visible = false;
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {
-            this.formPanel.Visible = true;
+            this.formActionPanel.Visible = false;
+            this.formPanel.Visible = false;
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
     }
 }

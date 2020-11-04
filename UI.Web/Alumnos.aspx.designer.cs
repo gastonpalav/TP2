@@ -249,6 +249,15 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator legajoRequerido;
 
         /// <summary>
+        /// rngLeg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rngLeg;
+
+        /// <summary>
         /// planLabel control.
         /// </summary>
         /// <remarks>
@@ -258,13 +267,22 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Label planLabel;
 
         /// <summary>
-        /// DropDownListPlan control.
+        /// planDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListPlan;
+        protected global::System.Web.UI.WebControls.DropDownList planDropDown;
+
+        /// <summary>
+        /// revPlan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator revPlan;
 
         /// <summary>
         /// gridActionsPanel control.

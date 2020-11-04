@@ -157,6 +157,9 @@ namespace UI.Web
 
             this.formPanel.Visible = false;
             this.formActionPanel.Visible = false;
+
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
 
         private void EnableForm(bool enable)
@@ -202,6 +205,9 @@ namespace UI.Web
         {
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
+
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
     }
 }

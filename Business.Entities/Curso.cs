@@ -45,7 +45,7 @@ namespace Business.Entities
         }
 
 
-        private string _MateriaDescripcion;
+        //private string _MateriaDescripcion;
 
         public string MateriaDescripcion
         {
@@ -53,7 +53,7 @@ namespace Business.Entities
             
         }
 
-        private string _ComisionDescripcion;
+        //private string _ComisionDescripcion;
 
         public string  ComisionDescripcion
         {

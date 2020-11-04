@@ -47,12 +47,16 @@
         <br />
         <asp:Label ID="legajoLabel" runat="server" Text="Legajo: "></asp:Label>
         <asp:TextBox ID="legajoTextBox" runat="server"></asp:TextBox>
-         <asp:RequiredFieldValidator ID="legajoRequerido" runat="server" ForeColor="Red" ControlToValidate="legajoTextBox" ValidationGroup="vg" ErrorMessage="Requerido"></asp:RequiredFieldValidator>
+         <asp:RequiredFieldValidator ID="legajoRequerido" runat="server" ForeColor="Red" ControlToValidate="legajoTextBox" ValidationGroup="vg" ErrorMessage="Requerido"></asp:RequiredFieldValidator>      
+        <asp:RangeValidator ID="rngLeg" runat="server" ControlToValidate="legajoTextBox" Type="Integer" MinimumValue="1" MaximumValue="10000" ErrorMessage="Ingrese un numero de legajo valido." ForeColor="Red" ToolTip="Ingrese un numero de legajo valido." ValidationGroup="vg"/>
         <br />
          <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
-         <asp:DropDownList ID="DropDownListPlan" runat="server">
-         </asp:DropDownList>
-        
+          <asp:DropDownList ID="planDropDown" runat="server" AppendDataBoundItems="True">
+            <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="revPlan" runat="server" ControlToValidate="planDropDown" ErrorMessage="Seleccione un plan" ForeColor="Red" ToolTip="No seleccionó un plan" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+        <br />
+
     </asp:Panel>
     <asp:Panel ID="gridActionsPanel" runat="server" >
         <asp:LinkButton ID="editarlinkButton" runat="server" OnClick="editarlinkButton_Click">Editar</asp:LinkButton>
