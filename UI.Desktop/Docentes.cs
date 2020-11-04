@@ -9,10 +9,11 @@ namespace UI.Desktop
     {
         public Docentes()
         {
+            InitializeComponent();
             this.dgvDocentes.ReadOnly = true;
             this.dgvDocentes.AutoGenerateColumns = false;
             this.dgvDocentes.MultiSelect = false;
-            InitializeComponent();
+            
         }
 
         private void Docentes_Load(object sender, System.EventArgs e)
