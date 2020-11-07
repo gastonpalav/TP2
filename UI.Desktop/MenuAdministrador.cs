@@ -8,6 +8,7 @@ namespace UI.Desktop
         public MenuAdministrador()
         {
             InitializeComponent();
+
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -18,7 +19,7 @@ namespace UI.Desktop
         private void MenuAdministrador_Shown(object sender, EventArgs e)
         {
             formLogin formLogin = new formLogin();
-            formLogin.Show();
+            //formLogin.Show();
         }
 
         private void administracionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)

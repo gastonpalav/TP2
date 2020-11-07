@@ -37,7 +37,49 @@ namespace UI.Desktop
 
         private void tsbAgregar_Click(object sender, EventArgs e)
         {
+            DocentesDesktop docentesDesktop = new DocentesDesktop(ApplicationForm.Modoform.Alta);
+            docentesDesktop.ShowDialog();
+            Listar();
+        }
 
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            if ((dgvDocentes.SelectedRows.Count > 0))
+            {
+                int ID = ((Persona)this.dgvDocentes.SelectedRows[0].DataBoundItem).ID;
+                DocentesDesktop docenteDesktop = new DocentesDesktop(ID, ApplicationForm.Modoform.Modificacion);
+                docenteDesktop.ShowDialog();
+                this.Listar();
+            }
+            else
+            {
+                MessageBox.Show("POR FAVOR SELECCIONAR UN REGISTRO");
+            }
+        }
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+            if ((dgvDocentes.SelectedRows.Count > 0))
+            {
+                int ID = ((Persona)this.dgvDocentes.SelectedRows[0].DataBoundItem).ID;
+                DocentesDesktop docenteDesktop = new DocentesDesktop(ID, ApplicationForm.Modoform.Baja);
+                docenteDesktop.ShowDialog();
+                Listar();
+            }
+            else
+            {
+                MessageBox.Show("POR FAVOR SELECCIONAR UN REGISTRO");
+            }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            Listar();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

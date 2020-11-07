@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MateriaDesktop));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.plan = new System.Windows.Forms.Label();
             this.lblHsTot = new System.Windows.Forms.Label();
@@ -63,24 +64,26 @@
             this.tableLayoutPanel1.Controls.Add(this.lblID, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.93023F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.06977F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(348, 267);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(696, 513);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // plan
             // 
             this.plan.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.plan.AutoSize = true;
-            this.plan.Location = new System.Drawing.Point(3, 208);
+            this.plan.Location = new System.Drawing.Point(6, 402);
+            this.plan.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.plan.Name = "plan";
-            this.plan.Size = new System.Drawing.Size(28, 13);
+            this.plan.Size = new System.Drawing.Size(55, 25);
             this.plan.TabIndex = 11;
             this.plan.Text = "Plan";
             // 
@@ -88,9 +91,10 @@
             // 
             this.lblHsTot.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblHsTot.AutoSize = true;
-            this.lblHsTot.Location = new System.Drawing.Point(3, 176);
+            this.lblHsTot.Location = new System.Drawing.Point(6, 340);
+            this.lblHsTot.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblHsTot.Name = "lblHsTot";
-            this.lblHsTot.Size = new System.Drawing.Size(61, 13);
+            this.lblHsTot.Size = new System.Drawing.Size(121, 25);
             this.lblHsTot.TabIndex = 10;
             this.lblHsTot.Text = "Hs. Totales";
             // 
@@ -98,9 +102,10 @@
             // 
             this.lblHsSem.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblHsSem.AutoSize = true;
-            this.lblHsSem.Location = new System.Drawing.Point(3, 147);
+            this.lblHsSem.Location = new System.Drawing.Point(6, 283);
+            this.lblHsSem.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblHsSem.Name = "lblHsSem";
-            this.lblHsSem.Size = new System.Drawing.Size(78, 13);
+            this.lblHsSem.Size = new System.Drawing.Size(157, 25);
             this.lblHsSem.TabIndex = 9;
             this.lblHsSem.Text = "Hs. Semanales";
             // 
@@ -108,52 +113,58 @@
             // 
             this.lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(3, 77);
+            this.lblDescripcion.Location = new System.Drawing.Point(6, 148);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
+            this.lblDescripcion.Size = new System.Drawing.Size(125, 25);
             this.lblDescripcion.TabIndex = 8;
             this.lblDescripcion.Text = "Descripcion";
             // 
             // txtID
             // 
             this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtID.Location = new System.Drawing.Point(113, 4);
+            this.txtID.Location = new System.Drawing.Point(227, 12);
+            this.txtID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(232, 20);
+            this.txtID.Size = new System.Drawing.Size(463, 31);
             this.txtID.TabIndex = 0;
             // 
             // txtHsSem
             // 
             this.txtHsSem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHsSem.Location = new System.Drawing.Point(113, 143);
+            this.txtHsSem.Location = new System.Drawing.Point(227, 280);
+            this.txtHsSem.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtHsSem.Name = "txtHsSem";
-            this.txtHsSem.Size = new System.Drawing.Size(232, 20);
+            this.txtHsSem.Size = new System.Drawing.Size(463, 31);
             this.txtHsSem.TabIndex = 2;
             // 
             // txtHsTot
             // 
             this.txtHsTot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtHsTot.Location = new System.Drawing.Point(113, 173);
+            this.txtHsTot.Location = new System.Drawing.Point(227, 337);
+            this.txtHsTot.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtHsTot.Name = "txtHsTot";
-            this.txtHsTot.Size = new System.Drawing.Size(232, 20);
+            this.txtHsTot.Size = new System.Drawing.Size(463, 31);
             this.txtHsTot.TabIndex = 3;
             // 
             // cboPlan
             // 
             this.cboPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cboPlan.FormattingEnabled = true;
-            this.cboPlan.Location = new System.Drawing.Point(113, 204);
+            this.cboPlan.Location = new System.Drawing.Point(227, 398);
+            this.cboPlan.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cboPlan.Name = "cboPlan";
-            this.cboPlan.Size = new System.Drawing.Size(232, 21);
+            this.cboPlan.Size = new System.Drawing.Size(463, 33);
             this.cboPlan.TabIndex = 4;
             // 
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnCancelar.Location = new System.Drawing.Point(113, 238);
+            this.btnCancelar.Location = new System.Drawing.Point(227, 459);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(150, 44);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -162,9 +173,10 @@
             // btnAceptar
             // 
             this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAceptar.Location = new System.Drawing.Point(32, 238);
+            this.btnAceptar.Location = new System.Drawing.Point(65, 459);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(150, 44);
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -175,28 +187,32 @@
             this.txtDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDesc.Location = new System.Drawing.Point(113, 32);
+            this.txtDesc.Location = new System.Drawing.Point(227, 61);
+            this.txtDesc.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(232, 103);
+            this.txtDesc.Size = new System.Drawing.Size(463, 199);
             this.txtDesc.TabIndex = 1;
             // 
             // lblID
             // 
             this.lblID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(3, 8);
+            this.lblID.Location = new System.Drawing.Point(6, 15);
+            this.lblID.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(18, 13);
+            this.lblID.Size = new System.Drawing.Size(32, 25);
             this.lblID.TabIndex = 7;
             this.lblID.Text = "ID";
             // 
             // MateriaDesktop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 267);
+            this.ClientSize = new System.Drawing.Size(696, 513);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.Name = "MateriaDesktop";
             this.Text = "Materia";
             this.tableLayoutPanel1.ResumeLayout(false);
