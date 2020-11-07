@@ -40,6 +40,7 @@ namespace UI.Desktop
             DocentesDesktop docentesDesktop = new DocentesDesktop(ApplicationForm.Modoform.Alta);
             docentesDesktop.ShowDialog();
             Listar();
+            
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)

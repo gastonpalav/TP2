@@ -1,6 +1,4 @@
-﻿using Business.Entities;
-using Business.Logic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Util;
+using Business.Entities;
+using Business.Logic;
+
 
 namespace UI.Desktop
 {
-    public partial class DocentesDesktop : ApplicationForm
+    public partial class AlumnosDesktop : ApplicationForm
     {
-
         private List<Plan> listaPlanes;
-        public DocentesDesktop()
+        public AlumnosDesktop()
         {
             InitializeComponent();
             PlanLogic planLogic = new PlanLogic();
@@ -25,22 +24,24 @@ namespace UI.Desktop
             this.cboBoxPlan.DataSource = listaPlanes;
             this.cboBoxPlan.ValueMember = "Descripcion";
             this.cboBoxPlan.DisplayMember = "Descripcion";
+
         }
 
-        public DocentesDesktop(Modoform modo) : this()
+        public AlumnosDesktop(Modoform modo) : this()
         {
             this.Modo = modo;
         }
 
         public Persona PersonaEntity { get; set; }
 
-        public DocentesDesktop(int ID, Modoform modo) : this()
+        public AlumnosDesktop(int ID, Modoform modo) : this()
         {
             this.Modo = modo;
             PersonaLogic personaLogic = new PersonaLogic();
             this.PersonaEntity = personaLogic.GetOneById(ID);
             this.MapearDeDatos();
         }
+
 
         public override void MapearDeDatos()
         {
@@ -67,7 +68,6 @@ namespace UI.Desktop
 
             }
         }
-
         public override void MapearADatos()
         {
             switch (this.Modo)
@@ -91,14 +91,14 @@ namespace UI.Desktop
 
                 PersonaEntity.Apellido = this.txtBoxApellido.Text;
                 PersonaEntity.Nombre = this.txtBoxNombre.Text;
-                PersonaEntity.Telefono = this.txtBoxTelefono.Text;
                 PersonaEntity.Email = this.txtBoxEmail.Text;
-                PersonaEntity.Direccion = this.txtBoxDireccion.Text;
+                PersonaEntity.Telefono = this.txtBoxTelefono.Text;
                 PersonaEntity.FechaNacimiento = this.dtpFechaNacimiento.Value;
+                PersonaEntity.Direccion = this.txtBoxDireccion.Text;
                 PersonaEntity.Plan = new Plan();
                 int itemSeleccionadoPlan = cboBoxPlan.SelectedIndex;
                 PersonaEntity.Plan.ID = this.listaPlanes[itemSeleccionadoPlan].ID;
-                PersonaEntity.TipoPersona = Persona.TipoPersonas.Docente;
+                PersonaEntity.TipoPersona = Persona.TipoPersonas.Alumno;
 
 
 
@@ -111,7 +111,7 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
-            if (this.cboBoxPlan.SelectedValue == null || this.dtpFechaNacimiento.Value ==null || !Util.Validar.Email_valido(this.txtBoxEmail.Text) || string.IsNullOrEmpty(this.txtBoxTelefono.Text) || string.IsNullOrEmpty(this.txtBoxNombre.Text) || string.IsNullOrEmpty(this.txtBoxLegajo.Text) || string.IsNullOrEmpty(this.txtBoxDireccion.Text) || string.IsNullOrEmpty(this.txtBoxApellido.Text))
+            if (this.cboBoxPlan.SelectedValue == null || this.dtpFechaNacimiento.Value == null || !Util.Validar.Email_valido(this.txtBoxEmail.Text) || string.IsNullOrEmpty(this.txtBoxTelefono.Text) || string.IsNullOrEmpty(this.txtBoxNombre.Text) || string.IsNullOrEmpty(this.txtBoxLegajo.Text) || string.IsNullOrEmpty(this.txtBoxDireccion.Text) || string.IsNullOrEmpty(this.txtBoxApellido.Text))
             {
                 this.Notificar("INFORMACION INCOMPLETA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -133,6 +133,23 @@ namespace UI.Desktop
             }
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Eliminar()
+        {
+            DialogResult dr = MessageBox.Show("¿Esta seguro que desea eliminar este Alumno?.", "Eliminar Alumno", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                PersonaLogic personaLogic = new PersonaLogic();
+                personaLogic.Delete(this.PersonaEntity.ID);
+                this.Close();
+            }
+        }
+
 
         public override void GuardarCambios()
         {
@@ -144,24 +161,6 @@ namespace UI.Desktop
                 this.Notificar("GUARDADO EXITOSO", MessageBoxButtons.OK, MessageBoxIcon.None);
                 this.Close();
             }
-        }
-
-        private void Eliminar()
-        {
-            DialogResult dr = MessageBox.Show("¿Esta seguro que desea eliminar este docente?.", "Eliminar Docente", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dr == DialogResult.Yes)
-            {
-                PersonaLogic personaLogic = new PersonaLogic();
-                personaLogic.Delete(this.PersonaEntity.ID);
-                this.Close();
-            }
-        }
-
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
