@@ -18,7 +18,7 @@ namespace UI.Desktop
 
         private void MenuAdministrador_Shown(object sender, EventArgs e)
         {
-            formLogin formLogin = new formLogin();
+            //formLogin formLogin = new formLogin();
             //formLogin.Show();
         }
 
@@ -50,6 +50,25 @@ namespace UI.Desktop
         {
             Planes planes = new Planes();
             planes.Show();
+        }
+
+        private void administracionDeMateriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Materias materias = new Materias();
+            materias.Show();
+        }
+
+        private void administracionDeComisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Comisiones comisiones = new Comisiones();
+            comisiones.Show();
+        }
+
+        private void administracionDeCursosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            Curso curso = new Curso();
+            curso.Show();
         }
     }
 }
