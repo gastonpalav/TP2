@@ -38,6 +38,10 @@ namespace UI.Web
             {
                 LoadGrid();
             }
+            if (this.gridView.Rows.Count > 0)
+            {
+                this.gridView.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
         }
 
         private void LoadGrid()

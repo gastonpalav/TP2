@@ -37,15 +37,18 @@ namespace UI.Web
             {
                 LoadGrid();
             }
-
+            if (this.gridView.Rows.Count > 0)
+            {
+                this.gridView.HeaderRow.TableSection = TableRowSection.TableHeader;
+            } 
         }
 
         private void LoadGrid()
         {
             PlanLogic plan = new PlanLogic();
 
-            this.gridViewProfesores.DataSource = this.Logic.GetAllPersonasByType(Persona.TipoPersonas.Docente);
-            this.gridViewProfesores.DataBind();
+            this.gridView.DataSource = this.Logic.GetAllPersonasByType(Persona.TipoPersonas.Docente);
+            this.gridView.DataBind();
 
             if (this.planDropDown.Items.Count == 1)
             {
@@ -96,9 +99,9 @@ namespace UI.Web
             }
         }
 
-        protected void gridViewProfesores_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.SelectedID = (int)this.gridViewProfesores.SelectedValue;
+            this.SelectedID = (int)this.gridView.SelectedValue;
         }
 
 
@@ -246,7 +249,7 @@ namespace UI.Web
             this.formPanel.Visible = false;
             this.formActionPanel.Visible = false;
 
-            this.gridViewProfesores.SelectedIndex = -1;
+            this.gridView.SelectedIndex = -1;
             this.SelectedID = 0;
         }
 
@@ -255,7 +258,7 @@ namespace UI.Web
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
 
-            this.gridViewProfesores.SelectedIndex = -1;
+            this.gridView.SelectedIndex = -1;
             this.SelectedID = 0;
         }
     }
