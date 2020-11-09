@@ -72,7 +72,9 @@
     <Content Include="Cursos.aspx" />
     <Content Include="Especialidades.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Login.aspx" />
     <Content Include="Materias.aspx" />
+    <Content Include="MenuAdministrador.aspx" />
     <Content Include="Profesores.aspx" />
     <Content Include="Planes.aspx" />
     <Content Include="Usuarios.aspx" />
@@ -111,12 +113,26 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Materias.aspx.cs">
       <DependentUpon>Materias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Materias.aspx.designer.cs">
       <DependentUpon>Materias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuAdministrador.aspx.cs">
+      <DependentUpon>MenuAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuAdministrador.aspx.designer.cs">
+      <DependentUpon>MenuAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="Planes.aspx.cs">
       <DependentUpon>Planes.aspx</DependentUpon>

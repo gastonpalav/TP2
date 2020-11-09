@@ -13,13 +13,6 @@ namespace UI.Web
     public partial class Alumnos : System.Web.UI.Page
     {
         private PersonaLogic _logic;
-        //private List<Plan> listaPlanes;
-
-        //public Alumnos()
-        //{
-        //    PlanLogic planLogic = new PlanLogic();
-        //    listaPlanes = planLogic.GetAll();
-        //}
         public PersonaLogic Logic
         {
             get

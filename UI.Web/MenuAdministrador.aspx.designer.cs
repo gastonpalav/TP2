@@ -11,25 +11,25 @@ namespace UI.Web
 {
 
 
-    public partial class Master
+    public partial class MenuAdministrador
     {
 
         /// <summary>
-        /// bodyForm control.
+        /// SiteMapDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm bodyForm;
+        protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMapDataSource1;
 
         /// <summary>
-        /// bodyContentPlaceHolder control.
+        /// Menu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder bodyContentPlaceHolder;
+        protected global::System.Web.UI.WebControls.Menu Menu;
     }
 }
