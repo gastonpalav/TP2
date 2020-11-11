@@ -44,13 +44,11 @@ namespace UI.Web
                 }
                 else if (tipoMenu == Persona.TipoPersonas.Alumno)
                 {
-                    //MenuAlumno menuAlumno = new MenuAlumno();
-                    //menuAlumno.Show();
+                    Response.Redirect("~/MenuAlumnos.aspx");
                 }
                 else if (tipoMenu == Persona.TipoPersonas.Docente)
                 {
-                    //MenuDocente menuDocente = new MenuDocente();
-                    //menuDocente.Show();
+                    Response.Redirect("~/MenuDocentes.aspx");
                 }
                 else
                 {
