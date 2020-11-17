@@ -5,7 +5,7 @@
     <br />
     <div class="form-group">
         <asp:Panel ID="formPanel" Visible="true" runat="server">
-            <asp:Label ID="usuarioLabel" runat="server" Text="usuario: "></asp:Label>
+            <asp:Label ID="usuarioLabel" runat="server" Text="Usuario: "></asp:Label>
         <asp:TextBox ID="usuarioTextBox" class="form-control" runat="server" ></asp:TextBox>
             <asp:RequiredFieldValidator ID="usuarioRequerido" runat="server" ForeColor="Red" ErrorMessage="Requerido" ControlToValidate="usuarioTextBox" ValidationGroup="vg" >*</asp:RequiredFieldValidator>
             <br />

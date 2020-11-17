@@ -45,15 +45,14 @@ namespace Business.Entities
         }
 
 
-        //private string _MateriaDescripcion;
-
+ 
         public string MateriaDescripcion
         {
             get { return Materia.Descripcion; }
             
         }
 
-        //private string _ComisionDescripcion;
+
 
         public string  ComisionDescripcion
         {

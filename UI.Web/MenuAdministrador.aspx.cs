@@ -12,15 +12,15 @@ namespace UI.Web
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            //string userID = (string)Session["UsuarioID"];
-            //if(!IsPostBack)
-            //{
-            //    if(userID=="" || userID==null)
-            //    {
+            var user = Session["USUARIO"];
+            if(!IsPostBack)
+            {
+                if(user==null)
+               {
 
-            //        Response.Redirect("~/Login.aspx");
-            //    }
-            //}
+                   Response.Redirect("~/Login.aspx");
+               }
+            }
         }
 
         protected void Menu_MenuItemDataBound(object sender, MenuEventArgs e)

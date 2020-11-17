@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
 using Business.Entities;
 using Business.Logic;
 
@@ -36,18 +37,23 @@ namespace UI.Web
                 
                 PersonaLogic personaLogic = new PersonaLogic();
                 Persona.TipoPersonas tipoMenu = personaLogic.GetTipoPersonaByUser(this.usuarioTextBox.Text);
+
+                Session["USUARIO"] = personaLogic.GetOneByUser(this.usuarioTextBox.Text);
                 if (tipoMenu == Persona.TipoPersonas.Administrador)
                 {
+                    
                     Response.Redirect("~/MenuAdministrador.aspx");
                     
 
                 }
                 else if (tipoMenu == Persona.TipoPersonas.Alumno)
                 {
+                   
                     Response.Redirect("~/MenuAlumnos.aspx");
                 }
                 else if (tipoMenu == Persona.TipoPersonas.Docente)
                 {
+                    
                     Response.Redirect("~/MenuDocentes.aspx");
                 }
                 else
