@@ -10,7 +10,7 @@
                 <asp:BoundField HeaderText="Email" DataField="Email" />
                 <asp:BoundField HeaderText="Direccion" DataField="Direccion" />
                 <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
-                <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FechaNacimiento" />
+                <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FechaNacimiento" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField HeaderText="Legajo" DataField="Legajo" />
                 <asp:BoundField HeaderText="Plan" DataField="PlanDescripcion" />
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />

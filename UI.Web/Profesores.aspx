@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
     <asp:Panel ID="gridPanel" runat="server">
-        <asp:GridView ID="gridView" runat="server" AutogenerateColumns="false" SelectedRowStyle-BackColor="Black" 
+        <asp:GridView ID="gridView" runat="server" AutogenerateColumns="False" SelectedRowStyle-BackColor="Black" 
             SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CssClass="table table-responsive-lg">
             <EmptyDataTemplate>Aún no hay profesores para mostrar</EmptyDataTemplate>
             <Columns>
@@ -11,7 +11,7 @@
                 <asp:BoundField HeaderText="Email" DataField="Email" />
                 <asp:BoundField HeaderText="Direccion" DataField="Direccion" />
                 <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
-                <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FechaNacimiento" />
+                <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FechaNacimiento" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField HeaderText="Legajo" DataField="Legajo" />
                 <asp:BoundField HeaderText="Plan" DataField="PlanDescripcion" />
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
