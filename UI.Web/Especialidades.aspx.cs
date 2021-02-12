@@ -164,7 +164,7 @@ namespace UI.Web
             {
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
-                this.FormMode = FormModes.baja;
+                this.FormMode = FormModes.baja;                
                 this.EnableForm(false);
                 this.LoadForm(this.SelectedID);
             }
@@ -172,7 +172,14 @@ namespace UI.Web
 
         private void DeleteEntity(int ID)
         {
-            this.Logic.Delete(ID);
+            try
+            {
+                this.Logic.Delete(ID);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError("", ex.Message);
+            }
 
         }
 

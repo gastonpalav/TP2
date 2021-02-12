@@ -78,6 +78,16 @@ namespace Data.Database
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteNonQuery();
             }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547)
+                {
+                    Exception ExcepcionManejada = new Exception("Error al borrar datos de la especialidad por pertenecer esta a un plan", ex);
+                    throw ExcepcionManejada;
+                }
+
+                throw ex;
+            }
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al borrar datos de la especialidad", ex);
