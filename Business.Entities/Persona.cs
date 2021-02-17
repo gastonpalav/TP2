@@ -44,7 +44,7 @@ namespace Business.Entities
             set { _Plan = value; }
         }
 
-        private string _planDescripcion;
+        //private string _planDescripcion;
 
         public string PlanDescripcion
         {

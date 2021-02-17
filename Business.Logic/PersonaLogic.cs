@@ -29,10 +29,22 @@ namespace Business.Logic
             return this.PersonaAdapter.GetOne(ID);
         }
 
+        public Persona GetOneByUser(string usuario)
+        {
+            return this.PersonaAdapter.GetOneByUsuario(usuario);
+        }
+
         public void Save(Persona persona)
         {
+            try
+            {
+                this.PersonaAdapter.Save(persona);
+            }
+            catch (Exception ex)
+            {
 
-            this.PersonaAdapter.Save(persona);
+                throw ex;
+            }
         }
 
         public void Delete(int ID)

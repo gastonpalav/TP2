@@ -38,7 +38,16 @@ namespace Business.Logic
 
         public void Delete(int ID)
         {
-            this.MateriaData.Delete(ID);
+            try
+            {
+                this.MateriaData.Delete(ID);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

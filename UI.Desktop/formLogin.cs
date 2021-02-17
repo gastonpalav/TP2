@@ -14,6 +14,11 @@ namespace UI.Desktop
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            Login();
+        }
+
+        private void Login()
+        {
             if (this.Validar(this.txtUsuario.Text, this.txtPassword.Text))
             {
                 this.DialogResult = DialogResult.OK;
@@ -47,7 +52,6 @@ namespace UI.Desktop
                     , MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private bool Validar(string usuario, string contraseña)
         {
             try
@@ -58,6 +62,14 @@ namespace UI.Desktop
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        private void btnLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                Login();
             }
         }
     }

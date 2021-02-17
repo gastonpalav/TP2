@@ -61,6 +61,12 @@
     <Compile Include="Alumnos.Designer.cs">
       <DependentUpon>Alumnos.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlumnosDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnosDesktop.Designer.cs">
+      <DependentUpon>AlumnosDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,12 @@
     </Compile>
     <Compile Include="CursoDesktop.Designer.cs">
       <DependentUpon>CursoDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocentesDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocentesDesktop.Designer.cs">
+      <DependentUpon>DocentesDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonaDesktop.cs">
       <SubType>Form</SubType>
@@ -186,6 +198,12 @@
     <EmbeddedResource Include="AlumnoInscripcion.resx">
       <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Alumnos.resx">
+      <DependentUpon>Alumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlumnosDesktop.resx">
+      <DependentUpon>AlumnosDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,8 +219,14 @@
     <EmbeddedResource Include="CursoDesktop.resx">
       <DependentUpon>CursoDesktop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DocentesDesktop.resx">
+      <DependentUpon>DocentesDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuAlumno.resx">
       <DependentUpon>MenuAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuDocente.resx">
+      <DependentUpon>MenuDocente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonaDesktop.resx">
       <DependentUpon>PersonaDesktop.cs</DependentUpon>
@@ -275,6 +299,10 @@
     <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
       <Project>{FD624D7B-D458-4F87-B579-4D33A6A0E4C8}</Project>
       <Name>Business.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{9ccc92c8-2df3-480c-8efc-234bf5a0e286}</Project>
+      <Name>Util</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

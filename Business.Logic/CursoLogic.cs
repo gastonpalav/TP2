@@ -39,7 +39,16 @@ namespace Business.Logic
 
         public void Delete(int idCurso)
         {
-            this.CursoData.Delete(idCurso);
+            try
+            {
+                this.CursoData.Delete(idCurso);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public List<Curso> BuscarComisionesPorMateria(Materia materia)

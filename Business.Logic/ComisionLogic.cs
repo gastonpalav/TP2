@@ -51,8 +51,16 @@ namespace Business.Logic
 
         public void Delete(int idComision)
         {
+            try
+            {
+                this.ComisionData.Delete(idComision);
 
-            this.ComisionData.Delete(idComision);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
     }

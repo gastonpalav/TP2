@@ -39,7 +39,15 @@ namespace Business.Logic
 
         public void Delete(int idPlan)
         {
-            this.PlanData.Delete(idPlan);
+            try
+            {
+                this.PlanData.Delete(idPlan);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            } 
         }
     }
 }

@@ -31,6 +31,10 @@ namespace UI.Web
             {
                 LoadGrid();
             }
+            if (this.gridView.Rows.Count > 0)
+            {
+                this.gridView.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
         }
 
         private void LoadGrid()
@@ -157,6 +161,9 @@ namespace UI.Web
 
             this.formPanel.Visible = false;
             this.formActionPanel.Visible = false;
+
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
 
         private void EnableForm(bool enable)
@@ -180,7 +187,14 @@ namespace UI.Web
 
         private void DeleteEntity(int ID)
         {
-            this.Logic.Delete(ID);
+            try
+            {
+                this.Logic.Delete(ID);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError("", ex.Message);
+            }
         }
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
@@ -202,6 +216,9 @@ namespace UI.Web
         {
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
+
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
     }
 }

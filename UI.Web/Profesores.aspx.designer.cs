@@ -24,13 +24,13 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Panel gridPanel;
 
         /// <summary>
-        /// gridViewProfesores control.
+        /// gridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridViewProfesores;
+        protected global::System.Web.UI.WebControls.GridView gridView;
 
         /// <summary>
         /// formPanel control.
@@ -249,6 +249,15 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator legajoRequerido;
 
         /// <summary>
+        /// rngLegajo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rngLegajo;
+
+        /// <summary>
         /// planLabel control.
         /// </summary>
         /// <remarks>
@@ -258,13 +267,13 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Label planLabel;
 
         /// <summary>
-        /// DropDownListPlan control.
+        /// planDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListPlan;
+        protected global::System.Web.UI.WebControls.DropDownList planDropDown;
 
         /// <summary>
         /// gridActionsPanel control.

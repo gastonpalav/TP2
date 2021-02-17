@@ -1,6 +1,7 @@
 ﻿using Business.Entities;
 using Data.Database;
 using System.Collections.Generic;
+using System;
 
 namespace Business.Logic
 {
@@ -30,7 +31,15 @@ namespace Business.Logic
 
         public void Delete(int id)
         {
-            especialidadData.Delete(id);
+            try
+            {
+                especialidadData.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

@@ -54,11 +54,13 @@
             // tcEspecialidades.ContentPanel
             // 
             this.tcEspecialidades.ContentPanel.Controls.Add(this.tlEspecialidades);
-            this.tcEspecialidades.ContentPanel.Size = new System.Drawing.Size(800, 425);
+            this.tcEspecialidades.ContentPanel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tcEspecialidades.ContentPanel.Size = new System.Drawing.Size(1600, 823);
             this.tcEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcEspecialidades.Location = new System.Drawing.Point(0, 0);
+            this.tcEspecialidades.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tcEspecialidades.Name = "tcEspecialidades";
-            this.tcEspecialidades.Size = new System.Drawing.Size(800, 450);
+            this.tcEspecialidades.Size = new System.Drawing.Size(1600, 865);
             this.tcEspecialidades.TabIndex = 0;
             this.tcEspecialidades.Text = "toolStripContainer1";
             // 
@@ -76,11 +78,12 @@
             this.tlEspecialidades.Controls.Add(this.btnSalir, 1, 1);
             this.tlEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlEspecialidades.Location = new System.Drawing.Point(0, 0);
+            this.tlEspecialidades.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tlEspecialidades.Name = "tlEspecialidades";
             this.tlEspecialidades.RowCount = 2;
             this.tlEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlEspecialidades.Size = new System.Drawing.Size(800, 425);
+            this.tlEspecialidades.Size = new System.Drawing.Size(1600, 823);
             this.tlEspecialidades.TabIndex = 0;
             // 
             // dgvEspecialidades
@@ -93,32 +96,39 @@
             this.Descripcion});
             this.tlEspecialidades.SetColumnSpan(this.dgvEspecialidades, 2);
             this.dgvEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEspecialidades.Location = new System.Drawing.Point(3, 3);
+            this.dgvEspecialidades.Location = new System.Drawing.Point(6, 6);
+            this.dgvEspecialidades.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dgvEspecialidades.Name = "dgvEspecialidades";
             this.dgvEspecialidades.ReadOnly = true;
-            this.dgvEspecialidades.Size = new System.Drawing.Size(794, 390);
+            this.dgvEspecialidades.RowHeadersWidth = 82;
+            this.dgvEspecialidades.Size = new System.Drawing.Size(1588, 755);
             this.dgvEspecialidades.TabIndex = 0;
             // 
             // Id
             // 
             this.Id.DataPropertyName = "ID";
             this.Id.HeaderText = "ID";
+            this.Id.MinimumWidth = 10;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
+            this.Id.Width = 200;
             // 
             // Descripcion
             // 
             this.Descripcion.DataPropertyName = "Descripcion";
             this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.MinimumWidth = 10;
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 200;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnActualizar.Location = new System.Drawing.Point(641, 399);
+            this.btnActualizar.Location = new System.Drawing.Point(1282, 773);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.Size = new System.Drawing.Size(150, 44);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -126,9 +136,10 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(722, 399);
+            this.btnSalir.Location = new System.Drawing.Point(1444, 773);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.Size = new System.Drawing.Size(150, 44);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -137,13 +148,14 @@
             // tsEspecialidades
             // 
             this.tsEspecialidades.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsEspecialidades.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.tsEspecialidades.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbAgregar,
             this.tsbModificar,
             this.tbsEliminar});
-            this.tsEspecialidades.Location = new System.Drawing.Point(3, 0);
+            this.tsEspecialidades.Location = new System.Drawing.Point(6, 0);
             this.tsEspecialidades.Name = "tsEspecialidades";
-            this.tsEspecialidades.Size = new System.Drawing.Size(112, 25);
+            this.tsEspecialidades.Size = new System.Drawing.Size(160, 42);
             this.tsEspecialidades.TabIndex = 0;
             // 
             // tsbAgregar
@@ -152,7 +164,7 @@
             this.tsbAgregar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAgregar.Image")));
             this.tsbAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAgregar.Name = "tsbAgregar";
-            this.tsbAgregar.Size = new System.Drawing.Size(23, 22);
+            this.tsbAgregar.Size = new System.Drawing.Size(46, 36);
             this.tsbAgregar.Text = "Agregar";
             this.tsbAgregar.Click += new System.EventHandler(this.tsbAgregar_Click);
             // 
@@ -162,7 +174,7 @@
             this.tsbModificar.Image = ((System.Drawing.Image)(resources.GetObject("tsbModificar.Image")));
             this.tsbModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbModificar.Name = "tsbModificar";
-            this.tsbModificar.Size = new System.Drawing.Size(23, 22);
+            this.tsbModificar.Size = new System.Drawing.Size(46, 36);
             this.tsbModificar.Text = "Modificar";
             this.tsbModificar.Click += new System.EventHandler(this.tsbModificar_Click);
             // 
@@ -172,16 +184,18 @@
             this.tbsEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tbsEliminar.Image")));
             this.tbsEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbsEliminar.Name = "tbsEliminar";
-            this.tbsEliminar.Size = new System.Drawing.Size(23, 22);
+            this.tbsEliminar.Size = new System.Drawing.Size(46, 36);
             this.tbsEliminar.Text = "Eliminar";
             this.tbsEliminar.Click += new System.EventHandler(this.tbsEliminar_Click);
             // 
             // Especialidades
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1600, 865);
             this.Controls.Add(this.tcEspecialidades);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Especialidades";
             this.Text = "Especialidades";
             this.Load += new System.EventHandler(this.Especialidades_Load);

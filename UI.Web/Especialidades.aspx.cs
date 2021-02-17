@@ -32,6 +32,10 @@ namespace UI.Web
             {
                 LoadGrid();
             }
+            if (this.gridView.Rows.Count > 0)
+            {
+                this.gridView.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
         }
 
         private void LoadGrid()
@@ -144,6 +148,9 @@ namespace UI.Web
 
             this.formPanel.Visible = false;
             this.formActionPanel.Visible = false;
+
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
 
         private void EnableForm(bool enable)
@@ -157,7 +164,7 @@ namespace UI.Web
             {
                 this.formPanel.Visible = true;
                 this.formActionPanel.Visible = true;
-                this.FormMode = FormModes.baja;
+                this.FormMode = FormModes.baja;                
                 this.EnableForm(false);
                 this.LoadForm(this.SelectedID);
             }
@@ -165,7 +172,14 @@ namespace UI.Web
 
         private void DeleteEntity(int ID)
         {
-            this.Logic.Delete(ID);
+            try
+            {
+                this.Logic.Delete(ID);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError("", ex.Message);
+            }
 
         }
 
@@ -188,6 +202,9 @@ namespace UI.Web
         {
             this.formActionPanel.Visible = false;
             this.formPanel.Visible = false;
+
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
 
 

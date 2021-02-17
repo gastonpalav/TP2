@@ -107,6 +107,62 @@ namespace Data.Database
             return per;
         }
 
+        public Persona GetOneByUsuario(string usuario)
+        {
+            Persona per = new Persona();
+
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetOne = new SqlCommand("select *,desc_plan from personas pe inner join planes p on p.id_plan=pe.id_plan inner join usuarios us on pe.id_persona=us.id_persona where us.nombre_usuario = @usu", SqlConn);
+                cmdGetOne.Parameters.Add("@usu", SqlDbType.VarChar).Value = usuario;
+                SqlDataReader drPersonas = cmdGetOne.ExecuteReader();
+                if (drPersonas.Read())
+                {
+                    per.ID = (int)drPersonas["id_persona"];
+                    per.Nombre = (string)drPersonas["nombre"];
+                    per.Apellido = (string)drPersonas["apellido"];
+                    per.Direccion = (string)drPersonas["direccion"];
+                    per.Email = (string)drPersonas["email"];
+                    per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
+                    per.Legajo = (int)drPersonas["legajo"];
+                    per.Plan = new Plan
+                    {
+                        ID = (int)drPersonas["id_plan"],
+                        Descripcion = (string)drPersonas["desc_plan"]
+
+                    };
+                    per.Telefono = (string)drPersonas["telefono"];
+                    switch ((int)drPersonas["tipo_persona"])
+                    {
+                        case 0:
+                            per.TipoPersona = Persona.TipoPersonas.Administrador;
+                            break;
+
+                        case 1:
+                            per.TipoPersona = Persona.TipoPersonas.Docente;
+                            break;
+
+                        case 2:
+                            per.TipoPersona = Persona.TipoPersonas.Alumno;
+                            break;
+                    }
+                }
+                drPersonas.Close();
+            }
+            catch (Exception e)
+            {
+                Exception exp = new Exception("Error al recuperar datos de personas.", e);
+                throw exp;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return per;
+        }
+
+
         public void Delete(int ID)
         {
             try
@@ -115,6 +171,16 @@ namespace Data.Database
                 SqlCommand cmdDelete = new SqlCommand("delete personas where id_persona = @id", SqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547)
+                {
+                    Exception ExcepcionManejada = new Exception("Error al borrar datos de la persona por ser esta FK de otra entidad o estar inscripta a un curso", ex);
+                    throw ExcepcionManejada;
+                }
+
+                throw ex;
             }
             catch (Exception ex)
             {
@@ -191,7 +257,7 @@ namespace Data.Database
             }
             catch (Exception ex)
             {
-                Exception exception = new Exception("Error al modificar datos de la persona.", ex);
+                Exception exception = new Exception("Error al seleccionar datos de la persona.", ex);
                 throw exception;
             }
         }
@@ -253,5 +319,6 @@ namespace Data.Database
             }
 
         }
+
     }
 }

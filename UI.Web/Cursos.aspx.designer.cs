@@ -42,33 +42,6 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Panel formPanel;
 
         /// <summary>
-        /// descripcionLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label descripcionLabel;
-
-        /// <summary>
-        /// descripcionTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox descripcionTextBox;
-
-        /// <summary>
-        /// rfvDescripcion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescripcion;
-
-        /// <summary>
         /// anioCalendarioLabel control.
         /// </summary>
         /// <remarks>
@@ -96,6 +69,15 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfanioCalendario;
 
         /// <summary>
+        /// rnganio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rnganio;
+
+        /// <summary>
         /// cupoLabel control.
         /// </summary>
         /// <remarks>
@@ -121,6 +103,15 @@ namespace UI.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCupo;
+
+        /// <summary>
+        /// rngcupo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rngcupo;
 
         /// <summary>
         /// MateriaLabel control.

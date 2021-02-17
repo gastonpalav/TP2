@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlanDesktop));
             this.tlpPlanes = new System.Windows.Forms.TableLayoutPanel();
             this.lblDesc = new System.Windows.Forms.Label();
             this.lblID_Esp = new System.Windows.Forms.Label();
@@ -55,22 +56,24 @@
             this.tlpPlanes.Controls.Add(this.cboEspecialidad, 1, 2);
             this.tlpPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpPlanes.Location = new System.Drawing.Point(0, 0);
+            this.tlpPlanes.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tlpPlanes.Name = "tlpPlanes";
             this.tlpPlanes.RowCount = 4;
             this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.80734F));
             this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.19266F));
-            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tlpPlanes.Size = new System.Drawing.Size(334, 254);
+            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 77F));
+            this.tlpPlanes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tlpPlanes.Size = new System.Drawing.Size(668, 488);
             this.tlpPlanes.TabIndex = 0;
             // 
             // lblDesc
             // 
             this.lblDesc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(3, 99);
+            this.lblDesc.Location = new System.Drawing.Point(6, 192);
+            this.lblDesc.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(63, 13);
+            this.lblDesc.Size = new System.Drawing.Size(125, 25);
             this.lblDesc.TabIndex = 1;
             this.lblDesc.Text = "Descripción";
             // 
@@ -78,19 +81,21 @@
             // 
             this.lblID_Esp.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblID_Esp.AutoSize = true;
-            this.lblID_Esp.Location = new System.Drawing.Point(3, 192);
+            this.lblID_Esp.Location = new System.Drawing.Point(6, 371);
+            this.lblID_Esp.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblID_Esp.Name = "lblID_Esp";
-            this.lblID_Esp.Size = new System.Drawing.Size(81, 13);
+            this.lblID_Esp.Size = new System.Drawing.Size(161, 25);
             this.lblID_Esp.TabIndex = 2;
             this.lblID_Esp.Text = "ID Especialidad";
             // 
             // txtID
             // 
             this.txtID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtID.Location = new System.Drawing.Point(104, 6);
+            this.txtID.Location = new System.Drawing.Point(208, 17);
+            this.txtID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(227, 20);
+            this.txtID.Size = new System.Drawing.Size(454, 31);
             this.txtID.TabIndex = 3;
             // 
             // txtDesc
@@ -98,18 +103,20 @@
             this.txtDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDesc.Location = new System.Drawing.Point(104, 36);
+            this.txtDesc.Location = new System.Drawing.Point(208, 71);
+            this.txtDesc.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(227, 140);
+            this.txtDesc.Size = new System.Drawing.Size(454, 268);
             this.txtDesc.TabIndex = 4;
             // 
             // btnAceptar
             // 
             this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAceptar.Location = new System.Drawing.Point(23, 225);
+            this.btnAceptar.Location = new System.Drawing.Point(46, 433);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(150, 44);
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -118,9 +125,10 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnCancelar.Location = new System.Drawing.Point(104, 225);
+            this.btnCancelar.Location = new System.Drawing.Point(208, 433);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(150, 44);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -130,9 +138,10 @@
             // 
             this.lblID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(3, 10);
+            this.lblID.Location = new System.Drawing.Point(6, 20);
+            this.lblID.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(18, 13);
+            this.lblID.Size = new System.Drawing.Size(32, 25);
             this.lblID.TabIndex = 0;
             this.lblID.Text = "ID";
             // 
@@ -140,17 +149,20 @@
             // 
             this.cboEspecialidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cboEspecialidad.FormattingEnabled = true;
-            this.cboEspecialidad.Location = new System.Drawing.Point(104, 188);
+            this.cboEspecialidad.Location = new System.Drawing.Point(208, 367);
+            this.cboEspecialidad.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cboEspecialidad.Name = "cboEspecialidad";
-            this.cboEspecialidad.Size = new System.Drawing.Size(227, 21);
+            this.cboEspecialidad.Size = new System.Drawing.Size(454, 33);
             this.cboEspecialidad.TabIndex = 8;
             // 
             // PlanDesktop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 254);
+            this.ClientSize = new System.Drawing.Size(668, 488);
             this.Controls.Add(this.tlpPlanes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.Name = "PlanDesktop";
             this.Text = "Plan";
             this.tlpPlanes.ResumeLayout(false);

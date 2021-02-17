@@ -91,6 +91,16 @@ namespace Data.Database
                 cmdDelete.ExecuteNonQuery();
 
             }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547)
+                {
+                    Exception ExcepcionManejada = new Exception("Error al borrar datos de la comision por ser esta FK de otra entidad", ex);
+                    throw ExcepcionManejada;
+                }
+
+                throw ex;
+            }
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al Eliminar la comision", ex);

@@ -95,6 +95,16 @@ namespace Data.Database
 
                 cmdDelete.ExecuteNonQuery();
             }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547)
+                {
+                    Exception ExcepcionManejada = new Exception("Error al borrar datos del plan por ser este FK en otra entidad", ex);
+                    throw ExcepcionManejada;
+                }
+
+                throw ex;
+            }
             catch (Exception ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al Eliminar Plan", ex);

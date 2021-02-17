@@ -2,6 +2,7 @@
 using Business.Logic;
 using System.Linq;
 using System.Windows.Forms;
+using Util;
 
 namespace UI.Desktop
 {
@@ -108,9 +109,10 @@ namespace UI.Desktop
             }
         }
 
+ 
         public override bool Validar()
         {
-            if (string.IsNullOrEmpty(this.txtApellido.Text) || string.IsNullOrEmpty(this.txtEmail.Text) || string.IsNullOrEmpty(this.txtNombre.Text) || string.IsNullOrEmpty(this.txtUsuario.Text) || string.IsNullOrEmpty(this.txtClave.Text) || string.IsNullOrEmpty(this.txtConfirmarClave.Text))
+            if (string.IsNullOrEmpty(this.txtApellido.Text) || Util.Validar.Email_valido(this.txtEmail.Text) || string.IsNullOrEmpty(this.txtNombre.Text) || string.IsNullOrEmpty(this.txtUsuario.Text) || string.IsNullOrEmpty(this.txtClave.Text) || string.IsNullOrEmpty(this.txtConfirmarClave.Text))
             {
                 this.Notificar("INFORMACION INCOMPLETA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
