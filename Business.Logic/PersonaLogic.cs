@@ -36,8 +36,15 @@ namespace Business.Logic
 
         public void Save(Persona persona)
         {
+            try
+            {
+                this.PersonaAdapter.Save(persona);
+            }
+            catch (Exception ex)
+            {
 
-            this.PersonaAdapter.Save(persona);
+                throw ex;
+            }
         }
 
         public void Delete(int ID)

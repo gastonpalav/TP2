@@ -193,7 +193,14 @@ namespace UI.Web
 
         private void DeleteEntity(int ID)
         {
-            this.Logic.Delete(ID);
+            try
+            {
+                this.Logic.Delete(ID);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError("", ex.Message);
+            }
         }
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {

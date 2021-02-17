@@ -172,6 +172,16 @@ namespace Data.Database
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 cmdDelete.ExecuteNonQuery();
             }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547)
+                {
+                    Exception ExcepcionManejada = new Exception("Error al borrar datos de la persona por ser esta FK de otra entidad o estar inscripta a un curso", ex);
+                    throw ExcepcionManejada;
+                }
+
+                throw ex;
+            }
             catch (Exception ex)
             {
                 Exception exp = new Exception("Error al eliminar persona", ex);
