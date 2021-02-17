@@ -16,5 +16,15 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void subirNotaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

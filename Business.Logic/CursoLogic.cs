@@ -42,9 +42,17 @@ namespace Business.Logic
             this.CursoData.Delete(idCurso);
         }
 
-        public List<Curso> BuscarComisionesPorMateria(string materia)
+        public List<Curso> BuscarComisionesPorMateria(Materia materia)
         {
-            return this.CursoData.BuscarComisionesPorMateria(materia);
+            try
+            {
+                return this.CursoData.BuscarComisionesPorMateria(materia);
+            }
+            catch(Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar materias y comisiónes", ex);
+                throw ExcepcionManejada;
+            }
         }
     }
 }

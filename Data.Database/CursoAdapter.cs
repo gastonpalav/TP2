@@ -53,23 +53,25 @@ namespace Data.Database
             }
         }
 
-        public List<Curso> BuscarComisionesPorMateria(string materia)
+        public List<Curso> BuscarComisionesPorMateria(Materia materia)
         {
             List<Curso> cursos = new List<Curso>();
             try
             {
                 this.OpenConnection();
-                SqlCommand sqlCommand = new SqlCommand("select cu.id_comision, co.desc_comision from cursos cu inner join comisiones co on cu.id_comision = co.id_comision where id_materia = @id_materia and anio_calendario = @anio_calendario", SqlConn);
-                sqlCommand.Parameters.Add("@id_materia", SqlDbType.Int).Value = materia;
+                SqlCommand sqlCommand = new SqlCommand(" select cu.id_comision, co.desc_comision from cursos cu inner join comisiones co on cu.id_comision = co.id_comision where id_materia = @id_materia and anio_calendario = @anio_calendario ", SqlConn);
+                sqlCommand.Parameters.Add("@id_materia", SqlDbType.Int).Value = materia.ID;
                 sqlCommand.Parameters.Add("@anio_calendario", SqlDbType.Int).Value = DateTime.Today.Year;
                 SqlDataReader drCurso = sqlCommand.ExecuteReader();
 
                 while (drCurso.Read())
                 {
+                    if (drCurso.HasRows) { 
                     Curso c = new Curso();
-                    c.Comision.ID = (int)drCurso["id_comision"];
-                    c.Comision.Descripcion = (string)drCurso["desc_comision"];
+                    c.Comision.ID = (int)drCurso["cu.id_comision"];
+                    c.Comision.Descripcion = (string)drCurso["co.desc_comision"];
                     cursos.Add(c);
+                    }
                 }
 
                 drCurso.Close();

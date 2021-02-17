@@ -13,11 +13,6 @@ namespace UI.Desktop
         public AlumnoInscripcion()
         {
             InitializeComponent();
-        }
-
-        public AlumnoInscripcion(Usuario usuario)
-        {
-            this.usuAlumno = usuario;
 
             this.materiaLogic = new MateriaLogic();
 
@@ -25,9 +20,26 @@ namespace UI.Desktop
 
             this.AlumnoInscripcionLogic = new AlumnoInscripcionLogic();
 
-            this.LlenarCboComision();
+            this.cursoLogic = new CursoLogic();
 
-            //this.LlenarCboMaterias();
+            //this.LlenarCboComision();
+
+            this.LlenarCboMaterias();
+        }
+
+        public AlumnoInscripcion(Usuario usuario)
+        {
+            //this.usuAlumno = usuario;
+
+            this.materiaLogic = new MateriaLogic();
+
+            this.comisionLogic = new ComisionLogic();
+
+            this.AlumnoInscripcionLogic = new AlumnoInscripcionLogic();
+
+            //this.LlenarCboComision();
+
+            this.LlenarCboMaterias();
         }
 
         #endregion Constructors
@@ -94,11 +106,16 @@ namespace UI.Desktop
 
         private void cboMaterias_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            this.cboComision.Enabled = true;
-
-            List<Business.Entities.Curso> comDisponibles = this.cursoLogic.BuscarComisionesPorMateria(this.cboMaterias.SelectedItem.ToString());
-
-            this.cboComision.DataSource = comDisponibles;
+            try
+            {
+                List<Business.Entities.Curso> comDisponibles = this.cursoLogic.BuscarComisionesPorMateria((Materia)this.cboMaterias.SelectedItem);
+                this.cboComision.DataSource = comDisponibles;
+                this.cboComision.Enabled = true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("errorr");
+            }
         }
     }
 }

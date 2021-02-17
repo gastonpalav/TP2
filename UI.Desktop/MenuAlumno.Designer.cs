@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAlumno));
             this.menuAlumnos = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,12 +38,13 @@
             // 
             // menuAlumnos
             // 
+            this.menuAlumnos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menuAlumnos.BackgroundImage")));
             this.menuAlumnos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.materiasToolStripMenuItem});
             this.menuAlumnos.Location = new System.Drawing.Point(0, 0);
             this.menuAlumnos.Name = "menuAlumnos";
-            this.menuAlumnos.Size = new System.Drawing.Size(800, 24);
+            this.menuAlumnos.Size = new System.Drawing.Size(318, 24);
             this.menuAlumnos.TabIndex = 0;
             this.menuAlumnos.Text = "menuStrip1";
             // 
@@ -71,7 +73,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(318, 219);
             this.Controls.Add(this.menuAlumnos);
             this.MainMenuStrip = this.menuAlumnos;
             this.Name = "MenuAlumno";
