@@ -59,7 +59,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand sqlCommand = new SqlCommand(" select cu.id_comision, co.desc_comision from cursos cu inner join comisiones co on cu.id_comision = co.id_comision where id_materia = @id_materia and anio_calendario = @anio_calendario ", SqlConn);
+                SqlCommand sqlCommand = new SqlCommand("select cu.id_curso,cu.id_comision,co.desc_comision,cu.cupo from cursos cu inner join comisiones co on cu.id_comision = co.id_comision where id_materia = @id_materia and anio_calendario = @anio_calendario", SqlConn);
                 sqlCommand.Parameters.Add("@id_materia", SqlDbType.Int).Value = materia.ID;
                 sqlCommand.Parameters.Add("@anio_calendario", SqlDbType.Int).Value = DateTime.Today.Year;
                 SqlDataReader drCurso = sqlCommand.ExecuteReader();
@@ -68,9 +68,14 @@ namespace Data.Database
                 {
                     if (drCurso.HasRows) { 
                     Curso c = new Curso();
-                    c.Comision.ID = (int)drCurso["cu.id_comision"];
-                    c.Comision.Descripcion = (string)drCurso["co.desc_comision"];
-                    cursos.Add(c);
+                    c.Comision = new Comision
+                        {
+                            ID = (int)drCurso["id_comision"],
+                            Descripcion = (string)drCurso["desc_comision"]
+                        };
+                        c.Cupo = (Int32)drCurso["cupo"];
+                        c.ID=(int)drCurso["id_curso"];
+                        cursos.Add(c);
                     }
                 }
 

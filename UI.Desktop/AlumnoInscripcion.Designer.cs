@@ -62,11 +62,12 @@
             this.cboMaterias.DisplayMember = "Descripcion";
             this.cboMaterias.FormattingEnabled = true;
             this.cboMaterias.Location = new System.Drawing.Point(220, 117);
-            this.cboMaterias.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cboMaterias.Margin = new System.Windows.Forms.Padding(6);
             this.cboMaterias.Name = "cboMaterias";
             this.cboMaterias.Size = new System.Drawing.Size(282, 33);
             this.cboMaterias.TabIndex = 2;
             this.cboMaterias.ValueMember = "Id";
+            this.cboMaterias.SelectedIndexChanged += new System.EventHandler(this.cboMaterias_SelectedIndexChanged);
             this.cboMaterias.SelectionChangeCommitted += new System.EventHandler(this.cboMaterias_SelectionChangeCommitted);
             // 
             // cboComision
@@ -74,7 +75,7 @@
             this.cboComision.Enabled = false;
             this.cboComision.FormattingEnabled = true;
             this.cboComision.Location = new System.Drawing.Point(220, 294);
-            this.cboComision.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cboComision.Margin = new System.Windows.Forms.Padding(6);
             this.cboComision.Name = "cboComision";
             this.cboComision.Size = new System.Drawing.Size(282, 33);
             this.cboComision.TabIndex = 3;
@@ -82,7 +83,7 @@
             // btnInscripcion
             // 
             this.btnInscripcion.Location = new System.Drawing.Point(172, 490);
-            this.btnInscripcion.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnInscripcion.Margin = new System.Windows.Forms.Padding(6);
             this.btnInscripcion.Name = "btnInscripcion";
             this.btnInscripcion.Size = new System.Drawing.Size(150, 44);
             this.btnInscripcion.TabIndex = 4;
@@ -93,12 +94,13 @@
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(356, 490);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(150, 44);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // AlumnoInscripcion
             // 
@@ -112,7 +114,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "AlumnoInscripcion";
             this.Text = "Inscripcion";
             this.ResumeLayout(false);

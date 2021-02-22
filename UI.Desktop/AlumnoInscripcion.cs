@@ -7,48 +7,52 @@ using System.Windows.Forms;
 namespace UI.Desktop
 {
     public partial class AlumnoInscripcion : Form
+
+
     {
+
+        private List<Materia> listaMaterias;
+        private List<Business.Entities.Curso> listaCursos;
         #region Constructors
 
         public AlumnoInscripcion()
         {
             InitializeComponent();
 
-            this.materiaLogic = new MateriaLogic();
+            //this.materiaLogic = new MateriaLogic();
+            //this.comisionLogic = new ComisionLogic();
+            //this.cursoLogic = new CursoLogic();
+            //this.LlenarCboMaterias();
+            //listaCursos = cursoLogic.GetAll();
+            //this.AlumnoInscripcionLogic = new AlumnoInscripcionLogic();
 
-            this.comisionLogic = new ComisionLogic();
 
-            this.AlumnoInscripcionLogic = new AlumnoInscripcionLogic();
-
-            this.cursoLogic = new CursoLogic();
-
-            //this.LlenarCboComision();
-
-            this.LlenarCboMaterias();
+         
         }
 
-        public AlumnoInscripcion(Usuario usuario)
+        public AlumnoInscripcion(Persona persona)
         {
-            //this.usuAlumno = usuario;
-
+            InitializeComponent();
+            this.usuAlumno = persona;
             this.materiaLogic = new MateriaLogic();
-
             this.comisionLogic = new ComisionLogic();
-
+            this.cursoLogic = new CursoLogic();
+            this.LlenarCboMaterias();
+            listaCursos = cursoLogic.GetAll();
             this.AlumnoInscripcionLogic = new AlumnoInscripcionLogic();
 
-            //this.LlenarCboComision();
 
-            this.LlenarCboMaterias();
+
+
         }
 
         #endregion Constructors
 
         #region Properties
 
-        public Usuario usuAlumno { set; get; }
+        public Persona usuAlumno { set; get; }
 
-        public AlumnoInscripcion alumnoInscripcion { get; set; }
+        public Business.Entities.AlumnoInscripcion alumnoInscripcion { get; set; }
 
         public Curso cursoAInscribir { get; set; }
 
@@ -65,15 +69,16 @@ namespace UI.Desktop
         #region ComboBox
 
         private void LlenarCboMaterias()
+
         {
-            this.cboMaterias.DataSource = this.materiaLogic.GetAll();
+            MateriaLogic Materia = new MateriaLogic();
+            listaMaterias = Materia.GetAll();
+            this.cboMaterias.DataSource = listaMaterias;
+            this.cboMaterias.ValueMember = "Descripcion";
+            this.cboMaterias.DisplayMember = "Descripcion";
         }
 
-        private void LlenarCboComision()
-        {
-            this.cboComision.DataSource = this.comisionLogic.GetAll();
-        }
-
+       
         #endregion
 
         #region Button Actions
@@ -91,31 +96,85 @@ namespace UI.Desktop
         {
             Business.Entities.Curso curso = cboComision.SelectedItem as Business.Entities.Curso;
 
-            if (this.cboComision.SelectedItem != null && this.cboMaterias.SelectedItem != null)
+            try
             {
-                if (curso.Cupo > 0)
+                if (this.cboComision.SelectedItem != null && this.cboMaterias.SelectedItem != null)
                 {
-                    Business.Entities.AlumnoInscripcion inscripcion = new Business.Entities.AlumnoInscripcion();
+                    if (curso.Cupo > 0)
+                    {
+                        Business.Entities.AlumnoInscripcion alumnoIns = new Business.Entities.AlumnoInscripcion();
+                        alumnoInscripcion = alumnoIns;
+                        alumnoInscripcion.State = BusinessEntity.States.New;
+                        var cursoSeleccionado=(Business.Entities.Curso)cboComision.SelectedItem;
+                        foreach (var cursos in listaCursos)
+                        {
+                            if (cursoSeleccionado.ID== cursos.ID)
+                            {
+                                this.alumnoInscripcion.IDCurso = cursos.ID;
+                                this.alumnoInscripcion.IDAlumno = usuAlumno.ID;
+                                this.AlumnoInscripcionLogic.Inscribir(alumnoInscripcion);
+                                MessageBox.Show("Inscripcion realizada");
 
-                    this.AlumnoInscripcionLogic.Inscribir(inscripcion);
+                            }
+                        }
+
+                        
+
+
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("error realizar inscripcion");
+                throw ex;
+            }
+            
+
+
+                
+            
         }
 
-        #endregion
+        
 
-        private void cboMaterias_SelectionChangeCommitted(object sender, EventArgs e)
+            #endregion
+
+            private void cboMaterias_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
             {
-                List<Business.Entities.Curso> comDisponibles = this.cursoLogic.BuscarComisionesPorMateria((Materia)this.cboMaterias.SelectedItem);
-                this.cboComision.DataSource = comDisponibles;
-                this.cboComision.Enabled = true;
+                List<Business.Entities.Curso> comDisponibles;
+                foreach (var materia in listaMaterias)
+                {
+                    if((Materia)cboMaterias.SelectedItem==materia)
+                    {
+                        comDisponibles = this.cursoLogic.BuscarComisionesPorMateria(materia);
+                        this.cboComision.DataSource = comDisponibles;
+                        this.cboComision.ValueMember = "ComisionDescripcion";
+                        this.cboComision.DisplayMember = "ComisionDescripcion";
+                        this.cboComision.Enabled = true;
+                    }
+                }
+                 
+              
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("errorr");
+                MessageBox.Show("error al mostrar las comisiones");
+                throw ex;
             }
+        }
+   
+
+        private void cboMaterias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

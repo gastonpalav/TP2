@@ -16,14 +16,13 @@ namespace Data.Database
 
                 this.OpenConnection();
 
-                SqlCommand cmdMaterias = new SqlCommand("Select mat.*, pl.desc_plan from materias mat inner join planes pl on mat.id_plan = pl.id_plan ", SqlConn);
+                SqlCommand cmdMaterias = new SqlCommand("Select mat.*, pl.desc_plan,es.id_especialidad,es.desc_especialidad from materias mat inner join planes pl on mat.id_plan = pl.id_plan inner join especialidades es on es.id_especialidad=pl.id_especialidad", SqlConn);
 
                 SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
 
                 while (drMaterias.Read())
                 {
                     Materia mat = new Materia();
-
                     mat.ID = (int)drMaterias["id_materia"];
                     mat.Descripcion = (string)drMaterias["desc_materia"];
                     mat.HSSemanales = (int)drMaterias["hs_semanales"];
@@ -32,7 +31,16 @@ namespace Data.Database
                     mat.Plan = new Plan
                     {
                         ID = (int)drMaterias["id_plan"],
-                        Descripcion = (string)drMaterias["desc_plan"]
+                        Descripcion = (string)drMaterias["desc_plan"],
+                        
+                      
+                    };
+
+                    mat.Plan.Especialidad = new Especialidad
+                    {
+                        ID = (int)drMaterias["id_especialidad"],
+                        Descripcion = (string)drMaterias["desc_especialidad"]
+
                     };
 
                     materias.Add(mat);

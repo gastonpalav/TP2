@@ -32,7 +32,7 @@ namespace UI.Desktop
                 }
                 else if (tipoMenu == Persona.TipoPersonas.Alumno)
                 {
-                    MenuAlumno menuAlumno = new MenuAlumno();
+                    MenuAlumno menuAlumno = new MenuAlumno(this.txtUsuario.Text);
                     menuAlumno.Show();
                 }
                 else if (tipoMenu == Persona.TipoPersonas.Docente)
