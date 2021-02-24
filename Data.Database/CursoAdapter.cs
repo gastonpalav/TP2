@@ -194,6 +194,32 @@ namespace Data.Database
             }
         }
 
+        public void EliminarCupo(Int32 id)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdEliminarCupo = new SqlCommand(
+                    "UPDATE cursos SET cupo=@cupo " +
+                    "WHERE id_curso=@id", SqlConn);
+
+                cmdEliminarCupo.Parameters.Add("@id", SqlDbType.Int, 50).Value = id;
+                cmdEliminarCupo.Parameters.Add("@cupo", SqlDbType.Int, 50).Value = GetOne(id).Cupo-1;
+                
+
+                cmdEliminarCupo.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al eliminar el cupo", ex);
+                throw ExcepcionManejada;
+            }
+            //finally
+            //{
+            //    this.CloseConnection();
+            //}
+        }
+
         protected void Insert(Curso curso)
         {
             try
