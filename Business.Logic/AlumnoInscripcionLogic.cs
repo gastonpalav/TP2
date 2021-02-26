@@ -1,6 +1,8 @@
 ﻿using Business.Entities;
 using Data.Database;
+
 using System;
+using System.Collections.Generic;
 
 namespace Business.Logic
 {
@@ -15,12 +17,25 @@ namespace Business.Logic
             this.cursoAdapter = new CursoAdapter();
 
         }
-        public void Inscribir(AlumnoInscripcion inscripcion)
+        public bool Inscribir(AlumnoInscripcion inscripcion)
         {
             try
             {
-                alumnoInscripcionAdapter.Inscribir(inscripcion);
-                cursoAdapter.EliminarCupo((int)inscripcion.IDCurso);
+                List<AlumnoInscripcion> inscripciones=alumnoInscripcionAdapter.GetAll();
+                foreach(var ins in inscripciones)
+                {
+                    if(ins.IDAlumno==inscripcion.IDAlumno && ins.IDCurso==inscripcion.IDCurso)
+                    {
+                        return false;
+                    }
+                    
+                }
+
+              alumnoInscripcionAdapter.Inscribir(inscripcion);
+              cursoAdapter.EliminarCupo((int)inscripcion.IDCurso);
+              return true;
+                
+
 
 
             }

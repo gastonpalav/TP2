@@ -102,6 +102,7 @@ namespace UI.Desktop
                 {
                     if (curso.Cupo > 0)
                     {
+                        
                         Business.Entities.AlumnoInscripcion alumnoIns = new Business.Entities.AlumnoInscripcion();
                         alumnoInscripcion = alumnoIns;
                         alumnoInscripcion.State = BusinessEntity.States.New;
@@ -110,10 +111,18 @@ namespace UI.Desktop
                         {
                             if (cursoSeleccionado.ID== cursos.ID)
                             {
-                                this.alumnoInscripcion.IDCurso = cursos.ID;
-                                this.alumnoInscripcion.IDAlumno = usuAlumno.ID;
-                                this.AlumnoInscripcionLogic.Inscribir(alumnoInscripcion);
-                                MessageBox.Show("Inscripcion realizada");
+                                alumnoInscripcion.IDCurso = cursos.ID;
+                                alumnoInscripcion.IDAlumno = usuAlumno.ID;
+                                if(AlumnoInscripcionLogic.Inscribir(alumnoInscripcion))
+                                {
+                                    MessageBox.Show("Inscripcion realizada");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error, ya se ha inscripto a este curso");
+                                }
+                                
+                                
 
                             }
                         }

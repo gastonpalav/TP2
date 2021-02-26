@@ -37,12 +37,56 @@ namespace Data.Database
         }
 
 
+        public List<AlumnoInscripcion> GetAll()
+        {
+            try
+            {
+                List<AlumnoInscripcion> alumnoInscripciones = new List<AlumnoInscripcion>();
 
-       
+                this.OpenConnection();
 
-       
+                SqlCommand cmdAlumnoInscripcion = new SqlCommand("select * from alumnos_inscripciones", SqlConn);
 
-        
+                SqlDataReader drAlumnoInscripcion = cmdAlumnoInscripcion.ExecuteReader();
+
+                while (drAlumnoInscripcion.Read())
+                {
+                    var a = new AlumnoInscripcion();
+
+                    a.ID = (int)drAlumnoInscripcion["id_inscripcion"];
+                    a.IDAlumno = (int)drAlumnoInscripcion["id_alumno"];
+                    a.IDCurso = (int)drAlumnoInscripcion["id_curso"];
+                    a.Condicion = (string)drAlumnoInscripcion["condicion"];
+                    if(drAlumnoInscripcion["nota"] is null)
+                    {
+                        a.Nota = 0;
+                    }
+                    else
+                    {
+                        a.Nota = (int)drAlumnoInscripcion["nota"];
+                    }
+                    
+                   
+
+                    alumnoInscripciones.Add(a);
+                }
+                drAlumnoInscripcion.Close();
+                this.CloseConnection();
+
+                return alumnoInscripciones;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar la lista de inscripciones", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
+
+
+
+
+
 
         public void Inscribir(AlumnoInscripcion alumnoInscripcion)
         {
