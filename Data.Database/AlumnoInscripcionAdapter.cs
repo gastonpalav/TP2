@@ -57,14 +57,7 @@ namespace Data.Database
                     a.IDAlumno = (int)drAlumnoInscripcion["id_alumno"];
                     a.IDCurso = (int)drAlumnoInscripcion["id_curso"];
                     a.Condicion = (string)drAlumnoInscripcion["condicion"];
-                    if(drAlumnoInscripcion["nota"] is null)
-                    {
-                        a.Nota = 0;
-                    }
-                    else
-                    {
-                        a.Nota = (int)drAlumnoInscripcion["nota"];
-                    }
+                    //a.nota=(int)drAlumnoInscripcion["nota"];
                     
                    
 
