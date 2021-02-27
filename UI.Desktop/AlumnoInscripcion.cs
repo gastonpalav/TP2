@@ -106,10 +106,9 @@ namespace UI.Desktop
                         Business.Entities.AlumnoInscripcion alumnoIns = new Business.Entities.AlumnoInscripcion();
                         alumnoInscripcion = alumnoIns;
                         alumnoInscripcion.State = BusinessEntity.States.New;
-                        var cursoSeleccionado=(Business.Entities.Curso)cboComision.SelectedItem;
                         foreach (var cursos in listaCursos)
                         {
-                            if (cursoSeleccionado.ID== cursos.ID)
+                            if (curso.ID== cursos.ID)
                             {
                                 alumnoInscripcion.IDCurso = cursos.ID;
                                 alumnoInscripcion.IDAlumno = usuAlumno.ID;
