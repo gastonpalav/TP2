@@ -24,10 +24,27 @@ namespace UI.Web
                 return _logic;
             }
         }
+
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-            Entity = (Persona)Session["USUARIO"];
+
+            if (!Page.IsPostBack)
+            {
+               
+                LoadPlan();
+                LoadForm(AlumnoActual.ID);
+            }
+            
+            EnableForm(false);
+        }
+
+        private void LoadPlan()
+        {
             PlanLogic plan = new PlanLogic();
+
+           
+
             if (this.planDropDown.Items.Count == 1)
             {
                 this.planDropDown.DataSource = plan.GetAll();
@@ -35,11 +52,28 @@ namespace UI.Web
                 this.planDropDown.DataValueField = "ID";
                 this.planDropDown.DataBind();
             }
-            LoadForm(Entity.ID);
-            EnableForm(false);
+
         }
 
-        public Persona Entity { get; set; }
+        private Persona _AlumnoActual;
+
+        public Persona  AlumnoActual
+        {
+            get
+            {
+                if (_AlumnoActual == null)
+                {
+                    _AlumnoActual = (Persona)Session["USUARIO"]; ;
+                }
+                return _AlumnoActual;
+            }
+
+            set
+            {
+                _AlumnoActual = value;
+            }
+        }
+
         public enum FormModes
         {
             consulta,
@@ -54,15 +88,15 @@ namespace UI.Web
         
         private void LoadForm(int ID)
         {
-            
-            this.nombreTextBox.Text = this.Entity.Nombre;
-            this.apellidoTextBox.Text = this.Entity.Apellido;
-            this.emailTextBox.Text = this.Entity.Email;
-            this.direccionTextBox.Text = this.Entity.Direccion;
-            this.telefonoTextBox.Text = this.Entity.Telefono;
-            this.fechaNacimientoTextBox.Text = this.Entity.FechaNacimiento.ToShortDateString();
-            this.legajoTextBox.Text = this.Entity.Legajo.ToString();
-            this.planDropDown.SelectedValue= this.Entity.Plan.ID.ToString();
+            Persona alumno = this.Logic.GetOneById(ID);
+            this.nombreTextBox.Text = alumno.Nombre;
+            this.apellidoTextBox.Text = alumno.Apellido;
+            this.emailTextBox.Text = alumno.Email;
+            this.direccionTextBox.Text =alumno.Direccion;
+            this.telefonoTextBox.Text = alumno.Telefono;
+            this.fechaNacimientoTextBox.Text =alumno.FechaNacimiento.ToShortDateString();
+            this.legajoTextBox.Text = alumno.Legajo.ToString();
+            this.planDropDown.SelectedValue= alumno.Plan.ID.ToString();
 
         }
 
@@ -85,8 +119,9 @@ namespace UI.Web
 
 
 
-        private void LoadEntity(Persona persona)
+        private Persona LoadEntity()
         {
+            Persona persona = new Persona();
             persona.Nombre = this.nombreTextBox.Text;
             persona.Apellido = this.apellidoTextBox.Text;
             persona.Email = this.emailTextBox.Text;
@@ -98,7 +133,7 @@ namespace UI.Web
             persona.Plan = new Plan();
             persona.Plan.ID = int.Parse(this.planDropDown.SelectedItem.Value);
 
-
+            return persona;
         }
 
 
@@ -116,7 +151,7 @@ namespace UI.Web
             
                 this.EnableForm(true);
                 this.FormMode = FormModes.modificacion;
-                this.LoadForm(Entity.ID);
+                //this.LoadForm(AlumnoActual.ID);
             
         }
 
@@ -127,11 +162,11 @@ namespace UI.Web
                 case FormModes.consulta:
                     break;
                 case FormModes.modificacion:
-                    this.Entity = new Persona();
-                    this.Entity.ID = Entity.ID;
-                    this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
+                    
+                    this.AlumnoActual.State = BusinessEntity.States.Modified;
+                    var alumno = LoadEntity();
+                    this.SaveEntity(alumno);
+                    this.AlumnoActual = alumno;
                     break;
                 
                   
@@ -141,7 +176,7 @@ namespace UI.Web
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {
-            LoadForm(Entity.ID);
+            LoadForm(AlumnoActual.ID);
             EnableForm(false);
         }
     }

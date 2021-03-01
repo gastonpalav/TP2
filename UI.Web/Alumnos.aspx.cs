@@ -136,18 +136,6 @@ namespace UI.Web
             this.legajoTextBox.Enabled = enable;
             this.planDropDown.Enabled = enable;
 
-            //this.DropDownListPlan.DataTextField = "Descripcion";
-            //this.DropDownListPlan.DataValueField = "ID";
-            //this.DropDownListPlan.DataSource = listaPlanes;
-            //this.DropDownListPlan.DataBind();
-            //int i = 0;
-            //foreach (var item in listaPlanes)
-            //{
-            //    DropDownListPlan.Items.Insert(i, new ListItem(item.Descripcion));
-            //    i++;
-            //}
-            
-
         }
 
         private void LoadEntity(Persona persona)
@@ -160,14 +148,10 @@ namespace UI.Web
             persona.Legajo = int.Parse(this.legajoTextBox.Text);
             persona.FechaNacimiento = DateTime.Parse(this.fechaNacimientoTextBox.Text);
             persona.Telefono = this.telefonoTextBox.Text;
-
             persona.Plan = new Plan();
-
-            //int itemSeleccionadoPlan = DropDownListPlan.SelectedIndex;
-            //persona.Plan.ID = this.listaPlanes[itemSeleccionadoPlan].ID;
-
             persona.Plan.ID = int.Parse(this.planDropDown.SelectedItem.Value);
 
+            
 
         }
 

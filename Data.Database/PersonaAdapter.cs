@@ -204,7 +204,7 @@ namespace Data.Database
                 cmdUpdate.Parameters.Add("@email", SqlDbType.VarChar).Value = persona.Email;
                 cmdUpdate.Parameters.Add("@telefono", SqlDbType.VarChar).Value = persona.Telefono;
                 cmdUpdate.Parameters.Add("@direccion", SqlDbType.VarChar).Value = persona.Direccion;
-                cmdUpdate.Parameters.Add("@apellido", SqlDbType.VarChar).Value = persona.ID;
+                cmdUpdate.Parameters.Add("@apellido", SqlDbType.VarChar).Value = persona.Apellido;
                 cmdUpdate.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
                 cmdUpdate.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;
                 cmdUpdate.Parameters.Add("@id_plan", SqlDbType.Int).Value = persona.Plan.ID;
