@@ -42,5 +42,10 @@ namespace UI.Web
                 }
             }
         }
+
+        protected void Menu_MenuItemClick()
+        {
+
+        }
     }
 }

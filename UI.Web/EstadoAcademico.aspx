@@ -1,15 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EstadoAcademico.aspx.cs" Inherits="UI.Web.EstadoAcademico" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EstadoAcademico.aspx.cs" Inherits="UI.Web.EstadoAcademico" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>
+<asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
+    <h1>Estado Academico</h1>
+    <asp:Panel ID="gridPanel" runat="server">
+        <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False"   DataKeyNames="ID"  CssClass="table table-responsive-lg">
+            <Columns>
+                <asp:BoundField HeaderText="Materia" DataField="MateriaDescripcion" />
+                <asp:BoundField HeaderText="Comision" DataField="ComisionDescripcion" />
+                <asp:BoundField HeaderText="Plan" DataField="PlanDescripcion" />
+                <asp:BoundField HeaderText="Especialidad" DataField="EspecialidadDescripcion" />
+                <asp:BoundField HeaderText="condicion" DataField="condicion" />
+                <asp:BoundField HeaderText="Nota" DataField="nota" />
+            </Columns>
+        </asp:GridView>
+     </asp:Panel>
+</asp:Content>
