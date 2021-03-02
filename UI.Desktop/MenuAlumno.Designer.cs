@@ -35,10 +35,11 @@
             this.materiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inscribirseAUnaMateriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datosPersonalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estadoAcademicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.consultaDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificacionDeDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadoAcademicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaEstadoAcademicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuAlumnos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,14 +54,14 @@
             this.estadoAcademicoToolStripMenuItem});
             this.menuAlumnos.Location = new System.Drawing.Point(0, 0);
             this.menuAlumnos.Name = "menuAlumnos";
-            this.menuAlumnos.Size = new System.Drawing.Size(1600, 42);
+            this.menuAlumnos.Size = new System.Drawing.Size(1600, 48);
             this.menuAlumnos.TabIndex = 0;
             this.menuAlumnos.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(115, 38);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(115, 44);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // materiasToolStripMenuItem
@@ -68,7 +69,7 @@
             this.materiasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inscribirseAUnaMateriaToolStripMenuItem});
             this.materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
-            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(126, 38);
+            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(126, 44);
             this.materiasToolStripMenuItem.Text = "Materias";
             // 
             // inscribirseAUnaMateriaToolStripMenuItem
@@ -84,14 +85,8 @@
             this.consultaDeDatosToolStripMenuItem,
             this.modificacionDeDatosToolStripMenuItem});
             this.datosPersonalesToolStripMenuItem.Name = "datosPersonalesToolStripMenuItem";
-            this.datosPersonalesToolStripMenuItem.Size = new System.Drawing.Size(215, 38);
+            this.datosPersonalesToolStripMenuItem.Size = new System.Drawing.Size(215, 44);
             this.datosPersonalesToolStripMenuItem.Text = "Datos Personales";
-            // 
-            // estadoAcademicoToolStripMenuItem
-            // 
-            this.estadoAcademicoToolStripMenuItem.Name = "estadoAcademicoToolStripMenuItem";
-            this.estadoAcademicoToolStripMenuItem.Size = new System.Drawing.Size(229, 38);
-            this.estadoAcademicoToolStripMenuItem.Text = "Estado Academico";
             // 
             // consultaDeDatosToolStripMenuItem
             // 
@@ -106,6 +101,21 @@
             this.modificacionDeDatosToolStripMenuItem.Size = new System.Drawing.Size(386, 44);
             this.modificacionDeDatosToolStripMenuItem.Text = "Modificacion de datos";
             this.modificacionDeDatosToolStripMenuItem.Click += new System.EventHandler(this.modificacionDeDatosToolStripMenuItem_Click);
+            // 
+            // estadoAcademicoToolStripMenuItem
+            // 
+            this.estadoAcademicoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consultaEstadoAcademicoToolStripMenuItem});
+            this.estadoAcademicoToolStripMenuItem.Name = "estadoAcademicoToolStripMenuItem";
+            this.estadoAcademicoToolStripMenuItem.Size = new System.Drawing.Size(229, 44);
+            this.estadoAcademicoToolStripMenuItem.Text = "Estado Academico";
+            // 
+            // consultaEstadoAcademicoToolStripMenuItem
+            // 
+            this.consultaEstadoAcademicoToolStripMenuItem.Name = "consultaEstadoAcademicoToolStripMenuItem";
+            this.consultaEstadoAcademicoToolStripMenuItem.Size = new System.Drawing.Size(441, 44);
+            this.consultaEstadoAcademicoToolStripMenuItem.Text = "Consulta estado academico";
+            this.consultaEstadoAcademicoToolStripMenuItem.Click += new System.EventHandler(this.consultaEstadoAcademicoToolStripMenuItem_Click);
             // 
             // MenuAlumno
             // 
@@ -136,5 +146,6 @@
         private System.Windows.Forms.ToolStripMenuItem estadoAcademicoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaDeDatosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificacionDeDatosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultaEstadoAcademicoToolStripMenuItem;
     }
 }

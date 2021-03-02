@@ -28,6 +28,49 @@ namespace Business.Entities
             set { _IDCurso = value; }
         }
 
+       
+
+        private Curso _curso;
+
+        public Curso  Curso
+        {
+            get { return _curso; }
+            set { _curso = value; }
+        }
+
+       
+
+        
+
+
+
+        public string MateriaDescripcion
+        {
+            get { return Curso.Materia.Descripcion; }
+
+        }
+
+
+
+        public string ComisionDescripcion
+        {
+            get { return Curso.Comision.Descripcion; }
+
+        }
+
+        public string PlanDescripcion
+        {
+            get { return Curso.Materia.Plan.Descripcion; }
+        }
+
+
+       public string EspecialidadDescripcion
+        {
+            get { return Curso.Materia.Plan.Especialidad.Descripcion; }
+        }
+
+
+
         private Int32 _Nota;
 
         public Int32 Nota

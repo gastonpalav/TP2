@@ -1,6 +1,5 @@
 ﻿using Business.Entities;
 using Data.Database;
-
 using System;
 using System.Collections.Generic;
 
@@ -43,6 +42,11 @@ namespace Business.Logic
             {
                 throw ex;
             }
+        }
+
+        public List<AlumnoInscripcion> GetAllByAlumno(Persona alumno)
+        {
+            return alumnoInscripcionAdapter.GetAllByAlumno(alumno);
         }
     }
 }

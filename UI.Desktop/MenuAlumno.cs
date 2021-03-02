@@ -42,5 +42,11 @@ namespace UI.Desktop
             AlumnosDatosPersonales alumnosDatosPersonales = new AlumnosDatosPersonales(Alumno.ID, ApplicationForm.Modoform.Modificacion);
             alumnosDatosPersonales.ShowDialog();
         }
+
+        private void consultaEstadoAcademicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EstadoAcademico estadoAcademico = new EstadoAcademico(Alumno);
+            estadoAcademico.ShowDialog();
+        }
     }
 }

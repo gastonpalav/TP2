@@ -17,40 +17,50 @@ namespace UI.Desktop
             Login();
         }
 
+     
         private void Login()
         {
-            if (this.Validar(this.txtUsuario.Text, this.txtPassword.Text))
+            if(!string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(txtPassword.Text))
             {
-                this.DialogResult = DialogResult.OK;
-                this.Hide();
-                PersonaLogic personaLogic = new PersonaLogic();
-                Persona.TipoPersonas tipoMenu = personaLogic.GetTipoPersonaByUser(this.txtUsuario.Text);
-                if (tipoMenu == Persona.TipoPersonas.Administrador)
+                if (this.Validar(this.txtUsuario.Text, this.txtPassword.Text))
                 {
-                    MenuAdministrador menuAdministrador = new MenuAdministrador();
-                    menuAdministrador.Show();
-                }
-                else if (tipoMenu == Persona.TipoPersonas.Alumno)
-                {
-                    MenuAlumno menuAlumno = new MenuAlumno(this.txtUsuario.Text);
-                    menuAlumno.Show();
-                }
-                else if (tipoMenu == Persona.TipoPersonas.Docente)
-                {
-                    MenuDocente menuDocente = new MenuDocente();
-                    menuDocente.Show();
+                    this.DialogResult = DialogResult.OK;
+                    this.Hide();
+                    PersonaLogic personaLogic = new PersonaLogic();
+                    Persona.TipoPersonas tipoMenu = personaLogic.GetTipoPersonaByUser(this.txtUsuario.Text);
+                    if (tipoMenu == Persona.TipoPersonas.Administrador)
+                    {
+                        MenuAdministrador menuAdministrador = new MenuAdministrador();
+                        menuAdministrador.Show();
+                    }
+                    else if (tipoMenu == Persona.TipoPersonas.Alumno)
+                    {
+                        MenuAlumno menuAlumno = new MenuAlumno(this.txtUsuario.Text);
+                        menuAlumno.Show();
+                    }
+                    else if (tipoMenu == Persona.TipoPersonas.Docente)
+                    {
+                        MenuDocente menuDocente = new MenuDocente();
+                        menuDocente.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tipo de usuario incorrecto", "Login"
+                            , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Tipo de usuario incorrecto", "Login"
+                    MessageBox.Show("Usuario y/o contraseña incorrectos", "Login"
                         , MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Usuario y/o contraseña incorrectos", "Login"
-                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Usuario y/o contraseña vacios", "Login"
+                        , MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
         private bool Validar(string usuario, string contraseña)
         {

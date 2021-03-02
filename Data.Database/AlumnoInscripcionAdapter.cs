@@ -75,6 +75,72 @@ namespace Data.Database
             }
         }
 
+        public List<AlumnoInscripcion> GetAllByAlumno(Persona alumno)
+        {
+            List<AlumnoInscripcion> EstadoAlumno = new List<AlumnoInscripcion>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT ai.condicion,isnull(ai.nota,0) 'nota',m.id_materia,m.desc_materia,p.id_plan,p.desc_plan,co.id_comision,co.desc_comision,esp.id_especialidad,esp.desc_especialidad from alumnos_inscripciones ai"  +
+" inner join cursos c on c.id_curso = ai.id_curso inner join materias m on m.id_materia = c.id_materia inner join comisiones co on co.id_comision = c.id_comision inner join planes p  on p.id_plan = co.id_plan " + "inner join especialidades esp on esp.id_especialidad = p.id_especialidad"
++ " where ai.id_alumno=@id_alumno",SqlConn);
+                cmdGetAll.Parameters.Add("@id_alumno", SqlDbType.Int).Value = alumno.ID;
+                SqlDataReader drAlumnoInscripcion = cmdGetAll.ExecuteReader();
+
+                while (drAlumnoInscripcion.Read())
+                {
+                    AlumnoInscripcion alu = new AlumnoInscripcion();
+                    alu.Condicion = (string)drAlumnoInscripcion["condicion"];
+                    if((int)drAlumnoInscripcion["nota"] != 0)
+                    {
+                        alu.Nota = (int)drAlumnoInscripcion["nota"];
+                    }
+                    else
+                    {
+                       
+                    }
+
+                    alu.Curso = new Curso();
+                    
+                    alu.Curso.Comision = new Comision
+                    {
+                        ID=(int)drAlumnoInscripcion["id_comision"],
+                        Descripcion = (string)drAlumnoInscripcion["desc_comision"]
+                          
+                    };
+
+                    alu.Curso.Materia = new Materia()
+                    {
+                        Descripcion = (string)drAlumnoInscripcion["desc_materia"]
+                    };
+                    alu.Curso.Materia.Plan = new Plan()
+                    {
+                        Descripcion = (string)drAlumnoInscripcion["desc_plan"]
+                    };
+                    alu.Curso.Materia.Plan.Especialidad = new Especialidad()
+                    {
+                        Descripcion = (string)drAlumnoInscripcion["desc_especialidad"]
+                    };
+                
+
+                    EstadoAlumno.Add(alu);
+                }
+                drAlumnoInscripcion.Close();
+                
+
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de alumno", ex);
+
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return EstadoAlumno;
+        }
 
 
 
