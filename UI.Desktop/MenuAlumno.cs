@@ -15,23 +15,32 @@ namespace UI.Desktop
     public partial class MenuAlumno : Form
     {
         PersonaLogic personaLogic = new PersonaLogic();
-        public MenuAlumno(string usuAlumno)
+        public MenuAlumno(string AlumnoUsuario)
         {
             InitializeComponent();
-            Usualumno = usuAlumno;
+            Alumno = personaLogic.GetOneByUser(AlumnoUsuario);
             
         }
 
-        public string Usualumno { get; set; }
+        public Persona Alumno { get; set; }
         private void inscribirseAUnaMateriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var usuAlumno = personaLogic.GetOneByUser(Usualumno);
-            AlumnoInscripcion alumnoInscripcion = new AlumnoInscripcion(usuAlumno);
+            
+            AlumnoInscripcion alumnoInscripcion = new AlumnoInscripcion(Alumno);
             alumnoInscripcion.ShowDialog();
         }
 
+        private void consultaDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AlumnosDatosPersonales alumnosDatosPersonales = new AlumnosDatosPersonales(Alumno.ID, ApplicationForm.Modoform.Consulta);
+            alumnosDatosPersonales.ShowDialog();
+                
+        }
 
-
-
+        private void modificacionDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AlumnosDatosPersonales alumnosDatosPersonales = new AlumnosDatosPersonales(Alumno.ID, ApplicationForm.Modoform.Modificacion);
+            alumnosDatosPersonales.ShowDialog();
+        }
     }
 }

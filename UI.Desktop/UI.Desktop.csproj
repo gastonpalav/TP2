@@ -61,6 +61,12 @@
     <Compile Include="Alumnos.Designer.cs">
       <DependentUpon>Alumnos.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlumnosDatosPersonales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnosDatosPersonales.Designer.cs">
+      <DependentUpon>AlumnosDatosPersonales.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlumnosDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alumnos.resx">
       <DependentUpon>Alumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlumnosDatosPersonales.resx">
+      <DependentUpon>AlumnosDatosPersonales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AlumnosDesktop.resx">
       <DependentUpon>AlumnosDesktop.cs</DependentUpon>

@@ -122,6 +122,7 @@ namespace UI.Web
         private Persona LoadEntity()
         {
             Persona persona = new Persona();
+            persona.ID = this.AlumnoActual.ID;
             persona.Nombre = this.nombreTextBox.Text;
             persona.Apellido = this.apellidoTextBox.Text;
             persona.Email = this.emailTextBox.Text;
@@ -163,8 +164,9 @@ namespace UI.Web
                     break;
                 case FormModes.modificacion:
                     
-                    this.AlumnoActual.State = BusinessEntity.States.Modified;
+                    //this.AlumnoActual.State = BusinessEntity.States.Modified;
                     var alumno = LoadEntity();
+                    alumno.State = BusinessEntity.States.Modified;
                     this.SaveEntity(alumno);
                     this.AlumnoActual = alumno;
                     break;
@@ -179,5 +181,7 @@ namespace UI.Web
             LoadForm(AlumnoActual.ID);
             EnableForm(false);
         }
+
+        
     }
 }
