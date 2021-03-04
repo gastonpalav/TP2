@@ -11,7 +11,42 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var user = Session["USUARIO"];
+            if (!IsPostBack)
+            {
+                if (user == null)
+                {
+
+                    Response.Redirect("~/Login.aspx");
+                }
+            }
+        }
+
+        protected void Menu_MenuItemClick(object sender, MenuEventArgs e)
+        {
 
         }
+
+        protected void Menu_MenuItemDataBound(object sender, MenuEventArgs e)
+        {
+            if (SiteMap.CurrentNode != null)
+            {
+                if (e.Item.Text == SiteMap.CurrentNode.Title)
+                {
+                    if (e.Item.Parent != null)
+                    {
+                        e.Item.Parent.Selected = true;
+                    }
+                    else
+                    {
+                        e.Item.Selected = true;
+
+                    }
+                }
+            }
+        }
+
+
+
     }
 }

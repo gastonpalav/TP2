@@ -28,7 +28,7 @@
                 <asp:MenuItemStyle CssClass="subMenu" />
       </LevelMenuItemStyles>
         <Items>
-            <asp:MenuItem NavigateUrl="~/DatosPersonalesAlumno.aspx" Text="Datos personales" Value="1"/>
+            <asp:MenuItem NavigateUrl="~/DatosPersonales.aspx" Text="Datos personales" Value="1"/>
             <asp:MenuItem NavigateUrl="~/Inscripcion.aspx" Text="Inscripcion" Value="2" />
             <asp:MenuItem NavigateUrl="~/EstadoAcademico.aspx" Text="Estado academico" Value="3" />
         </Items>

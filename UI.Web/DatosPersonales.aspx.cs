@@ -10,7 +10,7 @@ using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class DatosPersonalesAlumno : System.Web.UI.Page
+    public partial class DatosPersonales : System.Web.UI.Page
     {
         private PersonaLogic _logic;
         public PersonaLogic Logic
@@ -33,7 +33,7 @@ namespace UI.Web
             {
                
                 LoadPlan();
-                LoadForm(AlumnoActual.ID);
+                LoadForm(PersonaActual.ID);
             }
             
             EnableForm(false);
@@ -55,22 +55,22 @@ namespace UI.Web
 
         }
 
-        private Persona _AlumnoActual;
+        private Persona _PersonaActual;
 
-        public Persona  AlumnoActual
+        public Persona  PersonaActual
         {
             get
             {
-                if (_AlumnoActual == null)
+                if (_PersonaActual == null)
                 {
-                    _AlumnoActual = (Persona)Session["USUARIO"]; ;
+                    _PersonaActual = (Persona)Session["USUARIO"]; ;
                 }
-                return _AlumnoActual;
+                return _PersonaActual;
             }
 
             set
             {
-                _AlumnoActual = value;
+                _PersonaActual = value;
             }
         }
 
@@ -88,15 +88,15 @@ namespace UI.Web
         
         private void LoadForm(int ID)
         {
-            Persona alumno = this.Logic.GetOneById(ID);
-            this.nombreTextBox.Text = alumno.Nombre;
-            this.apellidoTextBox.Text = alumno.Apellido;
-            this.emailTextBox.Text = alumno.Email;
-            this.direccionTextBox.Text =alumno.Direccion;
-            this.telefonoTextBox.Text = alumno.Telefono;
-            this.fechaNacimientoTextBox.Text =alumno.FechaNacimiento.ToShortDateString();
-            this.legajoTextBox.Text = alumno.Legajo.ToString();
-            this.planDropDown.SelectedValue= alumno.Plan.ID.ToString();
+            Persona persona = this.Logic.GetOneById(ID);
+            this.nombreTextBox.Text = persona.Nombre;
+            this.apellidoTextBox.Text = persona.Apellido;
+            this.emailTextBox.Text = persona.Email;
+            this.direccionTextBox.Text =persona.Direccion;
+            this.telefonoTextBox.Text = persona.Telefono;
+            this.fechaNacimientoTextBox.Text =persona.FechaNacimiento.ToShortDateString();
+            this.legajoTextBox.Text = persona.Legajo.ToString();
+            this.planDropDown.SelectedValue= persona.Plan.ID.ToString();
 
         }
 
@@ -122,7 +122,7 @@ namespace UI.Web
         private Persona LoadEntity()
         {
             Persona persona = new Persona();
-            persona.ID = this.AlumnoActual.ID;
+            persona.ID = this.PersonaActual.ID;
             persona.Nombre = this.nombreTextBox.Text;
             persona.Apellido = this.apellidoTextBox.Text;
             persona.Email = this.emailTextBox.Text;
@@ -165,10 +165,10 @@ namespace UI.Web
                 case FormModes.modificacion:
                     
                     //this.AlumnoActual.State = BusinessEntity.States.Modified;
-                    var alumno = LoadEntity();
-                    alumno.State = BusinessEntity.States.Modified;
-                    this.SaveEntity(alumno);
-                    this.AlumnoActual = alumno;
+                    var persona = LoadEntity();
+                    persona.State = BusinessEntity.States.Modified;
+                    this.SaveEntity(persona);
+                    this.PersonaActual = persona;
                     break;
                 
                   
@@ -178,7 +178,7 @@ namespace UI.Web
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)
         {
-            LoadForm(AlumnoActual.ID);
+            LoadForm(PersonaActual.ID);
             EnableForm(false);
         }
 

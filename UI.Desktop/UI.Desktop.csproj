@@ -61,11 +61,11 @@
     <Compile Include="Alumnos.Designer.cs">
       <DependentUpon>Alumnos.cs</DependentUpon>
     </Compile>
-    <Compile Include="AlumnosDatosPersonales.cs">
+    <Compile Include="DatosPersonales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlumnosDatosPersonales.Designer.cs">
-      <DependentUpon>AlumnosDatosPersonales.cs</DependentUpon>
+    <Compile Include="DatosPersonales.Designer.cs">
+      <DependentUpon>DatosPersonales.cs</DependentUpon>
     </Compile>
     <Compile Include="AlumnosDesktop.cs">
       <SubType>Form</SubType>
@@ -213,8 +213,8 @@
     <EmbeddedResource Include="Alumnos.resx">
       <DependentUpon>Alumnos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AlumnosDatosPersonales.resx">
-      <DependentUpon>AlumnosDatosPersonales.cs</DependentUpon>
+    <EmbeddedResource Include="DatosPersonales.resx">
+      <DependentUpon>DatosPersonales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AlumnosDesktop.resx">
       <DependentUpon>AlumnosDesktop.cs</DependentUpon>

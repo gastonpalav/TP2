@@ -85,11 +85,12 @@ namespace Data.Database
                             break;
 
                         case 1:
-                            per.TipoPersona = Persona.TipoPersonas.Docente;
+                            per.TipoPersona = Persona.TipoPersonas.Alumno;
                             break;
 
                         case 2:
-                            per.TipoPersona = Persona.TipoPersonas.Alumno;
+                            
+                            per.TipoPersona = Persona.TipoPersonas.Docente;
                             break;
                     }
                 }

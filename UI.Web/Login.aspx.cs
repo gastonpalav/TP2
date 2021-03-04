@@ -31,40 +31,53 @@ namespace UI.Web
             }
         }
         private void Ingreso()
+            
         {
-            if (this.Validar(this.usuarioTextBox.Text, this.passTextBox.Text))
+            
+            if (!string.IsNullOrEmpty(usuarioTextBox.Text) && !string.IsNullOrEmpty(passTextBox.Text))
             {
-                
-                PersonaLogic personaLogic = new PersonaLogic();
-                Persona.TipoPersonas tipoMenu = personaLogic.GetTipoPersonaByUser(this.usuarioTextBox.Text);
 
-                Session["USUARIO"] = personaLogic.GetOneByUser(this.usuarioTextBox.Text);
-                if (tipoMenu == Persona.TipoPersonas.Administrador)
+                if (this.Validar(this.usuarioTextBox.Text, this.passTextBox.Text))
                 {
-                    
-                    Response.Redirect("~/MenuAdministrador.aspx");
-                    
 
-                }
-                else if (tipoMenu == Persona.TipoPersonas.Alumno)
-                {
-                   
-                    Response.Redirect("~/MenuAlumnos.aspx");
-                }
-                else if (tipoMenu == Persona.TipoPersonas.Docente)
-                {
-                    
-                    Response.Redirect("~/MenuDocentes.aspx");
+                    PersonaLogic personaLogic = new PersonaLogic();
+                    Persona.TipoPersonas tipoMenu = personaLogic.GetTipoPersonaByUser(this.usuarioTextBox.Text);
+
+                    Session["USUARIO"] = personaLogic.GetOneByUser(this.usuarioTextBox.Text);
+                    if (tipoMenu == Persona.TipoPersonas.Administrador)
+                    {
+
+                        Response.Redirect("~/MenuAdministrador.aspx");
+
+
+                    }
+                    else if (tipoMenu == Persona.TipoPersonas.Alumno)
+                    {
+
+                        Response.Redirect("~/MenuAlumnos.aspx");
+                    }
+                    else if (tipoMenu == Persona.TipoPersonas.Docente)
+                    {
+
+                        Response.Redirect("~/MenuDocentes.aspx");
+                    }
+                    else
+                    {
+                        mensajeLabel.Text = "Tipo de Usuario ingresado no correcto o no existe";
+                    }
                 }
                 else
                 {
-                    mensajeLabel.Text = "Tipo de Usuario ingresado no correcto o no existe";
+                    mensajeLabel.Text = "Usuario o contraseña incorrecto/s";
                 }
+
+
             }
             else
             {
-                mensajeLabel.Text = "Usuario o contraseña incorrecto/s";
+                mensajeLabel.Text = "Usuario o contraseña vacios";
             }
+                
         }
 
         protected void loginLinkButton_Click(object sender, EventArgs e)

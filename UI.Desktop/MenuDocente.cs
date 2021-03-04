@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Entities;
+using Business.Logic;
 
 namespace UI.Desktop
 {
     public partial class MenuDocente : Form
     {
-        public MenuDocente()
+        PersonaLogic personaLogic = new PersonaLogic();
+        public Persona docente { get; set; }
+        public MenuDocente(string docenteUsuario)
         {
             InitializeComponent();
+            docente = personaLogic.GetOneByUser(docenteUsuario);
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -22,7 +27,30 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void subirNotaToolStripMenuItem_Click(object sender, EventArgs e)
+       
+
+      
+
+        private void consultaDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DatosPersonales docentesDatosPersonales = new DatosPersonales(docente.ID, ApplicationForm.Modoform.Consulta);
+            docentesDatosPersonales.ShowDialog();
+        }
+
+        private void modificacionDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DatosPersonales docentesDatosPersonales = new DatosPersonales(docente.ID, ApplicationForm.Modoform.Modificacion);
+            docentesDatosPersonales.ShowDialog();
+        }
+
+       
+
+        private void ConsultaDeCursosEinscriptosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegistroCondicionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

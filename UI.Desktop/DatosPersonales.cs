@@ -12,11 +12,11 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class AlumnosDatosPersonales : ApplicationForm
+    public partial class DatosPersonales : ApplicationForm
     {
 
         private List<Plan> listaPlanes;
-        public AlumnosDatosPersonales()
+        public DatosPersonales()
         {
             InitializeComponent();
             PlanLogic planLogic = new PlanLogic();
@@ -27,14 +27,14 @@ namespace UI.Desktop
         }
 
 
-        public AlumnosDatosPersonales(Modoform modo) : this()
+        public DatosPersonales(Modoform modo) : this()
         {
             this.Modo = modo;
         }
 
         public Persona PersonaEntity { get; set; }
 
-        public AlumnosDatosPersonales(int ID, Modoform modo) : this()
+        public DatosPersonales(int ID, Modoform modo) : this()
         {
             this.Modo = modo;
             PersonaLogic personaLogic = new PersonaLogic();
@@ -52,6 +52,9 @@ namespace UI.Desktop
             txtBoxNombre.Text = PersonaEntity.Nombre.ToString();
             txtBoxTelefono.Text = PersonaEntity.Telefono.ToString();
             cboBoxPlan.SelectedValue = PersonaEntity.PlanDescripcion;
+            // Set the MinDate and MaxDate.
+            dtpFechaNacimiento.MinDate = new DateTime(1900,01, 01);
+            dtpFechaNacimiento.MaxDate = DateTime.Today;
             dtpFechaNacimiento.Value = PersonaEntity.FechaNacimiento;
             switch (this.Modo)
             {
@@ -104,7 +107,7 @@ namespace UI.Desktop
                 PersonaEntity.Plan = new Plan();
                 int itemSeleccionadoPlan = cboBoxPlan.SelectedIndex;
                 PersonaEntity.Plan.ID = this.listaPlanes[itemSeleccionadoPlan].ID;
-                PersonaEntity.TipoPersona = Persona.TipoPersonas.Alumno;
+                //PersonaEntity.TipoPersona = Persona.TipoPersonas.Alumno;
 
 
 

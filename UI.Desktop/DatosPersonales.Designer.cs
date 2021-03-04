@@ -1,7 +1,7 @@
 ﻿
 namespace UI.Desktop
 {
-    partial class AlumnosDatosPersonales
+    partial class DatosPersonales
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace UI.Desktop
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlumnosDatosPersonales));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatosPersonales));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblID = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();

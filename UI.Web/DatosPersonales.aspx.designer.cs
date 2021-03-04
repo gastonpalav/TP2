@@ -11,7 +11,7 @@ namespace UI.Web
 {
 
 
-    public partial class DatosPersonalesAlumno
+    public partial class DatosPersonales
     {
 
         /// <summary>

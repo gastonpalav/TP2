@@ -32,14 +32,14 @@ namespace UI.Desktop
 
         private void consultaDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AlumnosDatosPersonales alumnosDatosPersonales = new AlumnosDatosPersonales(Alumno.ID, ApplicationForm.Modoform.Consulta);
+            DatosPersonales alumnosDatosPersonales = new DatosPersonales(Alumno.ID, ApplicationForm.Modoform.Consulta);
             alumnosDatosPersonales.ShowDialog();
                 
         }
 
         private void modificacionDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AlumnosDatosPersonales alumnosDatosPersonales = new AlumnosDatosPersonales(Alumno.ID, ApplicationForm.Modoform.Modificacion);
+            DatosPersonales alumnosDatosPersonales = new DatosPersonales(Alumno.ID, ApplicationForm.Modoform.Modificacion);
             alumnosDatosPersonales.ShowDialog();
         }
 

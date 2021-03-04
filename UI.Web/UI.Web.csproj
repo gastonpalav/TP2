@@ -68,7 +68,9 @@
     <Content Include="Alumnos.aspx" />
     <Content Include="Comisiones.aspx" />
     <Content Include="Cursos.aspx" />
-    <Content Include="DatosPersonalesAlumno.aspx" />
+    <Content Include="DatosPersonales.aspx">
+      <BrowseToURL>~/DatosPersonalesAlumno.aspx</BrowseToURL>
+    </Content>
     <Content Include="Especialidades.aspx" />
     <Content Include="EstadoAcademico.aspx" />
     <Content Include="Global.asax" />
@@ -106,12 +108,12 @@
     <Compile Include="Cursos.aspx.designer.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DatosPersonalesAlumno.aspx.cs">
-      <DependentUpon>DatosPersonalesAlumno.aspx</DependentUpon>
+    <Compile Include="DatosPersonales.aspx.cs">
+      <DependentUpon>DatosPersonales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DatosPersonalesAlumno.aspx.designer.cs">
-      <DependentUpon>DatosPersonalesAlumno.aspx</DependentUpon>
+    <Compile Include="DatosPersonales.aspx.designer.cs">
+      <DependentUpon>DatosPersonales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Especialidades.aspx.cs">
       <DependentUpon>Especialidades.aspx</DependentUpon>
