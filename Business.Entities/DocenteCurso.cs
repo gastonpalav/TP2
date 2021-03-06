@@ -12,12 +12,28 @@ namespace Business.Entities
             set { _Cargo = value; }
         }
 
-        private Int64 _IDCurso;
+        //private Int64 _IDCurso;
 
-        public Int64 IDCurso
+        //public Int64 IDCurso
+        //{
+        //    get { return _IDCurso; }
+        //    set { _IDCurso = value; }
+        //}
+
+        //private Int64 _IDDocente;
+
+        //public Int64 IDDocente
+        //{
+        //    get { return _IDDocente; }
+        //    set { _IDDocente = value; }
+
+
+        private Persona _docente;
+
+        public Persona Docente
         {
-            get { return _IDCurso; }
-            set { _IDCurso = value; }
+            get { return _docente; }
+            set { _docente = value; }
         }
 
         private Curso _curso;
@@ -28,37 +44,23 @@ namespace Business.Entities
             set { _curso = value; }
         }
 
-        
-
-        public string MateriaDescripcion
+        public int LegajoDocente
         {
-            get { return Curso.Materia.Descripcion; }
+            get { return Docente.Legajo; }
 
         }
 
-        private AlumnoInscripcion _alumnoInscripcion;
 
-        public AlumnoInscripcion AlumnoInscripcion
+        public string CursoDescripcion
         {
-            get { return _alumnoInscripcion; }
-            set { _alumnoInscripcion = value; }
-        }
+            get { return Curso.MateriaDescripcion + Curso.ComisionDescripcion; }
 
-
-
-
-        private Int64 _IDDocente;
-
-        public Int64 IDDocente
-        {
-            get { return _IDDocente; }
-            set { _IDDocente = value; }
         }
 
         public enum TiposCargos
         {
-            titular,
-            auxiliar
+            Titular,
+            Auxiliar
         };
     }
 }
