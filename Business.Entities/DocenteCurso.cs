@@ -20,6 +20,33 @@ namespace Business.Entities
             set { _IDCurso = value; }
         }
 
+        private Curso _curso;
+
+        public Curso Curso
+        {
+            get { return _curso; }
+            set { _curso = value; }
+        }
+
+        
+
+        public string MateriaDescripcion
+        {
+            get { return Curso.Materia.Descripcion; }
+
+        }
+
+        private AlumnoInscripcion _alumnoInscripcion;
+
+        public AlumnoInscripcion AlumnoInscripcion
+        {
+            get { return _alumnoInscripcion; }
+            set { _alumnoInscripcion = value; }
+        }
+
+
+
+
         private Int64 _IDDocente;
 
         public Int64 IDDocente
@@ -30,6 +57,8 @@ namespace Business.Entities
 
         public enum TiposCargos
         {
+            titular,
+            auxiliar
         };
     }
 }

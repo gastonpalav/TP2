@@ -109,7 +109,7 @@ namespace Data.Database
                           
                     };
 
-                    alu.Curso.Materia = new Materia()
+                    alu.Curso.Materia = new Materia
                     {
                         Descripcion = (string)drAlumnoInscripcion["desc_materia"]
                     };

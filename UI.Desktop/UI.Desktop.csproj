@@ -187,6 +187,18 @@
     <Compile Include="Planes.Designer.cs">
       <DependentUpon>Planes.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegistroCondicionesAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroCondicionesAlumnos.Designer.cs">
+      <DependentUpon>RegistroCondicionesAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroCondicionesAlumnosDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroCondicionesAlumnosDesktop.Designer.cs">
+      <DependentUpon>RegistroCondicionesAlumnosDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReporteMaterias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +287,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Planes.resx">
       <DependentUpon>Planes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistroCondicionesAlumnos.resx">
+      <DependentUpon>RegistroCondicionesAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistroCondicionesAlumnosDesktop.resx">
+      <DependentUpon>RegistroCondicionesAlumnosDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteMaterias.resx">
       <DependentUpon>ReporteMaterias.cs</DependentUpon>

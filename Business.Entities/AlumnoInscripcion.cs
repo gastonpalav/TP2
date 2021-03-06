@@ -38,9 +38,16 @@ namespace Business.Entities
             set { _curso = value; }
         }
 
-       
 
-        
+        private Persona _alumno;
+
+        public  Persona Alumno
+        {
+            get { return _alumno; }
+            set { _alumno = value; }
+        }
+
+
 
 
 

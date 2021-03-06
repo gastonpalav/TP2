@@ -52,7 +52,8 @@ namespace UI.Desktop
 
         private void RegistroCondicionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+           // RegistroCondicionesAlumnos registroCondicionesAlumnos = new RegistroCondicionesAlumnos(docente.ID, ApplicationForm.Modoform.Modificacion);
+            //registroCondicionesAlumnos.ShowDialog();
         }
     }
 }
