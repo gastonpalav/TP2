@@ -12,24 +12,55 @@ namespace Business.Entities
             set { _Cargo = value; }
         }
 
-        private Int64 _IDCurso;
+        //private Int64 _IDCurso;
 
-        public Int64 IDCurso
+        //public Int64 IDCurso
+        //{
+        //    get { return _IDCurso; }
+        //    set { _IDCurso = value; }
+        //}
+
+        //private Int64 _IDDocente;
+
+        //public Int64 IDDocente
+        //{
+        //    get { return _IDDocente; }
+        //    set { _IDDocente = value; }
+
+
+        private Persona _docente;
+
+        public Persona Docente
         {
-            get { return _IDCurso; }
-            set { _IDCurso = value; }
+            get { return _docente; }
+            set { _docente = value; }
         }
 
-        private Int64 _IDDocente;
+        private Curso _curso;
 
-        public Int64 IDDocente
+        public Curso Curso
         {
-            get { return _IDDocente; }
-            set { _IDDocente = value; }
+            get { return _curso; }
+            set { _curso = value; }
+        }
+
+        public int LegajoDocente
+        {
+            get { return Docente.Legajo; }
+
+        }
+
+
+        public string CursoDescripcion
+        {
+            get { return Curso.MateriaDescripcion + Curso.ComisionDescripcion; }
+
         }
 
         public enum TiposCargos
         {
+            Titular,
+            Auxiliar
         };
     }
 }
