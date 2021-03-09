@@ -41,7 +41,7 @@ namespace Business.Entities
 
         private Persona _alumno;
 
-        public  Persona Alumno
+        public Persona Alumno
         {
             get { return _alumno; }
             set { _alumno = value; }

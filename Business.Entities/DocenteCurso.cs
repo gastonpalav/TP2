@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace Business.Entities
 {
     public class DocenteCurso : BusinessEntity
@@ -50,10 +51,60 @@ namespace Business.Entities
 
         }
 
+        private AlumnoInscripcion _alumnoInscripcion;
+
+        public AlumnoInscripcion AlumnoInscripcion
+        {
+            get
+            {
+                return _alumnoInscripcion;
+            }
+
+            set
+            {
+                _alumnoInscripcion = value;
+            }
+        }
+
+
+
+        public int LegajoAlumno
+        {
+            get { return AlumnoInscripcion.Alumno.Legajo; }
+
+        }
+
+
+
+        public string AlumnoCondicion
+        {
+            get { return AlumnoInscripcion.Condicion; }
+
+        }
+
+
+
+        public int AlumnoNota
+        {
+            get { return AlumnoInscripcion.Nota; }
+
+        }
+
+        public int AlumnoInscripcionID
+        {
+            get { return AlumnoInscripcion.ID; }
+        }
+
+       
+
+
+
+
+
 
         public string CursoDescripcion
         {
-            get { return Curso.MateriaDescripcion + Curso.ComisionDescripcion; }
+            get { return Curso.MateriaDescripcion +" "+ Curso.ComisionDescripcion; }
 
         }
 

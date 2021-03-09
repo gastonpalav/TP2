@@ -75,6 +75,31 @@ namespace Data.Database
             }
         }
 
+        public void Update(AlumnoInscripcion alumno)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdUpdate = new SqlCommand("Update alumnos_inscripciones set condicion=@condicion,nota=@nota" +
+" where id_inscripcion = @id_inscripcion", SqlConn);
+                cmdUpdate.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = alumno.Condicion;
+                cmdUpdate.Parameters.Add("@nota", SqlDbType.Int, 50).Value = alumno.Nota;
+                cmdUpdate.Parameters.Add("@id_inscripcion", SqlDbType.Int, 50).Value = alumno.ID;
+                cmdUpdate.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al modificar datos de la inscripcion del alumno", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+            
+
         public List<AlumnoInscripcion> GetAllByAlumno(Persona alumno)
         {
             List<AlumnoInscripcion> EstadoAlumno = new List<AlumnoInscripcion>();

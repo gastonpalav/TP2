@@ -16,6 +16,13 @@ namespace Business.Logic
             this.cursoAdapter = new CursoAdapter();
 
         }
+
+        public void Update(AlumnoInscripcion alumno)
+        {
+            alumnoInscripcionAdapter.Update(alumno);
+        }
+
+
         public bool Inscribir(AlumnoInscripcion inscripcion)
         {
             try

@@ -11,7 +11,7 @@ namespace UI.Web
 {
     public partial class Inscripcion : System.Web.UI.Page
     {
-        private List<Materia> listaMaterias;
+        //private List<Materia> listaMaterias;
         private List<Business.Entities.Curso> listaCursos;
         public Persona usuAlumno { set; get; }
 

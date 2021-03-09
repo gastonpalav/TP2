@@ -6,6 +6,10 @@ namespace UI.Desktop
 {
     public partial class PersonaDesktop : ApplicationForm
     {
+
+        /// <summary>
+        /// NO VA?
+        /// </summary>
         public PersonaDesktop()
         {
             InitializeComponent();

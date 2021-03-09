@@ -11,14 +11,12 @@ namespace UI.Desktop
             InitializeComponent();
         }
 
-        public EspecialidadDesktop(Modoform modo)
-            : this()
+        public EspecialidadDesktop(Modoform modo) : this()
         {
             this.Modo = modo;
         }
 
-        public EspecialidadDesktop(int ID, Modoform modo)
-            : this()
+        public EspecialidadDesktop(int ID, Modoform modo): this()
         {
             this.Modo = modo;
             EspecialidadLogic especialidadLogic = new EspecialidadLogic();

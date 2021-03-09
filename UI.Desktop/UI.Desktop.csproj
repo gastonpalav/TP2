@@ -187,17 +187,17 @@
     <Compile Include="Planes.Designer.cs">
       <DependentUpon>Planes.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegistroCondicionesAlumnos.cs">
+    <Compile Include="CondicionesAlumnos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistroCondicionesAlumnos.Designer.cs">
-      <DependentUpon>RegistroCondicionesAlumnos.cs</DependentUpon>
+    <Compile Include="CondicionesAlumnos.Designer.cs">
+      <DependentUpon>CondicionesAlumnos.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegistroCondicionesAlumnosDesktop.cs">
+    <Compile Include="CondicionesAlumnosDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistroCondicionesAlumnosDesktop.Designer.cs">
-      <DependentUpon>RegistroCondicionesAlumnosDesktop.cs</DependentUpon>
+    <Compile Include="CondicionesAlumnosDesktop.Designer.cs">
+      <DependentUpon>CondicionesAlumnosDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteMaterias.cs">
       <SubType>Form</SubType>
@@ -294,11 +294,11 @@
     <EmbeddedResource Include="Planes.resx">
       <DependentUpon>Planes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegistroCondicionesAlumnos.resx">
-      <DependentUpon>RegistroCondicionesAlumnos.cs</DependentUpon>
+    <EmbeddedResource Include="CondicionesAlumnos.resx">
+      <DependentUpon>CondicionesAlumnos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegistroCondicionesAlumnosDesktop.resx">
-      <DependentUpon>RegistroCondicionesAlumnosDesktop.cs</DependentUpon>
+    <EmbeddedResource Include="CondicionesAlumnosDesktop.resx">
+      <DependentUpon>CondicionesAlumnosDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteMaterias.resx">
       <DependentUpon>ReporteMaterias.cs</DependentUpon>
@@ -349,6 +349,10 @@
       <Project>{9ccc92c8-2df3-480c-8efc-234bf5a0e286}</Project>
       <Name>Util</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

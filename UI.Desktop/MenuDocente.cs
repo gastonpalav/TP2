@@ -47,13 +47,14 @@ namespace UI.Desktop
 
         private void ConsultaDeCursosEinscriptosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            CondicionesAlumnos condicionesAlumnos = new CondicionesAlumnos(docente, ApplicationForm.Modoform.Consulta);
+            condicionesAlumnos.ShowDialog();
         }
 
         private void RegistroCondicionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // RegistroCondicionesAlumnos registroCondicionesAlumnos = new RegistroCondicionesAlumnos(docente.ID, ApplicationForm.Modoform.Modificacion);
-            //registroCondicionesAlumnos.ShowDialog();
+            CondicionesAlumnos registro = new CondicionesAlumnos(docente,ApplicationForm.Modoform.Modificacion);
+            registro.ShowDialog();
         }
     }
 }
