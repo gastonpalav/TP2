@@ -186,9 +186,18 @@ namespace UI.Desktop
 
             if (dr == DialogResult.Yes)
             {
-                CursoLogic cursoLogic = new CursoLogic();
-                cursoLogic.Delete(this.CursoActual.ID);
-                this.Close();
+                try
+                {
+                    CursoLogic cursoLogic = new CursoLogic();
+                    cursoLogic.Delete(this.CursoActual.ID);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+
+                    //mostrar en la pantalla ex.Message
+                }
+
             }
         }
 
