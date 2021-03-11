@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegistroCondicionesAlumnos.aspx.cs" Inherits="UI.Web.RegistroCondicionesAlumnos" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CondicionesAlumnos.aspx.cs" Inherits="UI.Web.RegistroCondicionesAlumnos" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
@@ -6,7 +6,7 @@
         <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" 
             SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CssClass="table table-responsive-lg">
             <Columns>
-                <asp:BoundField HeaderText="Legajo" DataField="LegajoAlumno" />
+                <asp:BoundField HeaderText="Legajo Alumno" DataField="LegajoAlumno" />
                 <asp:BoundField HeaderText="Materia" DataField="CursoDescripcion" />
                 <asp:BoundField HeaderText="Condicion" DataField="AlumnoCondicion" />
                 <asp:BoundField HeaderText="Nota" DataField="AlumnoNota" />
@@ -19,7 +19,7 @@
     
     <div class="form-group">
     <asp:Panel ID="formPanel" Visible="false" runat="server" >
-        <asp:Label ID="LegajoLabel" runat="server" Text="Legajo: "></asp:Label>
+        <asp:Label ID="LegajoLabel" runat="server" Text="Legajo Alumno: "></asp:Label>
         <asp:TextBox ID="LegajoTextBox" class="form-control" runat="server" ></asp:TextBox>
         <asp:RequiredFieldValidator ID="LegajoRequerido" runat="server" ForeColor="Red" ErrorMessage="Requerido" ControlToValidate="LegajoTextBox" ValidationGroup="vg"></asp:RequiredFieldValidator>
         <br />

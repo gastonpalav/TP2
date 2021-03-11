@@ -195,7 +195,7 @@ namespace UI.Desktop
                 catch (Exception ex)
                 {
 
-                    //mostrar en la pantalla ex.Message
+                    throw ex;
                 }
 
             }
