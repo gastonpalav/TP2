@@ -62,7 +62,7 @@ namespace UI.Web
                 this.CursoDropDown.DataValueField = "ID";
                 this.CursoDropDown.DataBind();
             }
-            
+
             //agregar droprdown de cargos
         }
 
@@ -240,6 +240,8 @@ namespace UI.Web
             this.gridView.SelectedIndex = -1;
             this.SelectedID = 0;
         }
+
+
 
     }
 }

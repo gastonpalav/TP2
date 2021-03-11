@@ -27,6 +27,7 @@
         </asp:DropDownList>
         <asp:RequiredFieldValidator ID="rfvCurso" runat="server" ControlToValidate="CursoDropDown" ErrorMessage="Seleccione un curso" ForeColor="Red" ToolTip="No seleccionó un curso" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
         <br />
+
     </asp:Panel>
     </div>
     <asp:Panel ID="gridActionsPanel" runat="server" class="btn-group">

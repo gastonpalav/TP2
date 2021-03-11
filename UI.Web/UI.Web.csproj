@@ -73,6 +73,7 @@
     <Content Include="DatosPersonales.aspx">
       <BrowseToURL>~/DatosPersonalesAlumno.aspx</BrowseToURL>
     </Content>
+    <Content Include="DocentesCursos.aspx" />
     <Content Include="Especialidades.aspx" />
     <Content Include="EstadoAcademico.aspx" />
     <Content Include="Global.asax" />
@@ -117,6 +118,13 @@
     </Compile>
     <Compile Include="DatosPersonales.aspx.designer.cs">
       <DependentUpon>DatosPersonales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocentesCursos.aspx.cs">
+      <DependentUpon>DocentesCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DocentesCursos.aspx.designer.cs">
+      <DependentUpon>DocentesCursos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Especialidades.aspx.cs">
       <DependentUpon>Especialidades.aspx</DependentUpon>
