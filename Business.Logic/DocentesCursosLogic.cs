@@ -34,6 +34,26 @@ namespace Business.Logic
             return docenteCursoAdapter.GetAllbyDocente(docente);
         }
 
+        public void Delete(int id)
+        {
+            try
+            {
+                this.docenteCursoAdapter.Delete(id);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<DocenteCurso> GetAll()
+        {
+            return docenteCursoAdapter.GetAll();
+        }
+
+
 
     }
 }
