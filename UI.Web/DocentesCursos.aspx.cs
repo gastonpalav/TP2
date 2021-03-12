@@ -63,7 +63,11 @@ namespace UI.Web
                 this.CursoDropDown.DataBind();
             }
 
-            //agregar droprdown de cargos
+            if (this.TipoDropDown.Items.Count == 1)
+            {
+                this.TipoDropDown.DataSource = Enum.GetNames(typeof(DocenteCurso.TiposCargos));
+                this.TipoDropDown.DataBind();
+            }
         }
 
         public enum FormModes
@@ -116,17 +120,17 @@ namespace UI.Web
 
         private void LoadForm(int ID)
         {
-            this.Entity = this.Logic.GetOne(ID);
+            this.Entity = this.Logic.GetOneD(ID);
             this.DocenteDropDown.SelectedValue = this.Entity.Docente.ID.ToString();
             this.CursoDropDown.SelectedValue = this.Entity.Curso.ID.ToString();
-            //agregar lo de cargo
+            this.TipoDropDown.SelectedValue = this.Entity.Cargo.ToString();
         }
 
         private void EnableForm(bool enable)
         {
             this.DocenteDropDown.Enabled = enable;
             this.CursoDropDown.Enabled = enable;
-            //falta el de tipocargo
+            this.TipoDropDown.Enabled = enable;
         }
 
         protected void editarlinkButton_Click(object sender, EventArgs e)
@@ -148,9 +152,7 @@ namespace UI.Web
 
             dc.Curso.ID = int.Parse(this.CursoDropDown.SelectedItem.Value);
             dc.Docente.ID = int.Parse(this.DocenteDropDown.SelectedItem.Value);
-
-            //y falta el cargo
-
+            dc.Cargo = (DocenteCurso.TiposCargos)Enum.Parse(typeof(DocenteCurso.TiposCargos), this.TipoDropDown.SelectedItem.Value);
         }
 
         private void SaveEntity(DocenteCurso dc)
@@ -196,8 +198,7 @@ namespace UI.Web
         {
             this.DocenteDropDown.SelectedIndex = 0;
             this.CursoDropDown.SelectedIndex = 0;
-
-            //y que limpie lo de cargos
+            this.TipoDropDown.SelectedIndex = 0;
         }
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)

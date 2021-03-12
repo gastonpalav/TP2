@@ -51,6 +51,8 @@ namespace Data.Database
                 SqlCommand cmdUpdate = new SqlCommand("UPDATE docentes_cursos SET id_curso=@id_curso , id_docente=@id_docente,cargo=@tipo_cargo WHERE id_dictado=@id_dictado", SqlConn);
                 cmdUpdate.Parameters.Add("@id_curso", SqlDbType.Int).Value = docenteCurso.Curso.ID;
                 cmdUpdate.Parameters.Add("@id_docente", SqlDbType.Int).Value = docenteCurso.Docente.ID;
+                cmdUpdate.Parameters.Add("@id_dictado", SqlDbType.Int).Value = docenteCurso.ID;
+
                 switch (docenteCurso.Cargo)
                 {
                     case DocenteCurso.TiposCargos.Titular:
@@ -212,7 +214,7 @@ namespace Data.Database
                     docenteCurso.Docente = new Persona
                     {
                         ID = (int)drDocenteCurso["id_docente"],
-
+                        //Legajo = (int)drDocenteCurso[""]
                     };
 
                     docenteCurso.AlumnoInscripcion = new AlumnoInscripcion
@@ -231,7 +233,7 @@ namespace Data.Database
                     else
                     {
 
-                    }
+                    };
 
 
                     docenteCurso.AlumnoInscripcion.Alumno = new Persona
@@ -249,7 +251,7 @@ namespace Data.Database
                         case 1:
                             docenteCurso.Cargo = DocenteCurso.TiposCargos.Auxiliar;
                             break;
-                    }
+                    };
                 }
                 drDocenteCurso.Close();
 
@@ -266,6 +268,71 @@ namespace Data.Database
             }
         }
 
+        public DocenteCurso GetOneD(int ID)
+        {
+            DocenteCurso docenteCurso = new DocenteCurso();
+
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetOne = new SqlCommand("select dc.id_dictado,p.legajo,c.id_curso,dc.id_docente,m.desc_materia,co.desc_comision,dc.cargo from docentes_cursos dc" +
+                                            " inner join cursos c on c.id_curso = dc.id_curso" +
+                                            " inner join comisiones co on c.id_comision = c.id_comision" +
+                                            " inner join materias m on m.id_materia = c.id_materia" +
+                                            " inner join personas p on p.id_persona = dc.id_docente" +
+                                            " where dc.id_dictado=@id", SqlConn);
+                cmdGetOne.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                SqlDataReader drDocenteCurso = cmdGetOne.ExecuteReader();
+                if (drDocenteCurso.Read())
+                {
+                    docenteCurso.ID = (int)drDocenteCurso["id_dictado"];
+
+                    docenteCurso.Curso = new Curso
+                    {
+                        ID = (int)drDocenteCurso["id_curso"],
+                        //AnioCalendario = (Int32)drDocenteCurso["anio_calendario"],
+                        //Cupo = (Int32)drDocenteCurso["cupo"];
+                        Materia = new Materia
+                        {
+                            Descripcion = (string)drDocenteCurso["desc_materia"]
+                        },
+
+                        Comision = new Comision
+                        {
+                            Descripcion = (string)drDocenteCurso["desc_comision"]
+                        }
+                    };
+
+                    docenteCurso.Docente = new Persona
+                    {
+                        ID = (int)drDocenteCurso["id_docente"],
+                        Legajo = (int)drDocenteCurso["legajo"]
+                    };
+
+                    switch ((int)drDocenteCurso["cargo"])
+                    {
+                        case 0:
+                            docenteCurso.Cargo = DocenteCurso.TiposCargos.Titular;
+                            break;
+                        case 1:
+                            docenteCurso.Cargo = DocenteCurso.TiposCargos.Auxiliar;
+                            break;
+                    };
+                }
+                drDocenteCurso.Close();
+
+                return docenteCurso;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
         public List<DocenteCurso> GetAllbyDocente(Persona docente)
         {
             try

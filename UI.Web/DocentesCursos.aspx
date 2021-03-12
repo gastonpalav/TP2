@@ -6,6 +6,7 @@
              <Columns>  
                 <asp:BoundField HeaderText="Curso" DataField="CursoDescripcion" />
                  <asp:BoundField HeaderText="Docente" DataField="LegajoDocente" />
+                 <asp:BoundField HeaderText="Tipo" DataField="Cargo" />
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
             </Columns>
             <SelectedRowStyle BackColor="Black" ForeColor="White" />
@@ -26,6 +27,12 @@
             <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
         </asp:DropDownList>
         <asp:RequiredFieldValidator ID="rfvCurso" runat="server" ControlToValidate="CursoDropDown" ErrorMessage="Seleccione un curso" ForeColor="Red" ToolTip="No seleccionó un curso" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+        <br />
+         <asp:Label ID="TipoLabel" runat="server" Text="Tipo: "></asp:Label>
+        <asp:DropDownList ID="TipoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
+            <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="rfvTipo" runat="server" ControlToValidate="TipoDropDown" ErrorMessage="Seleccione un tipo de docente" ForeColor="Red" ToolTip="No seleccionó un tipo docente" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
         <br />
 
     </asp:Panel>

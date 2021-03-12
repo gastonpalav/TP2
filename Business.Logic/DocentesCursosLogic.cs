@@ -23,11 +23,16 @@ namespace Business.Logic
         {
             this.docenteCursoAdapter.Save(dc);
         }
+        public DocenteCurso GetOneD(int ID)
+        {
+            //para el abm de docentecurso
+            return docenteCursoAdapter.GetOneD(ID);
+        }
+
         public DocenteCurso GetOne(int ID)
         {
             return docenteCursoAdapter.GetOne(ID);
         }
-
 
         public List<DocenteCurso> GetAllByDocente(Persona docente)
         {

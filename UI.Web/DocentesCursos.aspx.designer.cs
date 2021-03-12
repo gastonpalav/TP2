@@ -96,6 +96,33 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCurso;
 
         /// <summary>
+        /// TipoLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TipoLabel;
+
+        /// <summary>
+        /// TipoDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TipoDropDown;
+
+        /// <summary>
+        /// rfvTipo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTipo;
+
+        /// <summary>
         /// gridActionsPanel control.
         /// </summary>
         /// <remarks>
