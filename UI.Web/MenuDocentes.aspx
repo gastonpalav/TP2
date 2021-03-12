@@ -30,7 +30,7 @@
       </LevelMenuItemStyles>
         <Items>
             <asp:MenuItem NavigateUrl="~/DatosPersonales.aspx" Text="Datos personales" Value="1"/>
-            <asp:MenuItem NavigateUrl="~/RegistroCondicionesAlumnos.aspx" Text="Registro Condiciones de alumnos" Value="2" />
+            <asp:MenuItem NavigateUrl="~/CondicionesAlumnos.aspx" Text="Alumnos y Cursos" Value="2" />
         </Items>
 </asp:Menu>
         </div>

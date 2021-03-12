@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using Util;
 
 namespace UI.Desktop
 {
 
     public partial class CondicionesAlumnosDesktop : ApplicationForm
     {
+
         private enum Condiciones
         {
             Libre,
@@ -25,7 +27,8 @@ namespace UI.Desktop
         {
             InitializeComponent();
             cboCondicion.DataSource = Enum.GetValues(typeof(Condiciones));
-            
+
+
         }
 
         public CondicionesAlumnosDesktop(Modoform modo) : this()
@@ -42,9 +45,9 @@ namespace UI.Desktop
             DocentesCursosLogic docenteCursosLogic = new DocentesCursosLogic();
             this.DocenteCursoEntity = docenteCursosLogic.GetOne(ID);
             IDAlumnoInscripcion = DocenteCursoEntity.AlumnoInscripcionID;
-            
+
             this.MapearDeDatos();
-            
+
         }
 
 
@@ -57,8 +60,9 @@ namespace UI.Desktop
             txtBoxLegajo.Text = DocenteCursoEntity.LegajoAlumno.ToString();
             txtBoxNota.Text = DocenteCursoEntity.AlumnoNota.ToString();
             txtBoxCargo.Text = DocenteCursoEntity.Cargo.ToString();
-            //Arreglar combobox que no muestra
-            cboCondicion.SelectedItem = DocenteCursoEntity.AlumnoCondicion;
+            cboCondicion.SelectedIndex = cboCondicion.FindString(DocenteCursoEntity.AlumnoCondicion);
+
+
 
             switch (this.Modo)
             {
@@ -68,9 +72,12 @@ namespace UI.Desktop
 
 
                 case Modoform.Consulta:
+
+
+                    cboCondicion.DropDownStyle = ComboBoxStyle.Simple;
                     cboCondicion.Enabled = false;
                     txtBoxNota.Enabled = false;
-                   btnAceptar.Text = "Aceptar";
+                    btnAceptar.Text = "Aceptar";
                     break;
             }
         }
@@ -139,7 +146,6 @@ namespace UI.Desktop
                 this.Close();
             }
         }
-
 
     }
 }
