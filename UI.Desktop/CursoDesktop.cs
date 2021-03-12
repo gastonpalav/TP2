@@ -194,8 +194,7 @@ namespace UI.Desktop
                 }
                 catch (Exception ex)
                 {
-
-                    //mostrar en la pantalla ex.Message
+                    this.Notificar("ERROR", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
