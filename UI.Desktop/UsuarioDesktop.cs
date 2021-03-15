@@ -3,6 +3,7 @@ using Business.Logic;
 using System.Linq;
 using System.Windows.Forms;
 using Util;
+using System;
 
 namespace UI.Desktop
 {
@@ -151,9 +152,17 @@ namespace UI.Desktop
 
             if (dr == DialogResult.Yes)
             {
-                UsuarioLogic usuarioLogic = new UsuarioLogic();
-                usuarioLogic.Delete(this.UsuarioActual.ID);
-                this.Close();
+                try
+                {
+                    UsuarioLogic usuarioLogic = new UsuarioLogic();
+                    usuarioLogic.Delete(this.UsuarioActual.ID);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    this.Notificar("ERROR", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 

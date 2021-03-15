@@ -153,9 +153,18 @@ namespace UI.Desktop
 
             if (dr == DialogResult.Yes)
             {
-                ComisionLogic comisionLogic = new ComisionLogic();
-                comisionLogic.Delete(this.ComisionActual.ID);
-                this.Close();
+                try
+                {
+                    ComisionLogic comisionLogic = new ComisionLogic();
+                    comisionLogic.Delete(this.ComisionActual.ID);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    this.Notificar("ERROR", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
             }
         }
 

@@ -1,4 +1,4 @@
-﻿
+﻿using Util;
 namespace UI.Desktop
 {
     partial class CondicionesAlumnosDesktop
@@ -35,7 +35,7 @@ namespace UI.Desktop
             this.txtBoxID = new System.Windows.Forms.TextBox();
             this.lblLegajo = new System.Windows.Forms.Label();
             this.txtBoxLegajo = new System.Windows.Forms.TextBox();
-            this.cboCondicion = new System.Windows.Forms.ComboBox();
+            this.cboCondicion = new Util.AdvancedComboBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtNota = new System.Windows.Forms.Label();
             this.txtBoxNota = new System.Windows.Forms.TextBox();
@@ -109,7 +109,7 @@ namespace UI.Desktop
             this.lblLegajo.Name = "lblLegajo";
             this.lblLegajo.Size = new System.Drawing.Size(165, 25);
             this.lblLegajo.TabIndex = 9;
-            this.lblLegajo.Text = "Legajo";
+            this.lblLegajo.Text = "Legajo Alumno";
             // 
             // txtBoxLegajo
             // 
@@ -123,10 +123,12 @@ namespace UI.Desktop
             // cboCondicion
             // 
             this.cboCondicion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCondicion.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cboCondicion.FormattingEnabled = true;
+            this.cboCondicion.HighlightColor = System.Drawing.Color.Gray;
             this.cboCondicion.Location = new System.Drawing.Point(656, 418);
             this.cboCondicion.Name = "cboCondicion";
-            this.cboCondicion.Size = new System.Drawing.Size(372, 33);
+            this.cboCondicion.Size = new System.Drawing.Size(372, 32);
             this.cboCondicion.TabIndex = 18;
             // 
             // lblEmail
@@ -217,14 +219,14 @@ namespace UI.Desktop
             this.txtBoxCargo.Size = new System.Drawing.Size(209, 31);
             this.txtBoxCargo.TabIndex = 25;
             // 
-            // RegistroCondicionesAlumnosDesktop
+            // CondicionesAlumnosDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1450, 688);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "RegistroCondicionesAlumnosDesktop";
+            this.Name = "CondicionesAlumnosDesktop";
             this.Text = "RegistroCondicionesAlumnosDesktop";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -233,6 +235,7 @@ namespace UI.Desktop
         }
 
         #endregion
+        
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblEmail;
@@ -241,7 +244,7 @@ namespace UI.Desktop
         private System.Windows.Forms.Label lblLegajo;
         private System.Windows.Forms.TextBox txtBoxID;
         private System.Windows.Forms.TextBox txtBoxLegajo;
-        private System.Windows.Forms.ComboBox cboCondicion;
+        private AdvancedComboBox cboCondicion;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox txtBoxMateria;
         private System.Windows.Forms.Label lblMateria;

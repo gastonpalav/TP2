@@ -147,9 +147,17 @@ namespace UI.Desktop
 
             if (dr == DialogResult.Yes)
             {
-                MateriaLogic ml = new MateriaLogic();
-                ml.Delete(this.MateriaActual.ID);
-                this.Close();
+                try
+                {
+                    MateriaLogic ml = new MateriaLogic();
+                    ml.Delete(this.MateriaActual.ID);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    this.Notificar("ERROR", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 

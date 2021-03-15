@@ -1,4 +1,6 @@
-﻿using Business.Entities;
+﻿using System;
+using System.Collections.Generic;
+using Business.Entities;
 using Business.Logic;
 using System.Windows.Forms;
 
@@ -106,9 +108,17 @@ namespace UI.Desktop
 
             if (dr == DialogResult.Yes)
             {
-                EspecialidadLogic especialidadLogic = new EspecialidadLogic();
-                especialidadLogic.Delete(this.EspecialidadActual.ID);
-                this.Close();
+                try
+                {
+                    EspecialidadLogic especialidadLogic = new EspecialidadLogic();
+                    especialidadLogic.Delete(this.EspecialidadActual.ID);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    this.Notificar("ERROR", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 

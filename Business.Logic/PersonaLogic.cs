@@ -16,22 +16,59 @@ namespace Business.Logic
 
         public Persona.TipoPersonas GetTipoPersonaByUser(string user)
         {
-            return this.PersonaAdapter.GetTipoPersonaByUser(user);
+            try
+            {
+                return this.PersonaAdapter.GetTipoPersonaByUser(user);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar el tipo de persona", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public List<Persona> GetAllPersonasByType(Persona.TipoPersonas tipoPersona)
         {
-            return this.PersonaAdapter.GetAllPersonasByType(tipoPersona);
+            try
+            {
+                return this.PersonaAdapter.GetAllPersonasByType(tipoPersona);
+            }
+            catch (Exception ex)
+            {
+
+                Exception ExcepcionManejada = new Exception("Error al recuperar la lista de personas por tipo", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public Persona GetOneById(int ID)
         {
-            return this.PersonaAdapter.GetOne(ID);
+            try
+            {
+                return this.PersonaAdapter.GetOne(ID);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar la persona", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public Persona GetOneByUser(string usuario)
         {
-            return this.PersonaAdapter.GetOneByUsuario(usuario);
+            try
+            {
+                return this.PersonaAdapter.GetOneByUsuario(usuario);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar la persona", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public void Save(Persona persona)
@@ -42,14 +79,23 @@ namespace Business.Logic
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Exception ExcepcionManejada = new Exception("Error al guardar persona", ex);
+                throw ExcepcionManejada;
             }
         }
 
         public void Delete(int ID)
         {
-            this.PersonaAdapter.Delete(ID);     
+            try
+            {
+                this.PersonaAdapter.Delete(ID);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al guardar persona", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 }
 }

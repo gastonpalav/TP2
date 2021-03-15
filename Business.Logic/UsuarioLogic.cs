@@ -16,7 +16,16 @@ namespace Business.Logic
 
         public Usuario GetOne(int idUsuario)
         {
-            return this.UsuarioData.GetOne(idUsuario);
+            try
+            {
+                return this.UsuarioData.GetOne(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar el usuario", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public List<Usuario> GetAll()
@@ -34,12 +43,30 @@ namespace Business.Logic
 
         public void Save(Usuario usuario)
         {
-            this.UsuarioData.Save(usuario);
+            try
+            {
+                this.UsuarioData.Save(usuario);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al guardar usuario", ex);
+                throw ExcepcionManejada;
+            }
+           
         }
 
         public void Delete(int idUsuario)
         {
-            this.UsuarioData.Delete(idUsuario);
+            try
+            {
+                this.UsuarioData.Delete(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error eliminar usuario", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public bool Authenticate(string usuario, string contraseña)
@@ -50,7 +77,8 @@ namespace Business.Logic
             }
             catch (Exception ex)
             {
-                throw ex;
+                Exception ExcepcionManejada = new Exception("Error al autentificar", ex);
+                throw ExcepcionManejada;
             }
         }
     }

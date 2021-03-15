@@ -19,7 +19,16 @@ namespace Business.Logic
 
         public void Update(AlumnoInscripcion alumno)
         {
-            alumnoInscripcionAdapter.Update(alumno);
+            try
+            {
+                alumnoInscripcionAdapter.Update(alumno);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al actualizar inscripcion del alumno", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
 
@@ -47,13 +56,23 @@ namespace Business.Logic
             }
             catch (Exception ex)
             {
-                throw ex;
+                Exception ExcepcionManejada = new Exception("Error al inscribir inscripcion del alumno", ex);
+                throw ExcepcionManejada;
             }
         }
 
         public List<AlumnoInscripcion> GetAllByAlumno(Persona alumno)
         {
-            return alumnoInscripcionAdapter.GetAllByAlumno(alumno);
+            try
+            {
+                return alumnoInscripcionAdapter.GetAllByAlumno(alumno);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar inscripcion de alumnos", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
     }
 }

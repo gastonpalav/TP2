@@ -1,7 +1,7 @@
 ﻿using Business.Entities;
 using Business.Logic;
 using System.Collections.Generic;
-using System.Linq;
+using System;
 using System.Windows.Forms;
 
 namespace UI.Desktop
@@ -136,9 +136,17 @@ namespace UI.Desktop
 
             if (dr == DialogResult.Yes)
             {
-                PlanLogic planLogic = new PlanLogic();
-                planLogic.Delete(this.PlanActual.ID);
-                this.Close();
+                try
+                {
+                    PlanLogic planLogic = new PlanLogic();
+                    planLogic.Delete(this.PlanActual.ID);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    this.Notificar("ERROR", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 

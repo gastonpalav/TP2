@@ -23,7 +23,16 @@ namespace Business.Logic
 
         public Comision GetOne(int idComision)
         {
-            return this.ComisionData.GetOne(idComision);
+            try
+            {
+                return this.ComisionData.GetOne(idComision);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar el comision", ex);
+                throw ExcepcionManejada ;
+            }
+            
         }
 
         public List<Comision> GetAll()
@@ -44,7 +53,16 @@ namespace Business.Logic
 
         public void Save(Comision comision)
         {
-            this.ComisionData.Save(comision);
+            try
+            {
+                this.ComisionData.Save(comision);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al guardar la comision", ex);
+                throw ExcepcionManejada;
+            }
+            
 
         }
 
@@ -58,8 +76,8 @@ namespace Business.Logic
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Exception ExcepcionManejada = new Exception("Error a eliminar la comision", ex);
+                throw ExcepcionManejada;
             }
         }
 

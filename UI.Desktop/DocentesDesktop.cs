@@ -152,9 +152,17 @@ namespace UI.Desktop
 
             if (dr == DialogResult.Yes)
             {
-                PersonaLogic personaLogic = new PersonaLogic();
-                personaLogic.Delete(this.PersonaEntity.ID);
-                this.Close();
+                try
+                {
+                    PersonaLogic personaLogic = new PersonaLogic();
+                    personaLogic.Delete(this.PersonaEntity.ID);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    this.Notificar("ERROR", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
         }
 

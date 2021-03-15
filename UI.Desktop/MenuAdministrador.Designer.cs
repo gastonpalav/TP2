@@ -51,6 +51,7 @@
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.inscripcionDeDocenteACursoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteMateriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnsPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -72,6 +73,7 @@
             this.reporteToolStripMenuItem});
             this.mnsPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnsPrincipal.Name = "mnsPrincipal";
+            this.mnsPrincipal.Size = new System.Drawing.Size(685, 24);
             this.mnsPrincipal.Size = new System.Drawing.Size(833, 24);
             this.mnsPrincipal.TabIndex = 1;
             this.mnsPrincipal.Text = "menuStrip1";
@@ -124,7 +126,8 @@
             // profesoresToolStripMenuItem
             // 
             this.profesoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.administracionDeProfesoresToolStripMenuItem});
+            this.administracionDeProfesoresToolStripMenuItem,
+            this.inscripcionDeDocenteACursoToolStripMenuItem});
             this.profesoresToolStripMenuItem.Name = "profesoresToolStripMenuItem";
             this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.profesoresToolStripMenuItem.Text = "Profesores";
@@ -132,6 +135,7 @@
             // administracionDeProfesoresToolStripMenuItem
             // 
             this.administracionDeProfesoresToolStripMenuItem.Name = "administracionDeProfesoresToolStripMenuItem";
+            this.administracionDeProfesoresToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.administracionDeProfesoresToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.administracionDeProfesoresToolStripMenuItem.Text = "Administracion de Profesores";
             this.administracionDeProfesoresToolStripMenuItem.Click += new System.EventHandler(this.administracionDeProfesoresToolStripMenuItem_Click);
@@ -233,10 +237,18 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 24);
             this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(685, 306);
             this.pictureBox1.Size = new System.Drawing.Size(833, 306);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // inscripcionDeDocenteACursoToolStripMenuItem
+            // 
+            this.inscripcionDeDocenteACursoToolStripMenuItem.Name = "inscripcionDeDocenteACursoToolStripMenuItem";
+            this.inscripcionDeDocenteACursoToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.inscripcionDeDocenteACursoToolStripMenuItem.Text = "Inscripcion de Docente a Curso";
+            this.inscripcionDeDocenteACursoToolStripMenuItem.Click += new System.EventHandler(this.inscripcionDeDocenteACursoToolStripMenuItem_Click);
             // 
             // reporteMateriasToolStripMenuItem
             // 
@@ -249,7 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 330);
+            this.ClientSize = new System.Drawing.Size(685, 330);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.mnsPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -292,5 +304,6 @@
         private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteCursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteMateriasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inscripcionDeDocenteACursoToolStripMenuItem;
     }
 }

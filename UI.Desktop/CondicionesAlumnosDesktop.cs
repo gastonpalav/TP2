@@ -2,11 +2,14 @@
 using Business.Logic;
 using System;
 using System.Windows.Forms;
+using Business.Entities;
+using Business.Logic;
 
 namespace UI.Desktop
 {
     public partial class CondicionesAlumnosDesktop : ApplicationForm
     {
+
         private enum Condiciones
         {
             Libre,
@@ -45,8 +48,9 @@ namespace UI.Desktop
             txtBoxLegajo.Text = DocenteCursoEntity.LegajoAlumno.ToString();
             txtBoxNota.Text = DocenteCursoEntity.AlumnoNota.ToString();
             txtBoxCargo.Text = DocenteCursoEntity.Cargo.ToString();
-            //Arreglar combobox que no muestra
-            cboCondicion.SelectedItem = DocenteCursoEntity.AlumnoCondicion;
+            cboCondicion.SelectedIndex = cboCondicion.FindString(DocenteCursoEntity.AlumnoCondicion);
+
+
 
             switch (this.Modo)
             {
@@ -55,6 +59,9 @@ namespace UI.Desktop
                     break;
 
                 case Modoform.Consulta:
+
+
+                    cboCondicion.DropDownStyle = ComboBoxStyle.Simple;
                     cboCondicion.Enabled = false;
                     txtBoxNota.Enabled = false;
                     btnAceptar.Text = "Aceptar";

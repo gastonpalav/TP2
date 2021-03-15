@@ -88,6 +88,18 @@
     <Compile Include="CondicionesAlumnosDesktop.Designer.cs">
       <DependentUpon>CondicionesAlumnosDesktop.cs</DependentUpon>
     </Compile>
+    <Compile Include="DocenteCursoDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocenteCursoDesktop.Designer.cs">
+      <DependentUpon>DocenteCursoDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocentesCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocentesCursos.Designer.cs">
+      <DependentUpon>DocentesCursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatosPersonales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,18 +245,6 @@
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="SubirNota.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SubirNota.Designer.cs">
-      <DependentUpon>SubirNota.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SubirNota.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SubirNota.Designer.cs">
-      <DependentUpon>SubirNota.cs</DependentUpon>
-    </Compile>
     <Compile Include="UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +264,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alumnos.resx">
       <DependentUpon>Alumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocenteCursoDesktop.resx">
+      <DependentUpon>DocenteCursoDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocentesCursos.resx">
+      <DependentUpon>DocentesCursos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DatosPersonales.resx">
       <DependentUpon>DatosPersonales.cs</DependentUpon>
@@ -344,9 +350,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CondicionesAlumnosDesktop.resx">
       <DependentUpon>CondicionesAlumnosDesktop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SubirNota.resx">
-      <DependentUpon>SubirNota.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
