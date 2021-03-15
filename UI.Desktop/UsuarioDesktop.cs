@@ -45,6 +45,7 @@ namespace UI.Desktop
         {
             this.txtID.Text = this.UsuarioActual.ID.ToString();
             this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
+            this.txtUsuario.Text = this.UsuarioActual.NombreUsuario.ToString();
             this.txtNombre.Text = this.UsuarioActual.Nombre.ToString();
             this.txtApellido.Text = this.UsuarioActual.Apellido.ToString();
             this.txtEmail.Text = this.UsuarioActual.Email.ToString();
@@ -113,7 +114,7 @@ namespace UI.Desktop
  
         public override bool Validar()
         {
-            if (string.IsNullOrEmpty(this.txtApellido.Text) || Util.Validar.Email_valido(this.txtEmail.Text) || string.IsNullOrEmpty(this.txtNombre.Text) || string.IsNullOrEmpty(this.txtUsuario.Text) || string.IsNullOrEmpty(this.txtClave.Text) || string.IsNullOrEmpty(this.txtConfirmarClave.Text))
+            if (string.IsNullOrEmpty(this.txtApellido.Text) || !Util.Validar.Email_valido(this.txtEmail.Text) || string.IsNullOrEmpty(this.txtNombre.Text) || string.IsNullOrEmpty(this.txtUsuario.Text) || string.IsNullOrEmpty(this.txtClave.Text) || string.IsNullOrEmpty(this.txtConfirmarClave.Text))
             {
                 this.Notificar("INFORMACION INCOMPLETA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -123,7 +124,7 @@ namespace UI.Desktop
                 this.Notificar("LAS CLAVES NO COINCIDEN", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (this.txtClave.Text.Count() < 8)
+            else if ((this.txtClave.Text.Count() <5))
             {
                 this.Notificar("CLAVE MUY CORTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
