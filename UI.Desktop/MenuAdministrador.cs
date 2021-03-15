@@ -70,5 +70,17 @@ namespace UI.Desktop
             Curso curso = new Curso();
             curso.Show();
         }
+
+        private void reporteCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteCursos reporteCursos = new ReporteCursos();
+            reporteCursos.Show();
+        }
+
+        private void reporteMateriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteMaterias reporteMaterias = new ReporteMaterias();
+            reporteMaterias.Show();
+        }
     }
 }

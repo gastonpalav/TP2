@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Business.Entities;
+﻿using Business.Entities;
 using Business.Logic;
+using System;
+using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-
     public partial class CondicionesAlumnosDesktop : ApplicationForm
     {
         private enum Condiciones
@@ -21,11 +13,11 @@ namespace UI.Desktop
             Regular,
             Aprobado
         };
+
         public CondicionesAlumnosDesktop()
         {
             InitializeComponent();
             cboCondicion.DataSource = Enum.GetValues(typeof(Condiciones));
-            
         }
 
         public CondicionesAlumnosDesktop(Modoform modo) : this()
@@ -42,13 +34,9 @@ namespace UI.Desktop
             DocentesCursosLogic docenteCursosLogic = new DocentesCursosLogic();
             this.DocenteCursoEntity = docenteCursosLogic.GetOne(ID);
             IDAlumnoInscripcion = DocenteCursoEntity.AlumnoInscripcionID;
-            
+
             this.MapearDeDatos();
-            
         }
-
-
-
 
         public override void MapearDeDatos()
         {
@@ -66,37 +54,24 @@ namespace UI.Desktop
                     this.btnAceptar.Text = "Guardar";
                     break;
 
-
                 case Modoform.Consulta:
                     cboCondicion.Enabled = false;
                     txtBoxNota.Enabled = false;
-                   btnAceptar.Text = "Aceptar";
+                    btnAceptar.Text = "Aceptar";
                     break;
             }
         }
 
-
-
-
-
-
-
-
         public override void MapearADatos()
         {
-
             this.DocenteCursoEntity.State = BusinessEntity.States.Modified;
             DocenteCursoEntity.AlumnoInscripcion = new Business.Entities.AlumnoInscripcion
             {
                 ID = IDAlumnoInscripcion,
                 Nota = Convert.ToInt32(txtBoxNota.Text),
                 Condicion = cboCondicion.SelectedItem.ToString()
-
             };
-
-
         }
-
 
         public override bool Validar()
         {
@@ -107,22 +82,17 @@ namespace UI.Desktop
             }
             else
                 return true;
-
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
             this.GuardarCambios();
-
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
 
         public override void GuardarCambios()
         {
@@ -139,7 +109,5 @@ namespace UI.Desktop
                 this.Close();
             }
         }
-
-
     }
 }

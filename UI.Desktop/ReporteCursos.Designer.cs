@@ -1,7 +1,7 @@
 ﻿
 namespace UI.Desktop
 {
-    partial class ReporteMaterias
+    partial class ReporteCursos
     {
         /// <summary>
         /// Required designer variable.
@@ -31,37 +31,39 @@ namespace UI.Desktop
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.CursoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.MateriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.MateriaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CursoBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // CursoBindingSource
+            // 
+            this.CursoBindingSource.DataSource = typeof(Business.Entities.Curso);
             // 
             // reportViewer1
             // 
-            reportDataSource1.Name = "MateriaDataSet";
-            reportDataSource1.Value = this.MateriaBindingSource;
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "cursosDataSet";
+            reportDataSource1.Value = this.CursoBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "UI.Desktop.ReporteMaterias.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(6, 2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "UI.Desktop.ReporteCursos.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(798, 451);
+            this.reportViewer1.ServerReport.ReportServerUrl = new System.Uri("", System.UriKind.Relative);
+            this.reportViewer1.Size = new System.Drawing.Size(1054, 411);
             this.reportViewer1.TabIndex = 0;
             // 
-            // MateriaBindingSource
-            // 
-            this.MateriaBindingSource.DataSource = typeof(Business.Entities.Materia);
-            // 
-            // ReporteMaterias
+            // ReporteCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1054, 411);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "ReporteMaterias";
-            this.Text = "ReporteMaterias";
-            this.Load += new System.EventHandler(this.ReporteMaterias_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.MateriaBindingSource)).EndInit();
+            this.Name = "ReporteCursos";
+            this.Text = "ReporteCursos";
+            this.Load += new System.EventHandler(this.ReporteCursos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.CursoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -69,6 +71,6 @@ namespace UI.Desktop
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource MateriaBindingSource;
+        private System.Windows.Forms.BindingSource CursoBindingSource;
     }
 }
