@@ -17,7 +17,16 @@ namespace Business.Logic
         }
         public Modulo GetOne(int IdModulo)
         {
-            return this.ModuloData.GetOne(IdModulo);
+            try
+            {
+                return this.ModuloData.GetOne(IdModulo);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar el modulo", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public List<Modulo> GetAll()
@@ -26,9 +35,9 @@ namespace Business.Logic
             {
                 return this.ModuloData.GetAll();
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                Exception exceptionManejada = new Exception("Error al recuperar la lista de modulos", e);
+                Exception exceptionManejada = new Exception("Error al recuperar la lista de modulos", ex);
                 throw exceptionManejada;
             }
                 
@@ -36,12 +45,30 @@ namespace Business.Logic
 
         public void Save(Modulo modulo)
         {
-            this.ModuloData.Save(modulo);
+            try
+            {
+                this.ModuloData.Save(modulo);
+            }
+            catch (Exception ex)
+            {
+                Exception exceptionManejada = new Exception("Error al guardar el modulos", ex);
+                throw exceptionManejada;
+            }
+            
         }
 
         public void Delete(int idModulo)
         {
-            this.ModuloData.Delete(idModulo);
+            try
+            {
+                this.ModuloData.Delete(idModulo);
+            }
+            catch (Exception ex)
+            {
+                Exception exceptionManejada = new Exception("Error al eliminar el modulo", ex);
+                throw exceptionManejada;
+            }
+            
         }
 
 

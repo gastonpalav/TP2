@@ -16,17 +16,44 @@ namespace Business.Logic
 
         public Especialidad GetOne(int ID)
         {
-            return this.especialidadData.GetOne(ID);
+            try
+            {
+                return this.especialidadData.GetOne(ID);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al especialidad", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public List<Especialidad> GetAll()
         {
-            return this.especialidadData.GetAll();
+            try
+            {
+                return this.especialidadData.GetAll();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar la lista de especialidad", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public void Save(Especialidad especialidad)
         {
-            especialidadData.Save(especialidad);
+            try
+            {
+                especialidadData.Save(especialidad);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al guardar la especialidad", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public void Delete(int id)
@@ -37,7 +64,8 @@ namespace Business.Logic
             }
             catch (Exception ex)
             {
-                throw ex;
+                Exception ExcepcionManejada = new Exception("Error al eliminar especialidad", ex);
+                throw ExcepcionManejada;
             }
 
         }

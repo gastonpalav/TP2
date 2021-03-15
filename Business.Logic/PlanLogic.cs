@@ -16,7 +16,17 @@ namespace Business.Logic
 
         public Plan GetOne(int IDPlan)
         {
-            return this.PlanData.GetOne(IDPlan);
+            try
+            {
+                return this.PlanData.GetOne(IDPlan);
+            }
+            catch (Exception ex)
+            {
+
+                Exception ExcepcionManejada = new Exception("Error al recuperar plan", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public List<Plan> GetAll()
@@ -34,7 +44,17 @@ namespace Business.Logic
 
         public void Save(Plan plan)
         {
-            this.PlanData.Save(plan);
+            try
+            {
+                this.PlanData.Save(plan);
+            }
+            catch (Exception ex)
+            {
+
+                Exception ExcepcionManejada = new Exception("Error al guardar planes", ex);
+                throw ExcepcionManejada;
+            }   
+            
         }
 
         public void Delete(int idPlan)
@@ -46,7 +66,8 @@ namespace Business.Logic
             catch (Exception ex)
             {
 
-                throw ex;
+                Exception ExcepcionManejada = new Exception("Error al eliminar planes", ex);
+                throw ExcepcionManejada;
             } 
         }
     }

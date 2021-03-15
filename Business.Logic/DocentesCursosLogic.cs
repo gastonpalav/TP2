@@ -21,22 +21,58 @@ namespace Business.Logic
 
         public void Save(DocenteCurso dc)
         {
-            this.docenteCursoAdapter.Save(dc);
+            try
+            {
+                this.docenteCursoAdapter.Save(dc);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al guardar docente curso", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
         public DocenteCurso GetOneD(int ID)
         {
-            //para el abm de docentecurso
-            return docenteCursoAdapter.GetOneD(ID);
+            try
+            {
+                //para el abm de docentecurso
+                return docenteCursoAdapter.GetOneD(ID);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar docenteCurso", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public DocenteCurso GetOne(int ID)
         {
-            return docenteCursoAdapter.GetOne(ID);
+            try
+            {
+                return docenteCursoAdapter.GetOne(ID);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar docenteCurso", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public List<DocenteCurso> GetAllByDocente(Persona docente)
         {
-            return docenteCursoAdapter.GetAllbyDocente(docente);
+            try
+            {
+                return docenteCursoAdapter.GetAllbyDocente(docente);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista", ex);
+                throw;
+            }
+            
         }
 
         public void Delete(int id)
@@ -48,14 +84,23 @@ namespace Business.Logic
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Exception ExcepcionManejada = new Exception("Error al eliminar docenteCurso", ex);
+                throw ExcepcionManejada;
             }
         }
 
         public List<DocenteCurso> GetAll()
         {
-            return docenteCursoAdapter.GetAll();
+            try
+            {
+                return docenteCursoAdapter.GetAll();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
 

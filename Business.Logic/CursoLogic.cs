@@ -16,7 +16,16 @@ namespace Business.Logic
 
         public Curso GetOne(int idCurso)
         {
-            return this.CursoData.GetOne(idCurso);
+            try
+            {
+                return this.CursoData.GetOne(idCurso);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar curso", ex);
+                throw ExcepcionManejada ;
+            }
+            
         }
 
         public List<Curso> GetAll()
@@ -34,7 +43,16 @@ namespace Business.Logic
 
         public void Save(Curso curso)
         {
-            this.CursoData.Save(curso);
+            try
+            {
+                this.CursoData.Save(curso);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al guardar curso", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public void Delete(int idCurso)
@@ -46,8 +64,8 @@ namespace Business.Logic
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Exception ExcepcionManejada = new Exception("Error al eliminar curso", ex);
+                throw ExcepcionManejada;
             }
         }
 

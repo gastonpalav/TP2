@@ -16,7 +16,16 @@ namespace Business.Logic
 
         public Materia GetOne(int ID)
         {
-            return this.MateriaData.GetOne(ID);
+            try
+            {
+                return this.MateriaData.GetOne(ID);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar materias", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public List<Materia> GetAll()
@@ -33,7 +42,16 @@ namespace Business.Logic
         }
         public void Save(Materia mat)
         {
-            this.MateriaData.Save(mat);
+            try
+            {
+                this.MateriaData.Save(mat);
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al guardar materia", ex);
+                throw ExcepcionManejada;
+            }
+            
         }
 
         public void Delete(int ID)
@@ -45,8 +63,8 @@ namespace Business.Logic
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Exception ExcepcionManejada = new Exception("Error al eliminar la materia", ex);
+                throw ExcepcionManejada;
             }
         }
     }

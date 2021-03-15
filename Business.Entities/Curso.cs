@@ -63,7 +63,7 @@ namespace Business.Entities
 
         public string CursoDescripcion
         {
-            get { return Materia.Descripcion + Comision.Descripcion; }
+            get { return Materia.Descripcion+ " " + Comision.Descripcion; }
 
         }
 
