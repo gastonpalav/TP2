@@ -4,14 +4,22 @@ using System.Linq;
 using System.Windows.Forms;
 using Util;
 using System;
+using System.Collections.Generic;
+
 
 namespace UI.Desktop
 {
     public partial class UsuarioDesktop : ApplicationForm
     {
+        private List<Persona> listaPersonas;
         public UsuarioDesktop()
         {
             InitializeComponent();
+            PersonaLogic personaLogic = new PersonaLogic();
+            listaPersonas = personaLogic.GetAll();
+            this.cboPersonas.DataSource = listaPersonas;
+            this.cboPersonas.ValueMember = "Legajo";
+            this.cboPersonas.DisplayMember = "Legajo";
         }
 
         public UsuarioDesktop(Modoform modo)
@@ -46,9 +54,8 @@ namespace UI.Desktop
             this.txtID.Text = this.UsuarioActual.ID.ToString();
             this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
             this.txtUsuario.Text = this.UsuarioActual.NombreUsuario.ToString();
-            this.txtNombre.Text = this.UsuarioActual.Nombre.ToString();
-            this.txtApellido.Text = this.UsuarioActual.Apellido.ToString();
-            this.txtEmail.Text = this.UsuarioActual.Email.ToString();
+            this.cboPersonas.SelectedValue = this.UsuarioActual.LegajoPersona;
+
             this.txtClave.Text = this.UsuarioActual.Clave.ToString();
 
             switch (this.Modo)
@@ -89,9 +96,9 @@ namespace UI.Desktop
 
             if (this.Modo == Modoform.Alta || Modo == Modoform.Modificacion)
             {
-                UsuarioActual.Apellido = this.txtApellido.Text;
-                UsuarioActual.Nombre = this.txtNombre.Text;
-                UsuarioActual.Email = this.txtEmail.Text;
+                UsuarioActual.Persona = new Business.Entities.Persona();
+                int itemSeleccionadoPersona = cboPersonas.SelectedIndex;
+                UsuarioActual.Persona.ID = this.listaPersonas[itemSeleccionadoPersona].ID;
                 UsuarioActual.NombreUsuario = this.txtUsuario.Text;
                 UsuarioActual.Clave = this.txtClave.Text;
                 UsuarioActual.Clave = this.txtConfirmarClave.Text;
@@ -114,7 +121,7 @@ namespace UI.Desktop
  
         public override bool Validar()
         {
-            if (string.IsNullOrEmpty(this.txtApellido.Text) || !Util.Validar.Email_valido(this.txtEmail.Text) || string.IsNullOrEmpty(this.txtNombre.Text) || string.IsNullOrEmpty(this.txtUsuario.Text) || string.IsNullOrEmpty(this.txtClave.Text) || string.IsNullOrEmpty(this.txtConfirmarClave.Text))
+            if ( string.IsNullOrEmpty(this.txtUsuario.Text) || string.IsNullOrEmpty(this.txtClave.Text) || string.IsNullOrEmpty(this.txtConfirmarClave.Text))
             {
                 this.Notificar("INFORMACION INCOMPLETA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

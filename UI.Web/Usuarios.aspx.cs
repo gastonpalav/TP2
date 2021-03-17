@@ -40,9 +40,18 @@ namespace UI.Web
 
         private void LoadGrid()
         {
+            PersonaLogic personaLogic = new PersonaLogic();
+
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
 
+            if (this.LegajoDropDown.Items.Count == 1)
+            {
+                this.LegajoDropDown.DataSource = personaLogic.GetAll();
+                this.LegajoDropDown.DataTextField = "Legajo";
+                this.LegajoDropDown.DataValueField = "ID";
+                this.LegajoDropDown.DataBind();
+            }
         }
 
         public enum FormModes
@@ -94,11 +103,10 @@ namespace UI.Web
         private void LoadForm(int ID)
         {
             this.Entity = this.Logic.GetOne(ID);
-            this.nombreTextBox.Text = this.Entity.Nombre;
-            this.apellidoTextBox.Text = this.Entity.Apellido;
-            this.emailTextBox.Text = this.Entity.Email;
             this.HabilitadoCheckBox.Checked = this.Entity.Habilitado;
             this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
+            this.LegajoDropDown.SelectedValue = this.Entity.Persona.ID.ToString();
+
         }
 
         protected void editarlinkButton_Click(object sender, EventArgs e)
@@ -116,10 +124,10 @@ namespace UI.Web
 
         private void LoadEntity(Usuario usuario)
         {
-            usuario.Nombre = this.nombreTextBox.Text;
-            usuario.Apellido = this.apellidoTextBox.Text;
-            usuario.Email = this.emailTextBox.Text;
-            usuario.NombreUsuario = this.nombreTextBox.Text;
+            usuario.Persona = new Persona();
+            usuario.Persona.ID = int.Parse(this.LegajoDropDown.SelectedItem.Value);
+
+            usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
             usuario.Clave = this.claveTextBox.Text;
             usuario.Habilitado = this.HabilitadoCheckBox.Checked;
         }
@@ -157,13 +165,14 @@ namespace UI.Web
 
             this.formPanel.Visible = false;
             this.formActionPanel.Visible = false;
+
+            this.gridView.SelectedIndex = -1;
+            this.SelectedID = 0;
         }
 
         private void EnableForm(bool enable)
         {
-            this.nombreTextBox.Enabled = enable;
-            this.apellidoTextBox.Enabled = enable;
-            this.email.Enabled = enable;
+            this.LegajoDropDown.Enabled = enable;
             this.nombreUsuarioTextBox.Enabled = enable;
             this.claveTextBox.Enabled = enable;
             this.claveLabel.Visible = enable;
@@ -201,11 +210,11 @@ namespace UI.Web
 
         private void ClearForm()
         {
-            this.nombreTextBox.Text = string.Empty;
-            this.apellidoTextBox.Text = string.Empty;
-            this.emailTextBox.Text = string.Empty;
+            this.LegajoDropDown.SelectedIndex = 0;
             this.HabilitadoCheckBox.Checked = false;
             this.nombreUsuarioTextBox.Text = string.Empty;
+            this.claveTextBox.Text = string.Empty;
+            this.repetirclaveTextBox.Text = string.Empty;
         }
 
         protected void cancelarLinkButtom_Click(object sender, EventArgs e)

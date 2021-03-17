@@ -46,6 +46,7 @@
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcDocentes.ContentPanel.SuspendLayout();
             this.tcDocentes.TopToolStripPanel.SuspendLayout();
             this.tcDocentes.SuspendLayout();
@@ -60,13 +61,11 @@
             // tcDocentes.ContentPanel
             // 
             this.tcDocentes.ContentPanel.Controls.Add(this.tlDocentes);
-            this.tcDocentes.ContentPanel.Margin = new System.Windows.Forms.Padding(6);
-            this.tcDocentes.ContentPanel.Size = new System.Drawing.Size(1500, 545);
+            this.tcDocentes.ContentPanel.Size = new System.Drawing.Size(685, 266);
             this.tcDocentes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcDocentes.Location = new System.Drawing.Point(0, 0);
-            this.tcDocentes.Margin = new System.Windows.Forms.Padding(6);
             this.tcDocentes.Name = "tcDocentes";
-            this.tcDocentes.Size = new System.Drawing.Size(1500, 587);
+            this.tcDocentes.Size = new System.Drawing.Size(685, 305);
             this.tcDocentes.TabIndex = 0;
             this.tcDocentes.Text = "toolStripContainer1";
             // 
@@ -84,12 +83,11 @@
             this.tlDocentes.Controls.Add(this.btnSalir, 1, 1);
             this.tlDocentes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlDocentes.Location = new System.Drawing.Point(0, 0);
-            this.tlDocentes.Margin = new System.Windows.Forms.Padding(6);
             this.tlDocentes.Name = "tlDocentes";
             this.tlDocentes.RowCount = 2;
             this.tlDocentes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlDocentes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlDocentes.Size = new System.Drawing.Size(1500, 545);
+            this.tlDocentes.Size = new System.Drawing.Size(685, 266);
             this.tlDocentes.TabIndex = 0;
             // 
             // dgvDocentes
@@ -105,25 +103,24 @@
             this.Email,
             this.Telefono,
             this.FechaNacimiento,
-            this.Plan});
+            this.Plan,
+            this.Legajo});
             this.tlDocentes.SetColumnSpan(this.dgvDocentes, 2);
             this.dgvDocentes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDocentes.Location = new System.Drawing.Point(6, 6);
-            this.dgvDocentes.Margin = new System.Windows.Forms.Padding(6);
+            this.dgvDocentes.Location = new System.Drawing.Point(3, 3);
             this.dgvDocentes.Name = "dgvDocentes";
             this.dgvDocentes.ReadOnly = true;
             this.dgvDocentes.RowHeadersWidth = 82;
             this.dgvDocentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDocentes.Size = new System.Drawing.Size(1488, 477);
+            this.dgvDocentes.Size = new System.Drawing.Size(679, 231);
             this.dgvDocentes.TabIndex = 0;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(1182, 495);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(6);
+            this.btnActualizar.Location = new System.Drawing.Point(526, 240);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(150, 44);
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -131,10 +128,9 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(1344, 495);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSalir.Location = new System.Drawing.Point(607, 240);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(150, 44);
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -150,7 +146,7 @@
             this.tsbEliminar});
             this.tsDocentes.Location = new System.Drawing.Point(6, 0);
             this.tsDocentes.Name = "tsDocentes";
-            this.tsDocentes.Size = new System.Drawing.Size(160, 42);
+            this.tsDocentes.Size = new System.Drawing.Size(120, 39);
             this.tsDocentes.TabIndex = 0;
             // 
             // tsbAgregar
@@ -159,7 +155,7 @@
             this.tsbAgregar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAgregar.Image")));
             this.tsbAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAgregar.Name = "tsbAgregar";
-            this.tsbAgregar.Size = new System.Drawing.Size(46, 36);
+            this.tsbAgregar.Size = new System.Drawing.Size(36, 36);
             this.tsbAgregar.Text = "toolStripButton1";
             this.tsbAgregar.Click += new System.EventHandler(this.tsbAgregar_Click);
             // 
@@ -169,7 +165,7 @@
             this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
             this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(46, 36);
+            this.tsbEditar.Size = new System.Drawing.Size(36, 36);
             this.tsbEditar.Text = "Editar";
             this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
@@ -179,7 +175,7 @@
             this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(46, 36);
+            this.tsbEliminar.Size = new System.Drawing.Size(36, 36);
             this.tsbEliminar.Text = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
@@ -255,14 +251,20 @@
             this.Plan.ReadOnly = true;
             this.Plan.Width = 200;
             // 
+            // Legajo
+            // 
+            this.Legajo.DataPropertyName = "Legajo";
+            this.Legajo.HeaderText = "Legajo";
+            this.Legajo.Name = "Legajo";
+            this.Legajo.ReadOnly = true;
+            // 
             // Docentes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1500, 587);
+            this.ClientSize = new System.Drawing.Size(685, 305);
             this.Controls.Add(this.tcDocentes);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Docentes";
             this.Text = "Docentes";
             this.Load += new System.EventHandler(this.Docentes_Load);
@@ -298,5 +300,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNacimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Plan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Legajo;
     }
 }

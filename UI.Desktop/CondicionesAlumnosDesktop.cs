@@ -2,8 +2,6 @@
 using Business.Logic;
 using System;
 using System.Windows.Forms;
-using Business.Entities;
-using Business.Logic;
 
 namespace UI.Desktop
 {
@@ -82,9 +80,9 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
-            if (this.cboCondicion.SelectedValue == null || this.txtBoxNota == null && Convert.ToInt32(this.txtBoxNota.Text) >= 0)
+            if (this.cboCondicion.SelectedValue == null || this.txtBoxNota == null && Convert.ToInt32(this.txtBoxNota.Text) >= 0 && Convert.ToInt32(this.txtBoxNota.Text) <= 10)
             {
-                this.Notificar("INFORMACION INCOMPLETA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Notificar("INFORMACION INCOMPLETA O ERRONEA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else

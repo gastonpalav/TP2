@@ -52,6 +52,48 @@ namespace Data.Database
             return personas;
         }
 
+        public List<Persona> GetAll()
+        {
+            List<Persona> personas = new List<Persona>();
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdGetAll = new SqlCommand("SELECT *,pl.desc_plan from personas pe inner join planes pl on pl.id_plan=pe.id_plan", SqlConn);
+                SqlDataReader drPersonas = cmdGetAll.ExecuteReader();
+
+                while (drPersonas.Read())
+                {
+                    Persona per = new Persona();
+                    per.ID = (int)drPersonas["id_persona"];
+                    per.Nombre = (string)drPersonas["nombre"];
+                    per.Apellido = (string)drPersonas["apellido"];
+                    per.Direccion = (string)drPersonas["direccion"];
+                    per.Email = (string)drPersonas["email"];
+                    per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
+                    per.Legajo = (int)drPersonas["legajo"];
+                    per.Telefono = (string)drPersonas["telefono"];
+                    per.Plan = new Plan
+                    {
+                        ID = (int)drPersonas["id_plan"],
+                        Descripcion = (string)drPersonas["desc_plan"]
+                    };
+
+                    personas.Add(per);
+                }
+                drPersonas.Close();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de Personas", ex);
+
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return personas;
+        }
         public Persona GetOne(int ID)
         {
             Persona per = new Persona();

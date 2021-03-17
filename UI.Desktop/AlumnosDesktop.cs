@@ -99,12 +99,9 @@ namespace UI.Desktop
                 int itemSeleccionadoPlan = cboBoxPlan.SelectedIndex;
                 PersonaEntity.Plan.ID = this.listaPlanes[itemSeleccionadoPlan].ID;
                 PersonaEntity.TipoPersona = Persona.TipoPersonas.Alumno;
-
-
-
+                PersonaEntity.Legajo = int.Parse(this.txtBoxLegajo.Text);
 
             }
-
 
 
         }

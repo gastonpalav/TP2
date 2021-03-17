@@ -137,10 +137,7 @@ namespace UI.Desktop
                 MessageBox.Show("error realizar inscripcion");
                 throw ex;
             }
-            
-
-
-                
+                            
             
         }
 
