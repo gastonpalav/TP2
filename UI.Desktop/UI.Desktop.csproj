@@ -34,16 +34,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1440.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1440.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1440.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1440.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1440.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1440.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1440.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
@@ -53,6 +59,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -226,6 +233,12 @@
     <Compile Include="Planes.Designer.cs">
       <DependentUpon>Planes.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteComisionesAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteComisionesAlumno.Designer.cs">
+      <DependentUpon>ReporteComisionesAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReporteCursos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,12 +250,6 @@
     </Compile>
     <Compile Include="ReporteMaterias.Designer.cs">
       <DependentUpon>ReporteMaterias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes.Designer.cs">
-      <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UsuarioDesktop.cs">
@@ -259,6 +266,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AlumnoCursosInscriptos.rdlc" />
     <EmbeddedResource Include="AlumnoInscripcion.resx">
       <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
     </EmbeddedResource>
@@ -334,6 +342,9 @@
     <EmbeddedResource Include="Planes.resx">
       <DependentUpon>Planes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteComisionesAlumno.resx">
+      <DependentUpon>ReporteComisionesAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReporteCursos.rdlc" />
     <EmbeddedResource Include="ReporteCursos.resx">
       <DependentUpon>ReporteCursos.cs</DependentUpon>
@@ -341,9 +352,6 @@
     <EmbeddedResource Include="ReporteMaterias.rdlc" />
     <EmbeddedResource Include="ReporteMaterias.resx">
       <DependentUpon>ReporteMaterias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes.resx">
-      <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CondicionesAlumnos.resx">
       <DependentUpon>CondicionesAlumnos.cs</DependentUpon>
@@ -367,7 +375,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\AlumnoInscripcion.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.AlumnoInscripcion1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.BusinessEntity+States1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.BusinessEntity1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.Comision1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.Curso1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.DocenteCurso+TiposCargos1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.DocenteCurso1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.Especialidad1.datasource" />
     <None Include="Properties\DataSources\Business.Entities.Materia1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.Modulo1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.ModuloUsuario1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.Persona+TipoPersonas1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.Persona1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.Plan1.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.ReporteAlumno.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.Usuario1.datasource" />
     <None Include="Properties\DataSources\Business.Logic.EspecialidadLogic.datasource" />
     <None Include="Properties\DataSources\Materias.datasource" />
     <None Include="Properties\Settings.settings">
@@ -392,6 +416,10 @@
       <Project>{FD624D7B-D458-4F87-B579-4D33A6A0E4C8}</Project>
       <Name>Business.Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Data.Database\Data.Database.csproj">
+      <Project>{18d1c50f-58e0-4d94-b05b-4a95a146e6bb}</Project>
+      <Name>Data.Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Util\Util.csproj">
       <Project>{9ccc92c8-2df3-480c-8efc-234bf5a0e286}</Project>
       <Name>Util</Name>
@@ -412,5 +440,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

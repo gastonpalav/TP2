@@ -31,6 +31,7 @@
             <asp:MenuItem NavigateUrl="~/DatosPersonales.aspx" Text="Datos personales" Value="1"/>
             <asp:MenuItem NavigateUrl="~/Inscripcion.aspx" Text="Inscripcion" Value="2" />
             <asp:MenuItem NavigateUrl="~/EstadoAcademico.aspx" Text="Estado academico" Value="3" />
+            <asp:MenuItem NavigateUrl="~/ReporteAlumnosComisiones.aspx" Text="Reporte Cursos" Value="4"/>
         </Items>
 </asp:Menu>
         </div>

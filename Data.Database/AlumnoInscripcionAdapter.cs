@@ -9,7 +9,7 @@ using Business.Entities;
 
 namespace Data.Database
 {
-    public class AlumnoInscripcionAdapter : Adapter
+    public class AlumnoInscripcionAdapter : Adapter , IAlumnoInscripcionAdapter
     {
         public void Insert(AlumnoInscripcion alumnoInscripcion)
         {

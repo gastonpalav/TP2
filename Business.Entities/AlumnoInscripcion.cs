@@ -28,16 +28,13 @@ namespace Business.Entities
             set { _IDCurso = value; }
         }
 
-       
-
         private Curso _curso;
 
-        public Curso  Curso
+        public Curso Curso
         {
             get { return _curso; }
             set { _curso = value; }
         }
-
 
         private Persona _alumno;
 
@@ -47,22 +44,14 @@ namespace Business.Entities
             set { _alumno = value; }
         }
 
-
-
-
-
         public string MateriaDescripcion
         {
             get { return Curso.Materia.Descripcion; }
-
         }
-
-
 
         public string ComisionDescripcion
         {
             get { return Curso.Comision.Descripcion; }
-
         }
 
         public string PlanDescripcion
@@ -70,13 +59,27 @@ namespace Business.Entities
             get { return Curso.Materia.Plan.Descripcion; }
         }
 
-
-       public string EspecialidadDescripcion
+        public string EspecialidadDescripcion
         {
             get { return Curso.Materia.Plan.Especialidad.Descripcion; }
         }
 
+        public string AlumnoNombre
+        {
+            get
+            {
+                return this.Alumno.Nombre;
+            }
+        }
 
+        public Int32 AlumnoLegajo
+
+        {
+            get
+            {
+                return this.Alumno.Legajo;
+            }
+        }
 
         private Int32 _Nota;
 

@@ -14,7 +14,6 @@ namespace Business.Logic
         {
             this.alumnoInscripcionAdapter = new AlumnoInscripcionAdapter();
             this.cursoAdapter = new CursoAdapter();
-
         }
 
         public void Update(AlumnoInscripcion alumno)
@@ -28,31 +27,24 @@ namespace Business.Logic
                 Exception ExcepcionManejada = new Exception("Error al actualizar inscripcion del alumno", ex);
                 throw ExcepcionManejada;
             }
-            
         }
-
 
         public bool Inscribir(AlumnoInscripcion inscripcion)
         {
             try
             {
-                List<AlumnoInscripcion> inscripciones=alumnoInscripcionAdapter.GetAll();
-                foreach(var ins in inscripciones)
+                List<AlumnoInscripcion> inscripciones = alumnoInscripcionAdapter.GetAll();
+                foreach (var ins in inscripciones)
                 {
-                    if(ins.IDAlumno==inscripcion.IDAlumno && ins.IDCurso==inscripcion.IDCurso)
+                    if (ins.IDAlumno == inscripcion.IDAlumno && ins.IDCurso == inscripcion.IDCurso)
                     {
                         return false;
                     }
-                    
                 }
 
-              alumnoInscripcionAdapter.Inscribir(inscripcion);
-              cursoAdapter.EliminarCupo((int)inscripcion.IDCurso);
-              return true;
-                
-
-
-
+                alumnoInscripcionAdapter.Inscribir(inscripcion);
+                cursoAdapter.EliminarCupo((int)inscripcion.IDCurso);
+                return true;
             }
             catch (Exception ex)
             {
@@ -72,7 +64,6 @@ namespace Business.Logic
                 Exception ExcepcionManejada = new Exception("Error al recuperar inscripcion de alumnos", ex);
                 throw ExcepcionManejada;
             }
-            
         }
     }
 }
