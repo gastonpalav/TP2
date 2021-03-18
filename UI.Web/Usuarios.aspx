@@ -2,32 +2,25 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" Runat="Server">
     <asp:Panel ID="gridPanel" runat="server">
-        <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" SelectedRowStyle-BackColor="Black"
+        <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black"
             SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CssClass="table table-responsive-lg">
             <Columns>  
-                <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
-                <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
-                <asp:BoundField HeaderText="Email" DataField="Email" />
+                <asp:BoundField HeaderText="Legajo" DataField="LegajoPersona" />
                 <asp:BoundField HeaderText="Usuario" DataField="NombreUsuario" />
                 <asp:BoundField HeaderText="Habilitado" DataField="Habilitado" />
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="true" />
             </Columns>
+            <SelectedRowStyle BackColor="Black" ForeColor="White" />
         </asp:GridView>    
     </asp:Panel>
 
     <div class="form-group">
     <asp:Panel ID="formPanel" Visible="false" runat="server">
-        <asp:Label ID="nombreLabel" runat="server" Text="Nombre: "></asp:Label>
-        <asp:TextBox ID="nombreTextBox" class="form-control" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="nombreTextBox" ErrorMessage="El nombre no puede estar vacio" ForeColor="Red" ToolTip="El nombre no puede estar vacio" ValidationGroup="vg">*</asp:RequiredFieldValidator>
-        <br />
-        <asp:Label ID="apellidoLabel" runat="server" Text="Apellido: "></asp:Label>
-        <asp:TextBox ID="apellidoTextBox" class="form-control" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="apellidoTextBox" ErrorMessage="El Apellido no puede estar vacio" ForeColor="Red" ToolTip="El Apellido no puede estar vacio" ValidationGroup="vg">*</asp:RequiredFieldValidator>
-        <br />
-        <asp:Label ID="email" runat="server" Text="Email: "></asp:Label>
-        <asp:TextBox ID="emailTextBox" class="form-control" runat="server"></asp:TextBox>
-        <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="emailTextBox" ErrorMessage="El email no es valido" ForeColor="Red" ToolTip="El email no es valido" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="vg">*</asp:RegularExpressionValidator>
+        <asp:Label ID="LegajoLabel" runat="server" Text="Legajo: "></asp:Label>
+        <asp:DropDownList ID="LegajoDropDown" class="form-control" runat="server" AppendDataBoundItems="True">
+            <asp:ListItem Value="0" Text="--Seleccione una opción--" Enabled="True"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="rfvLegajo" runat="server" ControlToValidate="LegajoDropDown" ErrorMessage="Seleccione un legajo" ForeColor="Red" ToolTip="No seleccionó un legajo" InitialValue="0" ValidationGroup="vg">*</asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="nombreUsuarioLabel" runat="server" Text="Usuario: "></asp:Label>
         <asp:TextBox ID="nombreUsuarioTextBox" class="form-control" runat="server"></asp:TextBox>

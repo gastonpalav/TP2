@@ -43,6 +43,21 @@ namespace Business.Logic
             
         }
 
+        public List<Persona> GetAll()
+        {
+            try
+            {
+                return this.PersonaAdapter.GetAll();
+            }
+            catch (Exception ex)
+            {
+
+                Exception ExcepcionManejada = new Exception("Error al recuperar la lista de personas", ex);
+                throw ExcepcionManejada;
+            }
+
+        }
+
         public Persona GetOneById(int ID)
         {
             try

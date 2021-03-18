@@ -51,5 +51,18 @@ namespace Business.Entities
             get { return _Habilitado; }
             set { _Habilitado = value; }
         }
+
+        private Persona _Persona;
+
+        public Persona Persona
+        {
+            get { return _Persona; }
+            set { _Persona = value; }
+        }
+
+        public int LegajoPersona
+        {
+            get { return Persona.Legajo; }
+        }
     } 
 }
