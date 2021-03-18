@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode url="" title="Menu"  description="Menu">
-    <siteMapNode url="~/Usuarios.aspx" title="Usuarios"  description="Usuarios" />
-	<siteMapNode url="~/Materias.aspx" title="Materias"  description="Materias" />
-	<siteMapNode url="~/Alumnos.aspx" title="Alumnos"  description="Alumnos" />
-	  <siteMapNode url="~/Profesores.aspx" title="Profesores" description="Alumnos"/>
-	<siteMapNode url="~/Especialidades.aspx" title="Especialidades"  description="Especialidades" />
-	 <siteMapNode url="~/Planes.aspx" title="Planes"  description="Planes" />
-	  <siteMapNode url="~/Comisiones.aspx" title="Comisiones" description="Comisiones" />
-	  <siteMapNode url="~/Cursos.aspx" title="Cursos" description="Cursos" />
-	  <siteMapNode url="~/DocentesCursos.aspx" title="DocentesCursos" description="DocentesCursos" />
-	  <siteMapNode url="~/Reportes.aspx" title="Reportes" description="Reportes"/>
-  </siteMapNode>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+	<siteMapNode url="" title="Menu"  description="Menu">
+		<siteMapNode url="~/Usuarios.aspx" title="Usuarios"  description="Usuarios" />
+		<siteMapNode url="~/Materias.aspx" title="Materias"  description="Materias" />
+		<siteMapNode url="~/Alumnos.aspx" title="Alumnos"  description="Alumnos" />
+		<siteMapNode url="~/Profesores.aspx" title="Profesores" description="Alumnos" />
+		<siteMapNode url="~/Especialidades.aspx" title="Especialidades"  description="Especialidades" />
+		<siteMapNode url="~/Planes.aspx" title="Planes"  description="Planes" />
+		<siteMapNode url="~/Comisiones.aspx" title="Comisiones" description="Comisiones" />
+		<siteMapNode url="~/Cursos.aspx" title="Cursos" description="Cursos" />
+		<siteMapNode url="~/DocentesCursos.aspx" title="DocentesCursos" description="DocentesCursos" />
+	</siteMapNode>
 </siteMap>
