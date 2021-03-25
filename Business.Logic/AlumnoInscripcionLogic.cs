@@ -53,6 +53,19 @@ namespace Business.Logic
             }
         }
 
+        public List<AlumnoInscripcion> ObtenerDatosDeAlumnosInscriptosPorCurso(int idmateria, int idComision)
+        {
+            try
+            {
+                return alumnoInscripcionAdapter.ObtenerDatosDeAlumnosInscriptosPorCurso(idmateria, idComision);
+            }
+            catch(Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar inscripcion de alumnos", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
         public List<AlumnoInscripcion> GetAllByAlumno(Persona alumno)
         {
             try

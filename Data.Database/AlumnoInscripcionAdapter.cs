@@ -1,15 +1,12 @@
-﻿using System;
+﻿using Business.Entities;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using Business.Entities;
 
 namespace Data.Database
 {
-    public class AlumnoInscripcionAdapter : Adapter , IAlumnoInscripcionAdapter
+    public class AlumnoInscripcionAdapter : Adapter, IAlumnoInscripcionAdapter
     {
         public void Insert(AlumnoInscripcion alumnoInscripcion)
         {
@@ -32,10 +29,7 @@ namespace Data.Database
                 Exception ExcepcionManejada = new Exception("Error al insertar inscripcion del alumno", ex);
                 throw ExcepcionManejada;
             }
-
-
         }
-
 
         public List<AlumnoInscripcion> GetAll()
         {
@@ -58,8 +52,6 @@ namespace Data.Database
                     a.IDCurso = (int)drAlumnoInscripcion["id_curso"];
                     a.Condicion = (string)drAlumnoInscripcion["condicion"];
                     //a.nota=(int)drAlumnoInscripcion["nota"];
-                    
-                   
 
                     alumnoInscripciones.Add(a);
                 }
@@ -67,6 +59,45 @@ namespace Data.Database
                 this.CloseConnection();
 
                 return alumnoInscripciones;
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar la lista de inscripciones", ex);
+                throw ExcepcionManejada;
+            }
+        }
+
+        public List<AlumnoInscripcion> ObtenerDatosDeAlumnosInscriptosPorCurso(int idmateria, int idComision)
+        {
+            try
+            {
+                List<AlumnoInscripcion> alumnosPorComision = new List<AlumnoInscripcion>();
+                this.OpenConnection();
+                SqlCommand sqlCommand = new SqlCommand("select per.id_persona, per.apellido , per.nombre , per.legajo from alumnos_inscripciones ai inner join personas per on ai.id_alumno = per.id_persona inner join cursos cur on cur.id_curso= ai.id_curso where per.tipo_persona = @tipoPersona and cur.id_materia = @idMateria and cur.id_comision = @idComision", SqlConn);
+                sqlCommand.Parameters.Add("@tipoPersona", SqlDbType.Int, 50).Value = Persona.TipoPersonas.Alumno;
+                sqlCommand.Parameters.Add("@idMateria", SqlDbType.Int, 50).Value = idmateria;
+                sqlCommand.Parameters.Add("@idComision", SqlDbType.Int, 50).Value = idComision;
+                SqlDataReader drAlumnoInscripcion = sqlCommand.ExecuteReader();
+                while (drAlumnoInscripcion.Read())
+                {
+                    AlumnoInscripcion alumno = new AlumnoInscripcion();
+                    alumno.ID = (int)drAlumnoInscripcion["id_inscripcion"];
+                    alumno.Alumno = new Persona
+                    {
+                        ID = (int)drAlumnoInscripcion["id_persona"],
+                        Apellido = (string)drAlumnoInscripcion["apellido"],
+                        Nombre = (string)drAlumnoInscripcion["nombre"],
+                    };
+                    alumno.Nota = (int)drAlumnoInscripcion["nota"];
+                    alumno.Condicion = (string)drAlumnoInscripcion["condicion"];
+
+                    alumnosPorComision.Add(alumno);
+                }
+
+                drAlumnoInscripcion.Close();
+                this.CloseConnection();
+
+                return alumnosPorComision;
             }
             catch (Exception ex)
             {
@@ -86,7 +117,6 @@ namespace Data.Database
                 cmdUpdate.Parameters.Add("@nota", SqlDbType.Int, 50).Value = alumno.Nota;
                 cmdUpdate.Parameters.Add("@id_inscripcion", SqlDbType.Int, 50).Value = alumno.ID;
                 cmdUpdate.ExecuteNonQuery();
-
             }
             catch (Exception ex)
             {
@@ -98,7 +128,6 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
-            
 
         public List<AlumnoInscripcion> GetAllByAlumno(Persona alumno)
         {
@@ -106,9 +135,9 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdGetAll = new SqlCommand("SELECT ai.condicion,isnull(ai.nota,0) 'nota',m.id_materia,m.desc_materia,p.id_plan,p.desc_plan,co.id_comision,co.desc_comision,esp.id_especialidad,esp.desc_especialidad from alumnos_inscripciones ai"  +
+                SqlCommand cmdGetAll = new SqlCommand("SELECT ai.condicion,isnull(ai.nota,0) 'nota',m.id_materia,m.desc_materia,p.id_plan,p.desc_plan,co.id_comision,co.desc_comision,esp.id_especialidad,esp.desc_especialidad from alumnos_inscripciones ai" +
 " inner join cursos c on c.id_curso = ai.id_curso inner join materias m on m.id_materia = c.id_materia inner join comisiones co on co.id_comision = c.id_comision inner join planes p  on p.id_plan = co.id_plan " + "inner join especialidades esp on esp.id_especialidad = p.id_especialidad"
-+ " where ai.id_alumno=@id_alumno",SqlConn);
++ " where ai.id_alumno=@id_alumno", SqlConn);
                 cmdGetAll.Parameters.Add("@id_alumno", SqlDbType.Int).Value = alumno.ID;
                 SqlDataReader drAlumnoInscripcion = cmdGetAll.ExecuteReader();
 
@@ -116,22 +145,20 @@ namespace Data.Database
                 {
                     AlumnoInscripcion alu = new AlumnoInscripcion();
                     alu.Condicion = (string)drAlumnoInscripcion["condicion"];
-                    if((int)drAlumnoInscripcion["nota"] != 0)
+                    if ((int)drAlumnoInscripcion["nota"] != 0)
                     {
                         alu.Nota = (int)drAlumnoInscripcion["nota"];
                     }
                     else
                     {
-                       
                     }
 
                     alu.Curso = new Curso();
-                    
+
                     alu.Curso.Comision = new Comision
                     {
-                        ID=(int)drAlumnoInscripcion["id_comision"],
+                        ID = (int)drAlumnoInscripcion["id_comision"],
                         Descripcion = (string)drAlumnoInscripcion["desc_comision"]
-                          
                     };
 
                     alu.Curso.Materia = new Materia
@@ -146,13 +173,10 @@ namespace Data.Database
                     {
                         Descripcion = (string)drAlumnoInscripcion["desc_especialidad"]
                     };
-                
 
                     EstadoAlumno.Add(alu);
                 }
                 drAlumnoInscripcion.Close();
-                
-
             }
             catch (Exception ex)
             {
@@ -167,18 +191,12 @@ namespace Data.Database
             return EstadoAlumno;
         }
 
-
-
-
-
-
         public void Inscribir(AlumnoInscripcion alumnoInscripcion)
         {
             if (alumnoInscripcion.State == BusinessEntity.States.New)
             {
                 this.Insert(alumnoInscripcion);
             }
-            
         }
     }
 }

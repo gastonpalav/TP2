@@ -2,95 +2,36 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Image Name="Image1">
-        <Source>Embedded</Source>
-        <Value>frro</Value>
-        <Sizing>FitProportional</Sizing>
-        <Height>5.1777cm</Height>
-        <Width>7.96079cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Textbox Name="Textbox1">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Lista de Materias</Value>
-                <Style>
-                  <FontStyle>Italic</FontStyle>
-                  <FontFamily>Montserrat</FontFamily>
-                  <FontSize>22pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value />
-                <Style>
-                  <FontStyle>Italic</FontStyle>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.65828cm</Top>
-        <Left>8.03134cm</Left>
-        <Height>2.29334cm</Height>
-        <Width>9.00875cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.36292cm</Width>
+              <Width>5.59457cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.36292cm</Width>
+              <Width>5.59457cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.36292cm</Width>
+              <Width>5.59457cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.06104cm</Width>
+              <Width>3.08208cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.97042cm</Height>
+              <Height>0.89104cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox2">
+                    <Textbox Name="Textbox1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Materia</Value>
+                              <Value>Legajo</Value>
                               <Style>
                                 <FontFamily>Montserrat</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -103,7 +44,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -120,14 +61,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox4">
+                    <Textbox Name="Textbox3">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Horas Semanales</Value>
+                              <Value>Nombre</Value>
                               <Style>
                                 <FontFamily>Montserrat</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -140,7 +81,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -157,14 +98,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox6">
+                    <Textbox Name="Textbox5">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Horas Totales</Value>
+                              <Value>Nota</Value>
                               <Style>
                                 <FontFamily>Montserrat</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -177,7 +118,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -194,14 +135,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox12">
+                    <Textbox Name="Textbox7">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Plan</Value>
+                              <Value>Condicion</Value>
                               <Style>
                                 <FontFamily>Montserrat</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -213,17 +154,8 @@
                             <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox12</rd:DefaultName>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -241,19 +173,21 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.78521cm</Height>
+              <Height>0.6cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Descripcion">
+                    <Textbox Name="AlumnoLegajo">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Descripcion.Value</Value>
-                              <Style />
+                              <Value>=Fields!AlumnoLegajo.Value</Value>
+                              <Style>
+                                <FontFamily>Montserrat</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -261,7 +195,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Descripcion</rd:DefaultName>
+                      <rd:DefaultName>AlumnoLegajo</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -277,15 +211,17 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="HSSemanales">
+                    <Textbox Name="AlumnoNombre">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!HSSemanales.Value</Value>
-                              <Style />
+                              <Value>=Fields!AlumnoNombre.Value</Value>
+                              <Style>
+                                <FontFamily>Montserrat</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -293,7 +229,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>HSSemanales</rd:DefaultName>
+                      <rd:DefaultName>AlumnoNombre</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -309,15 +245,18 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="HSTotales">
+                    <Textbox Name="Nota">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!HSTotales.Value</Value>
-                              <Style />
+                              <Value>=Fields!Nota.Value</Value>
+                              <Style>
+                                <FontFamily>Montserrat</FontFamily>
+                                <FontSize>12pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -325,7 +264,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>HSTotales</rd:DefaultName>
+                      <rd:DefaultName>Nota</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -341,15 +280,17 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="PlanDescripcion1">
+                    <Textbox Name="Condicion">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!PlanDescripcion.Value</Value>
-                              <Style />
+                              <Value>=Fields!Condicion.Value</Value>
+                              <Style>
+                                <FontFamily>Montserrat</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -357,7 +298,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>PlanDescripcion1</rd:DefaultName>
+                      <rd:DefaultName>Condicion</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -393,23 +334,85 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>MateriaDataSet</DataSetName>
-        <Top>5.55308cm</Top>
-        <Left>2.27224cm</Left>
-        <Height>1.75563cm</Height>
-        <Width>23.1498cm</Width>
-        <ZIndex>2</ZIndex>
+        <DataSetName>AlumnoInscripcion</DataSetName>
+        <Top>4.2037cm</Top>
+        <Left>0.76729cm</Left>
+        <Height>1.49104cm</Height>
+        <Width>19.86579cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Reporte curso</Value>
+                <Style>
+                  <FontFamily>Montserrat</FontFamily>
+                  <FontSize>20pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value />
+                <Style>
+                  <FontFamily>Montserrat</FontFamily>
+                  <FontSize>20pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>0.34078cm</Top>
+        <Left>7.28685cm</Left>
+        <Height>1.18208cm</Height>
+        <Width>5.56917cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="Image1">
+        <Source>Embedded</Source>
+        <Value>frro</Value>
+        <Sizing>FitProportional</Sizing>
+        <Left>15.61042cm</Left>
+        <Height>3.57188cm</Height>
+        <Width>6.31913cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
     </ReportItems>
-    <Height>4.36459in</Height>
+    <Height>3.71875in</Height>
     <Style />
   </Body>
-  <Width>10.40451in</Width>
+  <Width>8.87834in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
@@ -427,35 +430,63 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>b590f09d-ce9b-4c4e-b303-95b6e307b062</rd:DataSourceID>
+      <rd:DataSourceID>3504fcb2-e67e-4e57-b91d-4a4f16318879</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="MateriaDataSet">
+    <DataSet Name="AlumnoInscripcion">
       <Query>
         <DataSourceName>BusinessEntities</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Descripcion">
-          <DataField>Descripcion</DataField>
+        <Field Name="Alumno">
+          <DataField>Alumno</DataField>
+          <rd:TypeName>Business.Entities.Persona</rd:TypeName>
+        </Field>
+        <Field Name="AlumnoLegajo">
+          <DataField>AlumnoLegajo</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="AlumnoNombre">
+          <DataField>AlumnoNombre</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="HSSemanales">
-          <DataField>HSSemanales</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="ComisionDescripcion">
+          <DataField>ComisionDescripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="HSTotales">
-          <DataField>HSTotales</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="Condicion">
+          <DataField>Condicion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Curso">
+          <DataField>Curso</DataField>
+          <rd:TypeName>Business.Entities.Curso</rd:TypeName>
+        </Field>
+        <Field Name="EspecialidadDescripcion">
+          <DataField>EspecialidadDescripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ID">
           <DataField>ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Plan">
-          <DataField>Plan</DataField>
-          <rd:TypeName>Business.Entities.Plan</rd:TypeName>
+        <Field Name="IDAlumno">
+          <DataField>IDAlumno</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="IDCurso">
+          <DataField>IDCurso</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="MateriaDescripcion">
+          <DataField>MateriaDescripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Nota">
+          <DataField>Nota</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="PlanDescripcion">
           <DataField>PlanDescripcion</DataField>
@@ -468,8 +499,8 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>Business.Entities</rd:DataSetName>
-        <rd:TableName>Materia</rd:TableName>
-        <rd:ObjectDataSourceType>Business.Entities.Materia, Business.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>AlumnoInscripcion</rd:TableName>
+        <rd:ObjectDataSourceType>Business.Entities.AlumnoInscripcion, Business.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -486,5 +517,5 @@ uKOGGQcjyIOQZb2aCpl2tWhXrhWRSBltx6e/rPampUUKqhVHqqqgAe4CB7REQEREBERAREQEREBERARE
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>a33be5b8-1505-4ff1-bc56-f6c69a6fc11a</rd:ReportID>
+  <rd:ReportID>f80db553-2375-42a4-a9b5-c5f6ae486b61</rd:ReportID>
 </Report>

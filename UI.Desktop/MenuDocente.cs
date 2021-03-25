@@ -56,5 +56,12 @@ namespace UI.Desktop
             CondicionesAlumnos registro = new CondicionesAlumnos(docente,ApplicationForm.Modoform.Modificacion);
             registro.ShowDialog();
         }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteAlumnosPorComisiones reporte = new ReporteAlumnosPorComisiones();
+
+            reporte.ShowDialog();
+        }
     }
 }

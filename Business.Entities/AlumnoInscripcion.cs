@@ -88,5 +88,13 @@ namespace Business.Entities
             get { return _Nota; }
             set { _Nota = value; }
         }
+
+        public string AlumnoNombreYApellido
+        {
+            get
+            {
+                return String.Concat(this.Alumno.Apellido, " ", this.Alumno.Nombre);
+            }
+        }
     }
 }
