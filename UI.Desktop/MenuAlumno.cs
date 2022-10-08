@@ -45,6 +45,7 @@ namespace UI.Desktop
         {
             ReporteComisionesAlumno reporteComisionesAlumno = new ReporteComisionesAlumno(Alumno);
             reporteComisionesAlumno.ShowDialog();
+            
         }
     }
 }

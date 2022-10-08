@@ -244,6 +244,34 @@ namespace Data.Database
             }
         }
 
+        //public int GetCupo(Int32 ID)
+        //{
+           
+        //    try
+        //    {
+        //        int cantCupos;
+        //        this.OpenConnection();
+        //        SqlCommand cmdCurso = new SqlCommand(
+        //            "select cupo from cursos " +
+        //            "WHERE id_curso=@id", SqlConn);
+
+        //        cmdCurso.Parameters.Add("@id", SqlDbType.Int, 50).Value = ID;
+        //        SqlDataReader drCurso = cmdCurso.ExecuteReader();
+        //        if (drCurso.Read())
+        //        {
+        //            cantCupos = (int)drCurso["cupo"];
+        //        }
+        //        drCurso.Close();
+        //        return cantCupos;
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw;
+        //    }
+        //}
+
         public void Save(Curso curso)
         {
             if (curso.State == BusinessEntity.States.New)

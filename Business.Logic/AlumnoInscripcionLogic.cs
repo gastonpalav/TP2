@@ -29,7 +29,7 @@ namespace Business.Logic
             }
         }
 
-        public bool Inscribir(AlumnoInscripcion inscripcion)
+        public string Inscribir(AlumnoInscripcion inscripcion) //Aca cambio el retorno a string para indicar el estado de que el curso no tiene mas cupos -- 05/09/2022
         {
             try
             {
@@ -38,17 +38,19 @@ namespace Business.Logic
                 {
                     if (ins.IDAlumno == inscripcion.IDAlumno && ins.IDCurso == inscripcion.IDCurso)
                     {
-                        return false;
+                        return "inscripto";
                     }
                 }
-
-                alumnoInscripcionAdapter.Inscribir(inscripcion);
-                cursoAdapter.EliminarCupo((int)inscripcion.IDCurso);
-                return true;
+                
+                    alumnoInscripcionAdapter.Inscribir(inscripcion);
+                    cursoAdapter.EliminarCupo((int)inscripcion.IDCurso);
+                    return "permitido";
+                
+                
             }
             catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al inscribir inscripcion del alumno", ex);
+                Exception ExcepcionManejada = new Exception("Error al realizar inscripcion del alumno", ex);
                 throw ExcepcionManejada;
             }
         }
@@ -78,5 +80,8 @@ namespace Business.Logic
                 throw ExcepcionManejada;
             }
         }
+
+
+
     }
 }

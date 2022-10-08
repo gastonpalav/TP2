@@ -102,33 +102,37 @@ namespace UI.Desktop
                 {
                     if (curso.Cupo > 0)
                     {
-                        
+
                         Business.Entities.AlumnoInscripcion alumnoIns = new Business.Entities.AlumnoInscripcion();
                         alumnoInscripcion = alumnoIns;
                         alumnoInscripcion.State = BusinessEntity.States.New;
                         foreach (var cursos in listaCursos)
                         {
-                            if (curso.ID== cursos.ID)
+                            if (curso.ID == cursos.ID)
                             {
                                 alumnoInscripcion.IDCurso = cursos.ID;
                                 alumnoInscripcion.IDAlumno = usuAlumno.ID;
-                                if(AlumnoInscripcionLogic.Inscribir(alumnoInscripcion))
+                                string estado = AlumnoInscripcionLogic.Inscribir(alumnoInscripcion);  //Adaptado para que acepte 3 tipos de estado en grupos.
+                                if (estado == "permitido")
                                 {
                                     MessageBox.Show("Inscripcion realizada");
                                 }
-                                else
+                                else if (estado == "inscripto")
                                 {
                                     MessageBox.Show("Error, ya se ha inscripto a este curso");
                                 }
-                                
-                                
+
+
+
 
                             }
                         }
 
-                        
 
-
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error, no existen mas cupos para este curso");
                     }
                 }
             }

@@ -157,7 +157,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdGetOne = new SqlCommand("select *,desc_plan from personas pe inner join planes p on p.id_plan=pe.id_plan inner join usuarios us on pe.id_persona=us.id_persona where us.nombre_usuario = @usu", SqlConn);
+                SqlCommand cmdGetOne = new SqlCommand("select pers.id_persona,pers.nombre,pers.apellido,pers.direccion,pers.email,pers.fecha_nac,pers.legajo,pln.id_plan,pln.desc_plan,pers.telefono,pers.tipo_persona FROM personas pers inner join planes pln on pers.id_plan=pln.id_plan inner join usuarios usu on pers.id_persona=usu.id_persona WHERE usu.nombre_usuario=@usu", SqlConn);
                 cmdGetOne.Parameters.Add("@usu", SqlDbType.VarChar).Value = usuario;
                 SqlDataReader drPersonas = cmdGetOne.ExecuteReader();
                 if (drPersonas.Read())

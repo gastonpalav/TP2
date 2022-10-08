@@ -26,7 +26,7 @@ namespace Data.Database
             }
             catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al insertar inscripcion del alumno", ex);
+                Exception ExcepcionManejada = new Exception("Error al insertar la inscripcion del alumno", ex);
                 throw ExcepcionManejada;
             }
         }
@@ -135,8 +135,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdGetAll = new SqlCommand("SELECT ai.condicion,isnull(ai.nota,0) 'nota',m.id_materia,m.desc_materia,p.id_plan,p.desc_plan,co.id_comision,co.desc_comision,esp.id_especialidad,esp.desc_especialidad from alumnos_inscripciones ai" +
-" inner join cursos c on c.id_curso = ai.id_curso inner join materias m on m.id_materia = c.id_materia inner join comisiones co on co.id_comision = c.id_comision inner join planes p  on p.id_plan = co.id_plan " + "inner join especialidades esp on esp.id_especialidad = p.id_especialidad"
+                SqlCommand cmdGetAll = new SqlCommand("SELECT ai.condicion,isnull(ai.nota,0) 'nota',m.id_materia,m.desc_materia,p.id_plan,p.desc_plan,co.id_comision,co.desc_comision,esp.id_especialidad,esp.desc_especialidad ,pers.nombre,pers.apellido,pers.legajo from alumnos_inscripciones ai" +
+" inner join cursos c on c.id_curso = ai.id_curso inner join materias m on m.id_materia = c.id_materia inner join comisiones co on co.id_comision = c.id_comision inner join planes p  on p.id_plan = co.id_plan " + "inner join especialidades esp on esp.id_especialidad = p.id_especialidad inner join personas pers on pers.id_persona=ai.id_alumno"
 + " where ai.id_alumno=@id_alumno", SqlConn);
                 cmdGetAll.Parameters.Add("@id_alumno", SqlDbType.Int).Value = alumno.ID;
                 SqlDataReader drAlumnoInscripcion = cmdGetAll.ExecuteReader();
@@ -172,6 +172,12 @@ namespace Data.Database
                     alu.Curso.Materia.Plan.Especialidad = new Especialidad()
                     {
                         Descripcion = (string)drAlumnoInscripcion["desc_especialidad"]
+                    };
+                    alu.Alumno = new Persona
+                    {
+                        Nombre = (string)drAlumnoInscripcion["nombre"],
+                        Apellido=(string)drAlumnoInscripcion["apellido"],
+                        Legajo=(int)drAlumnoInscripcion["legajo"]
                     };
 
                     EstadoAlumno.Add(alu);

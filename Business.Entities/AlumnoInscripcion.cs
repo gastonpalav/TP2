@@ -64,6 +64,12 @@ namespace Business.Entities
             get { return Curso.Materia.Plan.Especialidad.Descripcion; }
         }
 
+
+        public int CursoCupo
+        {
+            get { return Curso.Cupo; }
+        }
+
         public string AlumnoNombre
         {
             get

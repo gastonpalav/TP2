@@ -372,14 +372,14 @@
       <Fields>
         <Field Name="Alumno">
           <DataField>Alumno</DataField>
-          <rd:TypeName>Business.Entities.Persona</rd:TypeName>
+          <rd:TypeName>Business.Entities.AlumnoInscripcion</rd:TypeName>        <!--testeando alumnoInscripcion Aca era Business.Entities.Persona -->
         </Field>
         <Field Name="AlumnoLegajo">
           <DataField>AlumnoLegajo</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="AlumnoNombre">
-          <DataField>AlumnoNombre</DataField>
+        <Field Name="AlumnoNombreYApellido">
+          <DataField>AlumnoNombreYApellido</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ComisionDescripcion">
